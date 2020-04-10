@@ -1,0 +1,16 @@
+.products{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap:wrap;
+}
+.product{
+    border: 2px solid black;
+    padding: 1em;
+    margin: 1.5em;
+    cursor: pointer;
+}
+.image{
+    max-width: 15em;
+    
+}

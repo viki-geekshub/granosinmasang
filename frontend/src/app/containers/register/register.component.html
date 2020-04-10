@@ -1,0 +1,62 @@
+<form class="container p-5" #registerForm="ngForm" (submit)="register(registerForm)"> <!--#registerForm es una referencia para decirle a la aplicación que este formulario es un formulario de angular. Cada vez que vea esta referencia lo reconocera como un formulario de angular-->  
+    <div class="form-group">
+      <label for="email">Email <span class="red">*</span></label>
+      <input type="email" class="form-control required" name="email" id="email" #email="ngModel" ngModel required autofocus="autofocus">
+    </div>
+    <div *ngIf="email.errors?.required && email.touched" class="alert alert-warning"> <!-- *ngIf - Es una directiva: Le estamos diciendo con ella que, en caso de existir un error del tipo required, es decir, que no hayan puesto nada o que esté tocado el input, es decir, que se haya echo foco y luego se hayan ido del input sin poner nada, entonces me muestras este div, que es una caja con una alerta. La interrogación es para preguntarle si hay errores y decirle que si es true que lo muestre. -->
+      El Email es obligatorio.
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña <span class="red">*</span></label>
+      <input type="password" class="form-control required" name="password" id="password" #password="ngModel" ngModel required minlength="8"> <!-- Aquí le ponemos una referencia para decirle a la aplicación que donde vea password, tiene que utilizar los modelos de angular -->
+    </div>
+   <div *ngIf="password.errors?.required && password.touched" class="alert alert-warning">
+      La contraseña es obligatoria.
+    </div>
+    <div *ngIf="password.errors?.minlength" class="alert alert-warning">
+      La contraseña tiene que tener mínimo 8 caracteres.
+    </div>
+    <div class="form-group">
+      <label for="name">Nombre <span class="red">*</span></label>
+      <input type="text" class="form-control required" #name="ngModel" name="name" id="name" ngModel required>
+    </div>
+    <div *ngIf="name.errors?.required && name.touched" class="alert alert-warning">
+      El nombre es obligatorio.
+    </div>
+    <div class="form-group">
+      <label for="surnames">Apellidos <span class="red">*</span></label>
+      <input type="text" class="form-control required" #surnames="ngModel" name="surnames" id="surnames" ngModel required>
+    </div>
+    <div *ngIf="surnames.errors?.required && surnames.touched" class="alert alert-warning">
+      Los apellidos son obligatorios.
+    </div>
+    <div class="form-group">
+      <label for="dni">Dni</label>
+      <input type="text" class="form-control" #dni="ngModel" name="dni" id="dni" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="phone">Teléfono</label>
+      <input type="phone" class="form-control" #phone="ngModel" name="phone" id="phone" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="address">Dirección <span class="red">*</span></label>
+      <input type="text" class="form-control required" #address="ngModel" name="address" id="address" ngModel required>
+    </div>
+    <div *ngIf="address.errors?.required && address.touched" class="alert alert-warning">
+      Se requiere una dirección para poder enviar pedidos.
+    </div>
+    <p>* Campo obligatorio</p>
+    <button type="submit" class="btn btn-dark">Registrar</button>
+    <!-- <div class="alert alert-warning" *ngIf="!registerForm.valid">
+      Algunos de los campos no cumplen las condiciones.
+    </div> -->
+  </form>
+  <!-- *ngIf para que no muestre el div cuando no hay errorMsg -->
+  <div class="alert alert-danger mx-5" *ngIf="errorMsg">
+    {{errorMsg}} <!-- Las dos llaves significa que es una variable. -->
+  </div>
+  <div class="alert alert-success mx-5" *ngIf="successMsg">
+    {{successMsg}} 
+  </div>
+  <!-- {{password.errors | json}} --> <!-- Esto es para testearlo, nos sacará un objeto en el body con la info del password. Nos transforma el error del password en json por medio del "|" para que podamos ver lo que hay dentro del objeto. -->
+  

@@ -1,0 +1,11 @@
+input.ng-invalid.ng-touched{
+    outline:unset;
+    border: solid red;
+}
+.required.ng-valid{
+    
+    border: solid green;
+}
+.red, p{
+    color: red;
+}

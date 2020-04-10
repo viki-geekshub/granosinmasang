@@ -1,0 +1,8 @@
+<div class="products" *ngIf="productService['products']">
+    <div class="product" *ngFor="let product of productService['products']">
+       <h3>{{product.name}}</h3> 
+       <img [src]="product.image_path" alt="imagen" class="image">
+       <!-- <img src="{{product.image_path}}" alt="imagen"> --> <!--Esto es otra forma de ponerlo-->
+        <h5>Precio: {{product.price}} Euros</h5>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<!-- ////////////////////  MENU UNO  /////////////////////// -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top black">
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0" (submit)="searchProducts($event)"> <!-- Le paso el evento submit para que haga la función searchProduct y le paso el evento como parámetro-->
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search" 
+      name="search">
+      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+    <a routerLink="/"><img src="assets/images/logo_provisional.jpg" alt="Logo de Grano Sin Mas" class="image"></a>
+  </div>
+
+  <div class="LoggedIn row" *ngIf="userService['user']['id']"> <!--Añado un div para decirle que todo lo que haya dentro solo aparecerá cuando estemos logados. Con la directiva ngIf le indico cuando tiene que mostrarlo. Le estoy preguntando si hay un id, y si lo hay entonces es true, y si es true es que está logado y entonces nos muestra el div con todo su contenido. Si no es así, no lo mostrará. -->
+    <div class="nav-item">
+      <a class="nav-link conection"> {{userService['user']['name']}}</a> <!-- Hay dos formas de ponerlo: "userService['user']['name']" o "userService.user.name" ==> a veces funciona una y a veces otra. Son dos sintaxis distintas para hacer lo mismo-->
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" routerLink="" (click)=logout()>
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Desconectar</button>
+      </a>
+    </div>
+  </div>
+
+  <div class="notLoggedIn row" *ngIf="!userService['user']['id']"> <!--Añado un div para decirle que lo que haya dentro solo aparecerá cuando no estés logado. Con la directiva ngIf le indico cuando tiene que mostrarlo. Igual que el de antes pero al revés. -->
+    <div class="nav-item">
+      <a class="nav-link conection" routerLink="/login">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Conectar</button>
+      </a>
+  </div>
+  </div>
+
+</nav>
+<!-- ////////////////////  MENU DOS  /////////////////////// -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/aboutus" routerLinkActive="active-link">Quiénes Somos<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" routerLink="/products" data-toggle="dropdown" routerLinkActive="active-link">Productos<span class="sr-only"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/legumbres">Legumbres</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/arroces">Arroces</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/harinas">Harinas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/pasta">Pasta</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/semolas">Sémolas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/semillas">Semillas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/frutossecos">Frutos Secos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/frutasdeshidratadas">Frutas Deshidratadas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/pontenciadorescocina">Potenciadores de Cocina</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/setas">Setas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/superalimentos">Super Alimentos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/cereales">Cereales</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/cafe">Café</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/cacao">Cacao</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/te">Te</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/recipes" routerLinkActive="active-link">Recetas<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/store" routerLinkActive="active-link">Tienda<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" 
+        *ngIf="admins.includes(userService['user']['role'])"
+        href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Administración
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/products/add">Productos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/categories/add">Categorías</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/store">Almacén</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/orders">Pedidos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/users">Usuarios</a>
+        </div>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0" (submit)="searchProducts($event)">  -->
+      <!-- Le paso el evento submit para que haga la función searchProduct y le paso el evento como parámetro-->
+      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search" 
+      name="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form> -->
+  </div>
+</nav>
+<!-- {{userService['user'] | json}} --> <!-- Objeto de testeo en el body (Me saca el usuario del userService en json) -->

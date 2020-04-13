@@ -21,6 +21,7 @@ import { HomeComponent } from './containers/home/home.component';
 import { OrdersComponent } from './containers/orders/orders.component';
 import { UsersComponent } from './containers/users/users.component';
 import { AddStoresComponent } from './containers/add-stores/add-stores.component';
+import { UserConfirmedComponent } from './containers/user-confirmed/user-confirmed.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { AddStoresComponent } from './containers/add-stores/add-stores.component
     OrdersComponent,
     UsersComponent,
     AddStoresComponent,
+    UserConfirmedComponent,
   ],
   imports: [
     BrowserModule,

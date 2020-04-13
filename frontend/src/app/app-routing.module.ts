@@ -14,11 +14,12 @@ import { UsersComponent } from './containers/users/users.component';
 import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
 import { ProfileComponent } from './containers/profile/profile.component';
+import { UserConfirmedComponent } from './containers/user-confirmed/user-confirmed.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'aboutus', component: AboutUsComponent},
-  {path: 'products', component: ProductsComponent}, // NO SE PLANTEA HACER VISTA
+  {path: 'products', component: ProductsComponent}, // NO ESTA PLANTEADO HACER VISTA
   {path: 'recipes', component: RecipesComponent},
   {path: 'store', component: StoreComponent},
   {path: 'products/search/:searchValue', component: SearchProductsComponent},
@@ -27,9 +28,10 @@ const routes: Routes = [
   {path: 'addstores', component: AddStoresComponent},
   {path: 'orders', component: OrdersComponent},
   {path: 'users', component: UsersComponent},
+  {path: 'userconfirmed/:token', component: UserConfirmedComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: RegisterComponent},
-  {path: 'profile', component: ProfileComponent} // NO SE PLANTEA HACER VISTA
+  {path: 'profile', component: ProfileComponent} // NO ESTA PLANTEADO HACER VISTA
 ];
 
 @NgModule({

@@ -30,7 +30,7 @@ export class UserService {
   getUser(): object { // El getUser lo necesito para llamar al user cada vez que me haga falta
     return this.user;
   }
-  getUserInfo(token) {
+  getUserInfo(token: string) {
     //Pregunto al endpoint si ese token corresponde a un usuario y le digo que si así nos traiga la información del usuario (objeto)
     return this.httpClient.get('http://localhost:3000/users/info', { // Hacemos la petición get al backend, para pedirle que nos diga si el token está autorizado
       headers: { // Esto es para decirle que todas las peticiones vayan con esta cabecera

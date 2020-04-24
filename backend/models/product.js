@@ -1,6 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define('Product', {
+    SubcategoryId: {
+      allowNull: false, 
+      type: DataTypes.INTEGER
+    },
     code:{
       allowNull: false,   // Añado los campos que no pueden estar vacíos (NOT NULL)
       unique: true,  // NO FUNCIONA - Habria que hacerlo a mano en el phpMyAdmin
@@ -37,6 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     Product.belongsToMany(models.Recipe,{  // Un producto puede pertenecer a muchas recetas
       through: models.RecipeProduct  
     });
+    Product.belongsTo(models.Subcategory)  // Un producto pertenece sólo a una subcategoría
   };
   return Product;
 };

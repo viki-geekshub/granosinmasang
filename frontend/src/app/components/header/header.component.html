@@ -22,6 +22,7 @@
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Desconectar</button>
       </a>
     </div>
+    <button class="btn my-2 my-sm-0" type="submit"><a class="nav-link botonCesta " routerLink="/shoppingcart"><i class="fas fa-shopping-cart fa-lg"></i></a></button>
   </div>
 
   <div class="notLoggedIn row" *ngIf="!userService['user']['id']"> <!--Añado un div para decirle que lo que haya dentro solo aparecerá cuando no estés logado. Con la directiva ngIf le indico cuando tiene que mostrarlo. Igual que el de antes pero al revés. -->
@@ -44,40 +45,54 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/aboutus" routerLinkActive="active-link">Quiénes Somos<span class="sr-only"></span></a>
+        <a class="nav-link" routerLink="/products"routerLinkActive="active-link">Quiénes Somos<span class="sr-only"></span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" routerLink="/products" data-toggle="dropdown" routerLinkActive="active-link">Productos<span class="sr-only"></span></a>
+        <a class="nav-link" data-toggle="dropdown" routerLinkActive="active-link">Productos<span class="sr-only"></span></a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/legumbres">Legumbres</a>
+
+          <!-- MENU DINÁMICO DE PRODUCTOS POR CATEGORÍAS ORDENADO DE MAYOR A MENOR SEGUN EL CODE: -->
+
+          <div *ngFor="let category of categories | sort; index as i">
+            <a class="dropdown-item" routerLink='/{{category.name}}'>{{category.name}}</a>
+            <div class="dropdown-divider" *ngIf="(categories.length-1)!==i"></div>
+          </div>  
+          <!-- EL pipe sort del ngFor lo hemos creado para ordenar arrays - " | sort "
+          index as i - es un iterador, para ir contando cada vuelta del bucle 
+          En el el ngIf le estoy diciendo que me muestre la linea divisoria solamente cuando no estemos en la última línea -->
+
+          <!-- ANTIGUO MENU HECHO A MANO - NO ES DINAMICO -->
+          <!-- <a class="dropdown-item" routerLink="/legumbres">Legumbres</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/arroces">Arroces</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/harinas">Harinas</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/pasta">Pasta</a>
-          <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/semolas">Sémolas</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/semillas">Semillas</a>
+          <a class="dropdown-item" routerLink="/pasta">Pasta</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/cereales">Cereales</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/frutossecos">Frutos Secos</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/frutasdeshidratadas">Frutas Deshidratadas</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/pontenciadorescocina">Potenciadores de Cocina</a>
+          <a class="dropdown-item" routerLink="/especias">Especias</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/setas">Setas</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/superalimentos">Super Alimentos</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/cereales">Cereales</a>
+          <a class="dropdown-item" routerLink="/potenciadorescocina">Potenciadores de Cocina</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/cafe">Café</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/cacao">Cacao</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/te">Te</a>
+          <a class="dropdown-item" routerLink="/setas">Setas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/semillas">Semillas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/superalimentos">Super Alimentos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/te">Té</a> -->
         </div>
       </li>
       <li class="nav-item">
@@ -93,11 +108,11 @@
           Administración
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/products/add">Productos</a>
+          <a class="dropdown-item" routerLink="/addproducts">Productos</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/categories/add">Categorías</a>
+          <a class="dropdown-item" routerLink="/addcategories">Categorías</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/store">Almacén</a>
+          <a class="dropdown-item" routerLink="/addstores">Almacén</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/orders">Pedidos</a>
           <div class="dropdown-divider"></div>
@@ -113,4 +128,4 @@
     </form> -->
   </div>
 </nav>
-<!-- {{userService['user'] | json}} --> <!-- Objeto de testeo en el body (Me saca el usuario del userService en json) -->
+

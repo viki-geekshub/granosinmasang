@@ -22,6 +22,28 @@ import { OrdersComponent } from './containers/orders/orders.component';
 import { UsersComponent } from './containers/users/users.component';
 import { AddStoresComponent } from './containers/add-stores/add-stores.component';
 import { UserConfirmedComponent } from './containers/user-confirmed/user-confirmed.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { LegumbresComponent } from './containers/categories/legumbres/legumbres.component';
+import { ArrocesComponent } from './containers/categories/arroces/arroces.component';
+import { HarinasComponent } from './containers/categories/harinas/harinas.component';
+import { PastaComponent } from './containers/categories/pasta/pasta.component';
+import { SemolasComponent } from './containers/categories/semolas/semolas.component';
+import { SemillasComponent } from './containers/categories/semillas/semillas.component';
+import { FrutosSecosComponent } from './containers/categories/frutos-secos/frutos-secos.component';
+import { FrutasDeshidratadasComponent } from './containers/categories/frutas-deshidratadas/frutas-deshidratadas.component';
+import { SetasComponent } from './containers/categories/setas/setas.component';
+import { SuperAlimentosComponent } from './containers/categories/super-alimentos/super-alimentos.component';
+import { CerealesComponent } from './containers/categories/cereales/cereales.component';
+import { CafeComponent } from './containers/categories/cafe/cafe.component';
+import { CacaoComponent } from './containers/categories/cacao/cacao.component';
+import { TeComponent } from './containers/categories/te/te.component';
+import { PotenciadoresCocinaComponent } from './containers/categories/potenciadores-cocina/potenciadores-cocina.component';
+import { EspeciasComponent } from './containers/categories/especias/especias.component';
+import { SortPipe } from './pipes/sort.pipe';
+import { DatePipe } from './pipes/date.pipe';
+import { ProductDetailsComponent } from './containers/product-details/product-details.component';
+import { ShoppingCartComponent } from './containers/shopping-cart/shopping-cart.component';
+// import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -44,6 +66,28 @@ import { UserConfirmedComponent } from './containers/user-confirmed/user-confirm
     UsersComponent,
     AddStoresComponent,
     UserConfirmedComponent,
+    NotFoundComponent,
+    LegumbresComponent,
+    ArrocesComponent,
+    HarinasComponent,
+    PastaComponent,
+    SemolasComponent,
+    SemillasComponent,
+    FrutosSecosComponent,
+    FrutasDeshidratadasComponent,
+    SetasComponent,
+    SuperAlimentosComponent,
+    CerealesComponent,
+    CafeComponent,
+    CacaoComponent,
+    TeComponent,
+    PotenciadoresCocinaComponent,
+    EspeciasComponent,
+    SortPipe,
+    DatePipe,
+    ProductDetailsComponent,
+    ShoppingCartComponent,
+    // DatePipe, // Al final no uso elmodulo de date de angular, me hice uno propio
   ],
   imports: [
     BrowserModule,

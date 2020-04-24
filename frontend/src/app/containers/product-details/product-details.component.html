@@ -1,0 +1,42 @@
+<div *ngIf="product" class="product">
+  <div class="details">
+    <h2 class="name"><strong>{{product.name}}</strong></h2>
+    <img src="{{product.image_path}}" alt="Imagen del producto" class="image">
+    <div class="info1">
+      <h5>Precio: {{product.price}} €/kg</h5>
+      <h5>Empaquetado: {{product.packedPrice}} €</h5>
+      <h5>Cantidad: <input type="number" step="50" min="50" [(ngModel)]="ammount" #input="ngModel" name="input"> gr</h5>
+      <!--Le pongo un mínimo de 50 gramos y obligo a que suba la cantidad de 50 en 50 con las flechas-->
+      <!--Añado la directiva ngModel para unir este input con la variable ammount del typescript en tiempo real-->
+      <!--Hay que añadirle además la referencia #input para indicarle que este ngModel se tiene que aplicar a todos los elementos que lleven esta referencia. El nombre de la referencia "input" debe coincidir con el "name"; y el valor del ngModel "ammount" debe coincidir con el nombre la variable que creemos en el typescript-->
+      <h5>Descripción:</h5>
+      <p>{{product.description}}</p>
+      <h5>Recomendaciones:</h5>
+      <p>{{product.recommendations}}</p>
+      <a href="{{product.nutritionalValue}}" target="_blank">
+        <p>Valor Nutricional</p>
+      </a>
+    </div>
+    <div class="info2">
+      <h5>Receta recomendada:</h5>
+      <div class="recipes">
+        <!-- {{product['Recipes'] | json}} -->
+        <div class="recipe" *ngFor="let recipe of product['Recipes']">
+          <a href="{{recipe.link}}" target="_blank">
+            <p>{{recipe.name}}</p>
+          </a>
+          <img src="{{recipe.image_path}}" alt="Imagen de la receta" class="image">
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-danger btn-sm" (click)="addCart()"><i class="fas fa-shopping-cart fa-lg"></i>
+      &nbsp; Añadir al carrito</button>
+    <!--El icono del carrito lo he sacado de "https://fontawesome.com/ (buscando por "shopping cart")"-->
+    <br><br>
+
+    <h3 [ngClass]="hidden ? 'none' : '' ">Producto añadido al carrito</h3>
+    <!--Al mensaje le pongo una ngClass donde le digo que, si "hidden" es true aplique la clase "none" que hace un "display:none". Y si "hidden" es false, entonces que no haga nada, por lo que no se aplicará el "display:none" y se podrá mostrar de nuevo el mensaje-->
+  </div>
+
+
+</div>

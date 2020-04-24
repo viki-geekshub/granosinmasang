@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
       const user =registerForm.value;
       this.userService.register(user)
       .subscribe(
-        (res:HttpResponse<object>)=>{
+        (res:HttpResponse<object>)=>{ 
           this.successMsg=res['message'];
           setTimeout(() => {
             this.router.navigate(['login'])

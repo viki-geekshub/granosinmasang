@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3000; // levanto el puerto 3000 y le añado la 
 
 const productsRouter = require('./routes/products.js'); // importo el archivo products de las rutas
 const categoriesRouter = require('./routes/categories.js');
+const subcategoriesRouter = require('./routes/subcategories.js');
 const ordersRouter = require('./routes/orders.js');
 const usersRouter = require('./routes/users.js'); // importo el archivo users de las rutas (REGISTRO)
 const tokensRouter = require('./routes/tokens.js'); // importo el archivo tokens de las rutas (TOKENS)
@@ -25,6 +26,7 @@ app.use(express.urlencoded({extended:false})); // para parsear a json un tipo de
 
 app.use('/products',productsRouter); // Añado las rutas de products
 app.use('/categories',categoriesRouter); 
+app.use('/subcategories',subcategoriesRouter); 
 app.use('/orders',ordersRouter); 
 app.use('/users',usersRouter); // Añado la ruta de users // users es el prefix (REGISTRO)
 app.use('/tokens',tokensRouter);   // Añado la ruta de tokens (TOKENS)

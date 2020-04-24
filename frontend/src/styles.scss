@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+// *{
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: content-box;
+// }
+
+// VISTAS DE CATEGORIAS:
+
+@import './app/colors.scss';
+
+.subcategories{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+    color: black;
+    
+}
+.subcategory {
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 0.5em;
+  background-color: $colorLight;
+  cursor: pointer;
+
+  img {
+    border-radius: 0.5em;
+    max-width: 15em;
+  }
+}

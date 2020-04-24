@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   Category.associate = function(models) { // Función que asocia la tabla categorias con la tabla Productos a través de sus modelos
     Category.belongsToMany(models.Product,{ // Creo la relación entre la tabla categories y la tabla products. Es una relacion de muchos a muchos.
       through: models.ProductCategory  // a traves de la tabla de cruce ProductCategory
-    });  
+    }); 
+    Category.hasMany(models.Subcategory) // Una categoría tiene muchas subcategorías
   };
   return Category;
 };

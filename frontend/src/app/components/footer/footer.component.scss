@@ -1,0 +1,43 @@
+@import '../../colors.scss';
+
+.footer{
+    display:flex;
+    flex-flow: column wrap; 
+    color: white;
+    background-color: $colorDark;
+}
+.up{
+    display:flex;
+    justify-content: space-between;
+}
+.info{
+    margin-top: 2em;
+    margin-left: 3em;
+}
+p{
+    margin: 0;
+    padding: 0;
+    font-size: 90%;
+    
+}
+.email{
+    display: inline-block;
+}
+.networks{
+    margin:1em 2em;
+}
+.iconInsta{
+    width: 3em;
+    cursor: pointer;
+}
+.iconFace{
+    width: 3.8em;
+    cursor: pointer;
+}
+
+.copyright{
+    margin: 1em 2em;
+    display: flex;
+    justify-content: flex-end;
+    
+}

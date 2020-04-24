@@ -1,1 +1,24 @@
-<p>orders works!</p>
+<div class="orders" *ngIf="orderService['orders']">
+    <div class="order" *ngFor="let order of orderService['orders']">
+        <h4>Nº Pedido: {{order.id}}</h4>
+        <p>Fecha prevista de entrega: {{order.deliveryDate}}</p> 
+        <p>Estado: {{order.status}}</p>
+        <p>Fecha de creación: {{order.createdAt | dateEsp}}</p>
+        <p>Última modificación: {{order.updatedAt | dateEsp}}</p>
+        <hr>
+        
+        <div class="products">
+            <!-- {{order['Products']|json}} -->
+            <div class="product" *ngFor="let product of order['Products']">
+                <h5>Producto: {{product['name']}}</h5>
+                <p>Código: {{product['code']}}</p>
+                <img [src]="product.image_path" alt="imagen del producto" class="image">
+                <p>Cantidad: {{product['OrderProduct']['productUnits']}} Gramos</p>
+                <p>Precio: {{product['price']}} Euros</p> 
+                <p>Precio embasado: {{product['packedPrice']}} Euros</p>
+                <hr>
+            </div>
+        </div>
+    </div>  
+    
+</div>

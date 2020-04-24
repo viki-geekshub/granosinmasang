@@ -1,0 +1,19 @@
+.notfound{
+    display: flex;
+    justify-content: center;
+    background-color: #272041;
+    min-height: 74vh;
+    
+}
+img{
+    object-fit: contain;
+}
+
+// .notfound {
+//     min-height: 59.5vh;
+//     background-color: #272041;
+//     background-image: url(../../assets/images/error404pinguino.jpg);
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     padding-bottom: 30em;
+// }

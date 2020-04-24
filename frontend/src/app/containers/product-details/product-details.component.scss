@@ -1,0 +1,27 @@
+.product{
+    margin: 2em 0;
+    display: flex;
+    justify-content: center;
+}
+
+.details{
+    width: 60%;
+}
+
+h2{
+    text-align: center;
+}
+
+.image{
+    width: 15em;
+    text-align: center;
+    margin: 1em 0;
+}
+
+input{
+    width: 5em;
+}
+
+.none{
+    display: none;
+}

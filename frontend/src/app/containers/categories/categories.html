@@ -1,0 +1,7 @@
+<div class="subcategories" *ngIf="subcategoryService['subcategories']">
+    <div class="subcategory" *ngFor="let subcategory of subcategoryService['subcategories']">
+       <h3>{{subcategory.name}}</h3> 
+       <img [src]="subcategory.image_path" alt="imagen" class="image">
+       <!-- <img src="{{product.image_path}}" alt="imagen"> --> <!--Esto es otra forma de ponerlo-->
+    </div>
+</div>

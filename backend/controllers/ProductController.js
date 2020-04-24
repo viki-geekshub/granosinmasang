@@ -1,9 +1,9 @@
-const { Product, Recipe, Category, Store, ProductCategory, RecipeProduct, StoreProduct, Sequelize, sequelize } = require('../models/index.js') // Aquí importo todos los modelos que voy a utilizar después:
+const { Product, Recipe, Category, Subcategory, Store, Order, ProductCategory, RecipeProduct, StoreProduct, Sequelize, sequelize } = require('../models/index.js') // Aquí importo todos los modelos que voy a utilizar después:
 // Estoy importando el archivo index.js que esta en la carpeta models porque de ahi puedo sacar todos los modelos que necesite
 // y lo desestructuro para que solo me de las claves y los valores del producto y de la categoria. 
 // Importo Product, porque necesito el modelo product para funcionar en OrderProduct (lo vamos a llamar muchas veces y si no se importa no lo encuentra.
-// Importo Category porque necesito incluir las categorías en cada producto
-// Importo Recipe porque necesito incluir las recetas en cada producto
+// Importo Category Subcategory, Recipe, Store y Order porque necesito incluir todos ellos en cada producto
+// También importo sus tablas intermedias por lo mismo.
 // También importo el Sequelize para que me permita utilizar los operadores de Sequelize que me harán falta después en funciones posteriores
 // Aquí quise importar también el "sequelize" para que me admitiese código sql puro pero como al final no lo tuve que utilizar, se puede borrar, porque ya no me hace falta importarlo.
 const { Op } = Sequelize; // Desestruturo los operadores de sequelize aquí para poderlos utilizar luego
@@ -11,7 +11,10 @@ const { Op } = Sequelize; // Desestruturo los operadores de sequelize aquí para
 const ProductController = { // Creo la función controladora que tiene dentro varias funciones o metodos para hacer diferentes cosas
     getAll(req,res){  // Función para traerme todos los productos de la base de datos. 
         Product.findAll({
-            include:[Category, Recipe, Store]  // Aquí le digo que cuando me busque la información del producto, me incluya también la información de la tabla de categorías, y la de las recetas, ya que ambas tablas están relacionadas con la tabla products. 
+            include:[Category, Subcategory, Recipe, Store, Order],  // Aquí le digo que cuando me busque la información del producto, me incluya también la información de la tabla de categorías, y la de las recetas, ya que ambas tablas están relacionadas con la tabla products. 
+            order: [
+                ['code', 'ASC']
+            ]
         })
         .then(products=>res.status(200).send(products)) // Aquí envío lo obtenido con el .findAll en la respuesta
         .catch(error=>{
@@ -21,7 +24,7 @@ const ProductController = { // Creo la función controladora que tiene dentro va
     },
     getOne(req, res) { // Función para buscar un solo producto por su id
         Product.findByPk(req.params.id, {
-                include: [Category, Recipe, Store]
+                include: [Category, Subcategory, Recipe, Store, Order]
             })
             .then(product => res.send(product))
             .catch(error=>{
@@ -34,7 +37,10 @@ const ProductController = { // Creo la función controladora que tiene dentro va
             where:{
                 code:req.params.code
             },
-            include: [Category, Recipe, Store]
+            include: [Category, Subcategory, Recipe, Store, Order],
+            order: [
+                ['code', 'ASC']
+            ]
         })
         .then(product => res.send(product))
         .catch(error=>{
@@ -49,7 +55,10 @@ const ProductController = { // Creo la función controladora que tiene dentro va
                         [Op.like]: `%${req.params.name}%` // Aquí le estoy diciendo que debe incluir el valor de lo que se introduzca en name en algún punto del name
                     }  // Uso el operador like para ello
                 },
-                include: [Category, Recipe, Store]
+                include: [Category, Subcategory, Recipe, Store, Order],
+                order: [
+                    ['code', 'ASC']
+                ]
             })
             .then(product => res.send(product))
             .catch(error=>{
@@ -82,16 +91,16 @@ const ProductController = { // Creo la función controladora que tiene dentro va
     },
     async insertMany(req, res) { // Función para insertar varios productos a la vez como un array de objetos con sus propiedades en el body
         try {
-            const products = req.body;
-            const productsResponse = []
-            products.forEach(async product => {
-                const productCreated = await Product.create({...product });
-                productCreated.addCategory(product.CategoryId);
-                productCreated.addRecipe(product.RecipeId);
-                productsResponse.push(productCreated)
-                product.stores.forEach(async store => {
-                    const storeCreated = await StoreProduct.create({...store, ProductId: productCreated.id });
-                    productsResponse.push(storeCreated)
+            const products = req.body; // Guardo en products el cuerpo de la petición
+            const productsResponse = [] // Creo un array vacío
+            products.sort((a,b)=>a.code-b.code).forEach(async product => { // Ordeno los productos de mayor a menor según su el campo "code" y lo recorro con un forEach
+                const productCreated = await Product.create({...product }); // En cada iteración nos crea cada producto con sus propiedades
+                productCreated.addCategory(product.CategoryId);  // Le añado a la Tabla Category el CategoryId del producto
+                productCreated.addRecipe(product.RecipeId); // Le añado a la Tabla Recipe el RecipeId del producto
+                productsResponse.push(productCreated);  // Añado al array que estaba vacía el producto que he creado 
+                product.stores.forEach(async store => { // Recorro cada Store para coger todos sus valores
+                    const storeCreated = await StoreProduct.create({...store, ProductId: productCreated.id }); // y crear cada store con esos sus valores correspondientes y le digo que el ProductId será el id del producto creado
+                    productsResponse.push(storeCreated);  // Añado al array el store que he creado también
                 })
             })
             res.send({

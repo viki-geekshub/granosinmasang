@@ -1,1 +1,24 @@
-<p>add-stores works!</p>
+<div class="stores" *ngIf="storeService['stores']">
+  <div class="store" *ngFor="let store of storeService['stores']">
+    <p>Nombre: {{store.name}}</p>
+    <p>Dirección: {{store.address}}</p>
+    <p>Localización: {{store.location}}</p>
+    <hr>
+
+    <div class="products">  
+      <!-- {{store['Products']|json}} -->
+      <div class="product" *ngFor="let product of store['Products']; index as i">
+        <img [src]="product.image_path" alt="imagen del producto" class="image">
+        <p>Código: {{product['code']}}</p>
+        <p>Producto: {{product['name']}}</p>
+        <p>Cantidad en Stock: {{product?.StoreProduct?.ammount}} Gramos</p>
+        <p>Stock mínimo: {{product?.StoreProduct?.stockMin}} Gramos</p>
+        <p>Stock máximo: {{product?.StoreProduct?.stockMax}} Gramos</p>
+        <p>Precio: {{product['price']}} Euros</p>
+        <p>Precio embasado: {{product['packedPrice']}} Euros</p>
+        <hr *ngIf="(store['Products'].length-1)!==i">
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -3,7 +3,10 @@ const { Op } = Sequelize;
 const RecipeController = { 
     getAll(req,res){  
         Recipe.findAll({
-            include:[Product]   
+            include:[Product],
+            order: [
+                ['name', 'ASC']
+            ] 
         })
         .then(recipes=>res.status(200).send(recipes))
         .catch(error=>{
@@ -28,7 +31,10 @@ const RecipeController = {
                         [Op.like]: `%${req.params.name}%` 
                     }  
                 },
-                include: [Product]
+                include: [Product],
+                order: [
+                    ['name', 'ASC']
+                ]
             })
             .then(recipe => res.send(recipe))
             .catch(error=>{
@@ -55,7 +61,7 @@ const RecipeController = {
         try {
           const recipes =req.body;
           const recipesResponse =[]
-          recipes.forEach(async recipe=>{
+          recipes.sort((a,b)=>a.code-b.code).forEach(async recipe=>{
             const recipeCreated = await Recipe.create({...recipe}); 
             recipeCreated.addProduct(recipe.ProductId);
             recipesResponse.push(recipeCreated)

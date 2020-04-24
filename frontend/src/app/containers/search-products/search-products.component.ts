@@ -23,7 +23,7 @@ export class SearchProductsComponent implements OnInit {
           .subscribe(
             (res: HttpResponse<any>) => {
               if (!params.searchValue) {
-                this.router.navigate(['/stores']); // NO FUNCIONA!!!! MALDICION!
+                this.router.navigate(['/notFound']); 
               }
               this.products = res;
             },

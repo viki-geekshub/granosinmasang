@@ -6,11 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private products: object[];
+  public products: object[];
   constructor(public httpClient: HttpClient) { }
 
   getAll(): Observable<any> {
     return this.httpClient.get('http://localhost:3000/products');
+  }
+  getOne(id:string|number){
+    return this.httpClient.get('http://localhost:3000/products/' + id);
   }
   setProducts(products): void {
     this.products = products;

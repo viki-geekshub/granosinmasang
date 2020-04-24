@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
 export class UserService {
   private token: string = ""; // El token por buenas prácticas debe ser private. Es una string vacía al principio para evitar que nos venga "undefined" ya que en este caso, cuando pides un token no tiene porque venir siempre una string. Así, cuando lo tipemos abajo, no nos dará error por ser indefined en lugar de string *
   private user:object={}; // El usuario por buenas prácticas debe ser private. Es un objeto vacío al principio
-//Aqui es donde vamos a guardar los datos del usuario y del token con el que se ha logueado.
-
+    //Aqui es donde vamos a guardar los datos del usuario y del token con el que se ha logueado.
+  public users:object=[]; // El token por buenas prácticas debe ser private. Es una string vacía al principio para evitar que nos venga "undefined" ya que en este caso, cuando pides un token no tiene porque venir siempre una string. Así, cuando lo tipemos abajo, no nos dará error por ser indefined en lugar de string *
+  
   constructor(public httpClient: HttpClient) { }
   login(user: object): Observable<any> {  // Envío la petición al backend
     return this.httpClient.post('http://localhost:3000/users/login', user);
@@ -18,6 +19,9 @@ export class UserService {
     return this.httpClient.post('http://localhost:3000/users/register', user);
   }
   //Utilizamos los metodos getter y setter para acceder al token y al user. Al no ser públicos no podríamos acceder sin utilizar estos métodos.
+  setUsers(users: object[]): void { // Pongo todos los usuarios en el objeto vacío que he definido arriba como users
+    this.users = users;
+  }
   setToken(token: string): void { // Al ser un método setter esta vacío y le digo "void" porque no devuelve nada
     this.token = token; // meto este token en el token
   }
@@ -37,5 +41,10 @@ export class UserService {
         authorization: token
       }
     });
+  }
+
+  getAll(): Observable<any> {
+    this.token = localStorage.getItem('authToken');
+    return this.httpClient.get('http://localhost:3000/users', {headers: {Authorization: this.token}});
   }
 }

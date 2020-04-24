@@ -1,9 +1,10 @@
-<form class="container p-5" (submit)="login($event)" > 
+<form class="container p-5" (submit)="login($event)" > <!-- Le paso el evento interpolado -->
     <div class="form-group" >
       <label for="email">Email</label>
       <!-- ngModel para conectar la propiedad email de user al input -->
       <input type="email" class="form-control" name="email" id="email" [(ngModel)]="user.email" autofocus="autofocus"> <!--[()]=To way banding => Esto es para que todo lo que yo marque con ngModel vaya a las propiedades del objeto de usuario que hemos construido en el login.component.ts -->
-       </div>
+    </div>  <!--El [(ngModel)]="user.email" es para conectar el formulario del html con el typescript. Para autocompletar la info del formulario -->
+    <!-- Gracias al ngModel, al estar ya conectado, cuando vas rellenando el formulario también se va rellenando automaticamente el typescript. Así la info estaría ya disponible. Lo mete en un objeto del typescript-->
     <div class="form-group">
       <label for="password">Contraseña</label>
       <!-- ngModel => para conectar la propiedad password de user al input. Así todo lo que se meta en el input, se mete como propiedad en el objeto que hemos creado en el login.component.ts -->
@@ -17,11 +18,12 @@
   </form>
   <!-- *ngIf => para que no nos muestre el div cuando no hay errorMsg -->
   <div class="alert alert-danger mx-5" *ngIf="errorMsg">
-    {{errorMsg}} <!--Crear la variable errorMsg-->
-  </div>
+    {{errorMsg}} <!--Crear la variable errorMsg--> <!-- Aquí estamos metiendo el mensaje de error que viene del ts-->
+  </div> <!-- Le digo ngIF para que solo me muestre este div si hay error. Así si no hay error no me mostrará una caja vacía-->
   <div class="alert alert-success mx-5" *ngIf="successMsg">
     {{successMsg}}
   </div>
   
   <!-- esto es para poder ver dentro de un objeto en el html -->
   <!-- {{user | json}} -->
+  <!-- {{loginForm.values | json}} -->

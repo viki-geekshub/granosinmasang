@@ -1,8 +1,12 @@
 <form class="container p-5" #registerForm="ngForm" (submit)="register(registerForm)"> <!--#registerForm es una referencia para decirle a la aplicación que este formulario es un formulario de angular. Cada vez que vea esta referencia lo reconocera como un formulario de angular-->  
-    <div class="form-group">
+  <!-- Le pongo el #registerForm="ngForm" para indicarle que se trata de un formulario de angular.
+  Un formulario de angular ya viene con las validaciones incluidas. Angular crea un objeto para ello. 
+  Con el # creo una referencia para luego porder usarla o indicarle lo que necesito.
+  Poniendole el # convierto el registerForm en una variable que podre interpolarla si quiero. -->  
+  <div class="form-group">
       <label for="email">Email <span class="red">*</span></label>
       <input type="email" class="form-control required" name="email" id="email" #email="ngModel" ngModel required autofocus="autofocus">
-    </div>
+    </div> <!--El ngModel sirve para que lo meta en un objeto con otro método, y que lo podamos tener disponible.-->
     <div *ngIf="email.errors?.required && email.touched" class="alert alert-warning"> <!-- *ngIf - Es una directiva: Le estamos diciendo con ella que, en caso de existir un error del tipo required, es decir, que no hayan puesto nada o que esté tocado el input, es decir, que se haya echo foco y luego se hayan ido del input sin poner nada, entonces me muestras este div, que es una caja con una alerta. La interrogación es para preguntarle si hay errores y decirle que si es true que lo muestre. -->
       El Email es obligatorio.
     </div>

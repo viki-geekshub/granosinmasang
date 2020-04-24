@@ -1,9 +1,12 @@
-const { Category, Product, ProductCategory, Sequelize } = require('../models/index.js') ;
+const { Category, Subcategory, Product, ProductCategory, Sequelize } = require('../models/index.js') ;
 const { Op } = Sequelize;
 const CategoryController = { 
     getAll(req,res){  
         Category.findAll({
-            include:[Product]   
+            include:[Subcategory, Product], 
+            order: [
+                ['code', 'ASC']
+            ]
         })
         .then(categories=>res.status(200).send(categories))
         .catch(error=>{
@@ -13,7 +16,7 @@ const CategoryController = {
     },
     getOne(req, res) { 
         Category.findByPk(req.params.id, {
-                include: [Product]
+                include: [Subcategory, Product]
             })
             .then(category => res.send(category))
             .catch(error=>{
@@ -26,7 +29,10 @@ const CategoryController = {
              where:{
                 code:req.params.code
             },
-            include: [Product]
+            include: [Subcategory, Product],
+            order: [
+                ['code', 'ASC']
+            ]
         })
         .then(category => res.send(category))
         .catch(error=>{
@@ -41,7 +47,10 @@ const CategoryController = {
                         [Op.like]: `%${req.params.name}%` 
                     }  
                 },
-                include: [Product]
+                include: [Subcategory, Product],
+                order: [
+                    ['code', 'ASC']
+                ]
             })
             .then(category => res.send(category))
             .catch(error=>{
@@ -53,6 +62,7 @@ const CategoryController = {
         Category.create({...req.body}) 
         .then(category=>{
             category.addProduct(req.body.ProductId) 
+            category.addSubcategory(req.body.SubcategoryId)
             res.status(201).send({
                 message: "La nueva categoría ha sido añadida correctamente.", category
             }) 
@@ -63,14 +73,15 @@ const CategoryController = {
                 message: 'Ha habido un error al intentar añadir la nueva categoría.'
             })
         })
-    },
+    }, 
     async insertMany(req,res){  
         try {
-          const categories =req.body;
-          const categoriesResponse =[]
-          categories.forEach(async category=>{
+            const categories =req.body;
+            const categoriesResponse =[]
+            categories.sort((a,b)=>a.code-b.code).forEach(async category=>{
             const categoryCreated = await Category.create({...category}); 
             categoryCreated.addProduct(category.ProductId);
+            categoryCreated.addSubcategory(category.SubcategoryId)
             categoriesResponse.push(categoryCreated)
           });
           res.send({
@@ -83,8 +94,8 @@ const CategoryController = {
             })
         }           
     },
-    async put(req, res) { 
-        try{
+    async put(req, res) { //  NO cambia las subcategorias que tiene
+        try{                // Solo cambia los campos de la categoria y los productos asociados
             const category = await Category.update({...req.body}, 
                 {
                     where: {

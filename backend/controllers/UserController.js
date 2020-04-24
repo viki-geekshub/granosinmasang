@@ -10,7 +10,10 @@ const transporter = require('../config/nodemailer');  // Importo el transporter 
 const UserController = { 
     getAll(req,res){  
         User.findAll({
-            include:[Order]  
+            include:[Order],
+            order: [
+                ['name', 'ASC']
+            ]
         })
         .then(users=>res.status(200).send(users))
         .catch(error=>{
@@ -35,7 +38,10 @@ const UserController = {
                         [Op.like]: `%${req.params.name}%` 
                     }  
                 },
-                include: [Order]
+                include: [Order],
+                order: [
+                    ['name', 'ASC']
+                ]
             })
             .then(user => res.send(user))
             .catch(error=>{
@@ -48,7 +54,10 @@ const UserController = {
             where:{
                 email:req.params.email
             },
-            include: [Order]
+            include: [Order],
+            order: [
+                ['name', 'ASC']
+            ]
         })
         .then(user => res.send(user))
         .catch(error=>{
@@ -230,7 +239,8 @@ const UserController = {
         })
     },
     async getInfo(req,res){  // Endpoing para que nos dé la información del usuario. Hace lo mismo que el getOne, pero de otro modo. Aquí le estamos diciendo que nos devuelva el usuario, que viene ya guardado en la petición. (PERO NO NOS TRAE LOS PEDIDOS)
-        res.send(req.user);
+        console.log(req.user);
+        res.send(req.user.dataValues);
     }
 }
 module.exports = UserController; 

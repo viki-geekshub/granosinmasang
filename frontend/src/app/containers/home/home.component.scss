@@ -1,0 +1,15 @@
+// .container {
+//     // min-height: 59.5vh;
+//     background-image: url(../../assets/images/home.jpg);
+//     background-position: center;
+// }
+.container{
+    display: flex;
+    justify-content: center;
+}
+ .img1{
+     width: 90vh;
+ }
+ .img2{
+    width: 95vh;
+}

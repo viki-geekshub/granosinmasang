@@ -30,8 +30,7 @@ import { PastaComponent } from './containers/categories/pasta/pasta.component';
 import { SemolasComponent } from './containers/categories/semolas/semolas.component';
 import { SemillasComponent } from './containers/categories/semillas/semillas.component';
 import { FrutosSecosComponent } from './containers/categories/frutos-secos/frutos-secos.component';
-import { FrutasDeshidratadasComponent } from './containers/categories/frutas-deshidratadas/frutas-deshidratadas.component';
-import { SetasComponent } from './containers/categories/setas/setas.component';
+import { AlimentosDeshidratadosComponent } from './containers/categories/alimentos-deshidratados/alimentos-deshidratados';
 import { SuperAlimentosComponent } from './containers/categories/super-alimentos/super-alimentos.component';
 import { CerealesComponent } from './containers/categories/cereales/cereales.component';
 import { CafeComponent } from './containers/categories/cafe/cafe.component';
@@ -74,8 +73,7 @@ import { ShoppingCartComponent } from './containers/shopping-cart/shopping-cart.
     SemolasComponent,
     SemillasComponent,
     FrutosSecosComponent,
-    FrutasDeshidratadasComponent,
-    SetasComponent,
+    AlimentosDeshidratadosComponent,
     SuperAlimentosComponent,
     CerealesComponent,
     CafeComponent,

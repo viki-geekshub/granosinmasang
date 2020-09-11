@@ -20,6 +20,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      packedIncluded: {
+        type: DataTypes.BOOLEAN
+      },
+      totaProduct: {
+        type: DataTypes.FLOAT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

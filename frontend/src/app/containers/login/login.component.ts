@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   }
   login(event) { 
     event.preventDefault(); // Evito que refresque la página por defecto
-    console.log(this.user)
     this.userService.login(this.user) // Mando el usuario al userService, a la funcióno de login
       .subscribe( // Lo subscribo y cuando llega la respuesta: 
         (res: HttpResponse<any>) => {

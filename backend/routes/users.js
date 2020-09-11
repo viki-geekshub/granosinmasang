@@ -6,7 +6,7 @@ const { User } = require('../models/index.js');  // importo el index.js de la ca
 router.get('/',authentication, isAdmin, UserController.getAll);
 router.get('/name/:name',authentication, isAdmin, UserController.getAllByName);
 router.get('/email/:email',authentication, isAdmin, UserController.getOneByemail);
-router.get('/info',authentication, isAdmin, UserController.getInfo);  // Creo la ruta para conseguir información según el token a la función getInfo. Le metemos tres parametros, el de la autenticación, el isAdmin y el del UserController para la búsqueda de información.
+router.get('/info',authentication, UserController.getInfo);  // Creo la ruta para conseguir información según el token a la función getInfo. Le metemos tres parametros, el de la autenticación, el isAdmin y el del UserController para la búsqueda de información.
 router.get('/:id',authentication, isAdmin, UserController.getOne);
 
 router.get('/confirm/:emailToken',UserController.confirm);  // Creo la ruta para enviar el mail de confirmación de registro

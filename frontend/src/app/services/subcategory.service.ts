@@ -40,7 +40,7 @@ export class SubcategoryService {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===7);
   }
-  setSubCatFrutasDeshidratadas(subcategories): void {
+  setSubCatAlimentosDeshidratados(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===8);
   }
@@ -59,10 +59,6 @@ export class SubcategoryService {
   setSubCatCacao(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===12);
-  }
-  setSubCatSetas(subcategories): void {
-    this.subcategories = subcategories;
-    this.subcategories = this.subcategories.filter(item=>item['CategoryId']===13);
   }
   setSubCatSemillas(subcategories): void {
     this.subcategories = subcategories;

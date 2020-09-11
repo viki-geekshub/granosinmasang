@@ -24,12 +24,11 @@ import { SemolasComponent } from './containers/categories/semolas/semolas.compon
 import { PastaComponent } from './containers/categories/pasta/pasta.component';
 import { CerealesComponent } from './containers/categories/cereales/cereales.component';
 import { FrutosSecosComponent } from './containers/categories/frutos-secos/frutos-secos.component';
-import { FrutasDeshidratadasComponent } from './containers/categories/frutas-deshidratadas/frutas-deshidratadas.component';
+import { AlimentosDeshidratadosComponent } from './containers/categories/alimentos-deshidratados/alimentos-deshidratados';
 import { EspeciasComponent } from './containers/categories/especias/especias.component';
 import { PotenciadoresCocinaComponent } from './containers/categories/potenciadores-cocina/potenciadores-cocina.component';
 import { CafeComponent } from './containers/categories/cafe/cafe.component';
 import { CacaoComponent } from './containers/categories/cacao/cacao.component';
-import { SetasComponent } from './containers/categories/setas/setas.component';
 import { SemillasComponent } from './containers/categories/semillas/semillas.component';
 import { SuperAlimentosComponent } from './containers/categories/super-alimentos/super-alimentos.component';
 import { TeComponent } from './containers/categories/te/te.component';
@@ -63,12 +62,11 @@ const routes: Routes = [
   {path: 'Pasta', component: PastaComponent},
   {path: 'Cereales', component: CerealesComponent},
   {path: 'Frutos Secos', component: FrutosSecosComponent},
-  {path: 'Frutas Deshidratadas', component: FrutasDeshidratadasComponent},
+  {path: 'Alimentos Deshidratados', component: AlimentosDeshidratadosComponent},
   {path: 'Especias', component: EspeciasComponent},
   {path: 'Potenciadores de Cocina', component: PotenciadoresCocinaComponent},
   {path: 'Café', component: CafeComponent},
-  {path: 'Cacao', component: CacaoComponent},
-  {path: 'Setas', component: SetasComponent},
+  {path: 'Cacao', component: CacaoComponent},  
   {path: 'Semillas', component: SemillasComponent},
   {path: 'Superalimentos', component: SuperAlimentosComponent},
   {path: 'Té', component: TeComponent},

@@ -1,16 +1,18 @@
-
-<div class="product" *ngFor="let order of totalCart">
-    <div>
+<div class="product" *ngFor="let order of allCart">
+  <div>
     <h3 class="name">{{order['name']}}</h3>
-    <img src="{{order.image_path}}" alt="">
+    <img src="{{order.image_path}}" alt="Imagen del producto">
     <p class="ammount"><strong>Cantidad: </strong>{{order['ammount']}} gr</p>
     <p class="resultPrice"><strong>Precio: </strong> {{order['price']}} €/kg</p>
-    <p class="resultPrice"><strong>Embasado: </strong> {{order['packedPrice']}} €</p>
-    <p class="resultPrice"><strong>Total: </strong> {{order['totalPrice']}} €</p>
-    <button (click)="deleteFromCart(order.id)">Borrar</button> <!--Para borrar productos del carrito-->
+    <p class="resultPackedPrice"><strong>Envasado: </strong> {{order['packedPrice']}} €</p>
+    <p class="resultTotalProduct"><strong>Total: </strong> {{order['totalProduct']}} €</p>
+    <button (click)="deleteFromCart(order.id)">Borrar</button>
+    <!--Para borrar productos del carrito-->
     <br><br>
+  </div>
 </div>
-</div>
-<button (click)="sendOrder()">Finalizar Compra</button> <!--Para enviar el pedido-->
+<p class="resultTotalOrder" *ngIf="totalCart"><strong>Precio total del pedido: {{totalCart}} €</strong></p>  
+<button (click)="sendOrder()">Finalizar Compra</button>
+<!--Para enviar el pedido-->
 <p [ngClass]="{'hidden':toggle, 'show': !toggle}">Pedido enviado con éxito</p>
-<!--Al este mensaje le añado un ngClass donde le digo que oculte el mensaje cuando la variable toggle sea true y que lo muestre cuando la variable toggle sea false-->
+<!-- Al este mensaje le añado un ngClass donde le digo que oculte el mensaje cuando la variable toggle sea true (aplicando en ese caso la clase hidden que oculta el mensaje) y que lo muestre cuando la variable toggle sea false (aplicando en ese caso la clase show que muestra el mensaje)(MIRAR ESTAS CLASES EN EL CSS)-->

@@ -5,23 +5,60 @@
 }
 
 .details{
-    width: 60%;
+    width:60%;
 }
 
 h2{
     text-align: center;
+   
+}
+
+.info1{
+    display:flex;
+    
 }
 
 .image{
-    width: 15em;
+   
     text-align: center;
-    margin: 1em 0;
+    margin: 1em 0 1.5em 0;
+}
+
+img{
+    max-width: 20em;
+}
+.data{
+    
+    margin: 2em 0 1em 6em;
+}
+h6{
+    font-size: 1em;
 }
 
 input{
     width: 5em;
 }
 
+button{
+    margin: 1em 2em 0 0;
+}
+
 .none{
     display: none;
+}
+
+.packed{
+    display: inline-block;
+}
+
+.info2{
+    display: flex;  
+}
+
+.productInfo{
+    width: 60%;
+}
+
+.recipeRecommended{
+    margin: 0 0 1em 3em;
 }

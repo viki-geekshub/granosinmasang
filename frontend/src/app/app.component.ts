@@ -7,16 +7,18 @@ import { UserService } from './services/user.service'; // importo el UserService
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public userService: UserService) {} // Inyecto el userService  // PREGUNTAR  ???
+  constructor(public userService: UserService) {} // Inyecto el userService 
 
   ngOnInit() { // Y le digo que al iniciar haga lo siguiente:
     // Cuando arranca la aplicación lo que arranca primero es el app.component. Así que le quiero decir que si ve que hay un ítem (un token), nos ejecute setToken:
 
     const token = localStorage.getItem('authToken'); // Busco el token en el localStorage
+    console.log(token);
     if (token) { //Si hay token, si existe:
       this.userService.getUserInfo(token) // Trato de obtener la info del user a partir del token. Envío el token al userService como parametro para que haga el getUserInfo
       .subscribe( // Después lo subscribo y cuando llega la respuesta: 
         res => {
+          console.log(res);
           this.userService.setUser(res);  // Guardo en la propiedad user del userService la información del user que viene en la respuesta
           this.userService.setToken(token);  // Guardo el token como propiedad del userService
         },

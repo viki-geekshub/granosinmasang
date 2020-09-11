@@ -1,8 +1,13 @@
 <div class="orders" *ngIf="orderService['orders']">
     <div class="order" *ngFor="let order of orderService['orders']">
         <h4>Nº Pedido: {{order.id}}</h4>
+        <p>Usuario: {{order.User.name}}</p>
         <p>Fecha prevista de entrega: {{order.deliveryDate}}</p> 
+        <p>Dirección: {{order.User.address}}</p>
+        <p>Observaciones: {{order.User.observations}}</p>
         <p>Estado: {{order.status}}</p>
+        <p>Email: {{order.User.email}}</p>
+        <p>Tlfno: {{order.User.phone}}</p>
         <p>Fecha de creación: {{order.createdAt | dateEsp}}</p>
         <p>Última modificación: {{order.updatedAt | dateEsp}}</p>
         <hr>
@@ -10,12 +15,18 @@
         <div class="products">
             <!-- {{order['Products']|json}} -->
             <div class="product" *ngFor="let product of order['Products']">
+                <!-- {{product | JSON}} -->
                 <h5>Producto: {{product['name']}}</h5>
                 <p>Código: {{product['code']}}</p>
                 <img [src]="product.image_path" alt="imagen del producto" class="image">
                 <p>Cantidad: {{product['OrderProduct']['productUnits']}} Gramos</p>
                 <p>Precio: {{product['price']}} Euros</p> 
                 <p>Precio embasado: {{product['packedPrice']}} Euros</p>
+                <p>Precio Total del Producto: {{product['totalProduct']}} Euros</p> 
+                <p>Precio Total del Pedido: {{totalOrder}} Euros</p> 
+                <!-- FALTA POR METER LA LOGICA DEL TOTAL??? -->
+                <p *ngIf="product['OrderProduct']['packedIncluded']">Incluye embasado</p> 
+                <!-- NO FUNCIONA -->
                 <hr>
             </div>
         </div>

@@ -9,6 +9,9 @@
 
 @import './app/colors.scss';
 
+#container{
+  padding:0 5%;
+}
 .subcategories{
     display: flex;
     flex-wrap: wrap;

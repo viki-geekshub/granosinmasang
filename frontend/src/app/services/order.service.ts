@@ -20,9 +20,9 @@ export class OrderService {
   getOrders(): object[] {
     return this.orders;
   }
-  createOrder(products){ // Función para enviar el pedido al backend
+  createOrder(products,totalOrder){ // Función para enviar el pedido al backend
     this.token = localStorage.getItem('authToken'); // Cojo el token del localStorage
-    return this.httpClient.post('http://localhost:3000/orders', {deliveryDate:"2020-05-15", products}, {headers: {Authorization: this.token}})
+    return this.httpClient.post('http://localhost:3000/orders', {deliveryDate:"2020-05-15", products, totalOrder}, {headers: {Authorization: this.token}})
   }  // Y lo envió en la petición en la autorización de la cabecera
   
   // searchOrders(search) {

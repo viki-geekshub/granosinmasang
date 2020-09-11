@@ -3,7 +3,7 @@ const { Op } = Sequelize;                    // Importo Order para llamarlo desp
 const OrderController = {                   // Importo Product, porque necesito incluir los productos en cada pedido
     getAll(req,res){                        // Importo OrderProduct porque le tengo que añadir el "OrderId", EL "ProductId" y el "productUnits" con el bulkCreate, en el insert
         Order.findAll({                     // Importo el Sequelize tambien para poder desestructurarlo luego y poder utilizar los operadores de Sequelize
-            include:[Product],   // Aquí le digo que cuando me busque la información del pedido, me incluya también la información de la tabla de productos, ya que ambas tablas están relacionadas. 
+            include:[Product, User],   // Aquí le digo que cuando me busque la información del pedido, me incluya también la información de la tabla de productos, ya que ambas tablas están relacionadas. 
             order: [
                 ['deliveryDate', 'ASC']
             ]
@@ -16,7 +16,7 @@ const OrderController = {                   // Importo Product, porque necesito 
     },
     getOne(req, res) { 
         Order.findByPk(req.params.id, {
-                include: [Product]
+                include: [Product, User]
             })
             .then(order => res.send(order))
             .catch(error=>{
@@ -51,11 +51,14 @@ const OrderController = {                   // Importo Product, porque necesito 
         Order.create({  
             UserId: req.user.id, // Le digo que inserte una propiedad llamada UserId que tendrá dentro el UserId del cuerpo de la petición.
             deliveryDate:req.body.deliveryDate,  // Le digo que inserte una propiedad llamada deliveryDate que tendrá dentro lo que el usuario haya introducido como deliveryDate en el body de la petición
-            status:"pending" // Le digo que inserte una propiedad status que irá por defecto con valor de "pending"
+            status:"Pendiente", // Le digo que inserte una propiedad status que irá por defecto con valor de "pending"
+            totalOrder: req.body.totalOrder // Le digo que inserte una propiedad totalOrder que tendra dentro el totaOrder del cuerpo de la petición
+            
         })
-        .then(order => { // Recorro los productos que hay en el pedido y meto en la tabla intermedia tanto el id del producto en la columna ProductId, como su cantidad en la columna productUnits utlizando el argumento options "through"
-            for (let product of req.body.products){
-                order.addProduct(product.id,{through: {productUnits:product.ammount}})
+        .then(order => { // Recorro los productos que hay en el pedido    
+        for (let product of req.body.products){  // y meto en la tabla intermedia tanto el id del producto en la columna ProductId, como su cantidad en la columna productUnits, como el total del pedido en la columna totalOrder, utilizando el argumento options "through"  
+                
+                order.addProduct(product.id,{through: {productUnits:product.ammount, packedIncluded: product.packed, totalProduct:product.totalProduct}})
             }  // ESTO ES SUGERENCIA DE DAVID PARA MONICA
             res.status(201).send({
                 message: "El pedido ha sido añadido.", order

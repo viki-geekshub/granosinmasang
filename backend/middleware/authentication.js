@@ -12,7 +12,7 @@ const authentication = async(req,res,next)=>{
         const tokenFound = await Token.findOne({ // Aquí compruebo que el token coincida con el usuario. Busco el token y lo guardo en la variable tokenFound
             where:{ // y le digo que donde el token sea el token y el UserId sea el id del payload (que es lo que hemos verificado antes): 
                 [Op.and]:[{ // Uso el operador de Sequelize "and" para compborar las dos condiciones y decirle que tienen que cumplirse ambas para ser válido
-                    token:token, // primera condición : que el token sea el correcto
+                    token:token // primera condición : que el token sea el correcto
                 },{
                     UserId: payload.id // segunda condición: que el usuario sea el correcto
                 }]

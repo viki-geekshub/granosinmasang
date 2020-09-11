@@ -12,6 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     productUnits: {
       allowNull: false,
       type: DataTypes.INTEGER
+    },
+    packedIncluded: {
+      type: DataTypes.BOOLEAN
+    },
+    totalProduct: {
+      type: DataTypes.FLOAT
     }
   }, {});
   OrderProduct.associate = function(models) {

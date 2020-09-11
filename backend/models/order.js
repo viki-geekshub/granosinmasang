@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     deliveryDate: DataTypes.DATE,
-    status: DataTypes.STRING
+    status: DataTypes.STRING,
+    totalOrder: DataTypes.FLOAT
   }, {});
   Order.associate = function(models) {
     Order.belongsTo(models.User); // Un pedido pertenece a un solo usuario

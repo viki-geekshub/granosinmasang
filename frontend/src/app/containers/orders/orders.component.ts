@@ -7,7 +7,7 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-
+  public totalOrder:string='';
   constructor(public orderService: OrderService) { }
 
   ngOnInit(): void {
@@ -16,6 +16,7 @@ export class OrdersComponent implements OnInit {
       res => this.orderService.setOrders(res),
       error => console.log(error)
     );
+    this.totalOrder=localStorage.getItem('total')
   }
 
 }

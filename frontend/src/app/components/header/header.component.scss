@@ -17,7 +17,7 @@
     cursor: unset;
 }
 .image{
-    width: 5em;
+    width: 4.5em;
 }
 .black{
     background-color: black !important;
@@ -26,14 +26,30 @@
     padding: 0 !important;
     margin: 0 !important;
 }
-.nav-item{ // NO FUNCIONA
-  border-bottom: 2px transparent;
+.nav-link{
+  position: relative;
   padding-bottom: 0.5em;
 }
-.nav-item:hover{
-  border-bottom: 2px solid black;
-  padding-bottom: 0.5em;
+.nav-link:after{
+  content: " ";
+  position: absolute;
+  top: calc(50% + 1.15em);
+  left: 0;
+  width: 100%;
+  border-top-style: solid;
+  transform: scaleX(0);
+  transition: transform .2s ease-in-out;
 }
+
+.nav-link:hover{
+  font-weight: bold;
+}
+.nav-link:hover:after{
+  transform: scaleX(1);
+}
+
+
+    
 
 /////// INTENTO DE HACER UN HOVER EN EL DROPDOWN
 .dropbtn {
@@ -86,12 +102,12 @@
 }
 .networks{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   width: 10%;
 }
 .networks a{
-  width: 35px;
-  height: 35px;
+  width: 20px;
+  height: 20px;
 }
 .iconNetwork{
   width: 100%;
@@ -102,7 +118,7 @@
   background-repeat: no-repeat;
 }
 .facebook{
-  background-image: url(/../../assets/images/facebook.png);
+  background-image: url(/../../assets/images/facebook.svg);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -110,9 +126,12 @@
 //MENU PRINCIPAL
 
 .menu2{
-  background-color: white !important;
+  background-color: #ffffff00 !important;
   display: flex;
   justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  top: 50px;
 }
 .menuPrincipal{
   font-size: 14px;
@@ -120,6 +139,23 @@
 }
 
 //BUSCADOR
-#navbarSupportedContent{
+#navbarSearch{
   justify-content: flex-end;
+  // display: none !important;
+}
+.form-control{
+  padding: 0.5em 5%;
+  height: initial;
+  font-size: 13px;
+  border: 0;
+}
+.btn{
+  padding: 0.5em 3%;
+  background-color: #751710;
+  border: 0;
+  color: white;
+  font-size: 13px;
+}
+#glass{
+  cursor: pointer;
 }

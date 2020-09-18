@@ -14,5 +14,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "material-design-icons": "^3.0.1"
+  }
 }

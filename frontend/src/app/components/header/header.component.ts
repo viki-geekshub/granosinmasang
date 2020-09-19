@@ -3,13 +3,11 @@ import { UserService } from "src/app/services/user.service";
 import { ProductService } from "src/app/services/product.service";
 import { Router } from "@angular/router";
 import { CategoryService } from "src/app/services/category.service";
-// import {MDCIconButtonToggle} from '@material/icon-button';
-// const iconToggle = new MDCIconButtonToggle(document.querySelector('.mdc-icon-button'));
 
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"],
+  styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
   public width  = 10;

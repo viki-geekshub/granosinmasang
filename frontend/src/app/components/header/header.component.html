@@ -4,11 +4,13 @@
     <p>C/ Toledo 6, 19002 - Guadalajara | Tlfno: 949407054 / 623463810.</p>
   </address>
   <!-- REDES SOCIALES Y BUSCADOR-->
-  <div class="networks">
-    <a href="https://www.instagram.com/granosinmas_guadalajara/?hl=es" target=_blank class="iconNetwork instagram"></a>
-    <a href="https://www.facebook.com/" target=_blank class="iconNetwork facebook"></a>
+  <div autosize class="networks" [style.width.%]="width" [style.transition] ="transition">
+    <a href="https://www.instagram.com/granosinmas_guadalajara/?hl=es" target=_blank class="iconNetwork instagram"
+      [hidden]="!isShow"></a>
+    <a href="https://www.facebook.com/" target=_blank class="iconNetwork facebook" [hidden]="!isShow"></a>
     <!-- BUSCADOR DE PRODUCTOS -->
-    <div id="navbarSearch" [hidden] = "isShow"><!--CLASE QUE MOLESTABA: class="collapse navbar-collapse"  -->
+    <div id="navbarSearch" [hidden]="isShow">
+      <!--CLASE QUE MOLESTABA: class="collapse navbar-collapse"  -->
       <form class="form-inline my-2 my-lg-0" (submit)="searchProducts($event)">
         <!-- Le paso el evento submit para que haga la función searchProduct y le paso el evento como parámetro-->
         <input class="form-control mr-sm-2" type="search" placeholder="Encuentra tu producto" aria-label="Search"
@@ -16,7 +18,7 @@
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
       </form>
     </div>
-    <i id="glass" class="material-icons" (click) = "toggleDisplay()">{{icon}}</i>
+    <i id="glass" class="material-icons" (click)="toggleDisplay()">{{icon}}</i>
   </div>
 </div>
 

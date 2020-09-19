@@ -12,17 +12,22 @@ import { CategoryService } from "src/app/services/category.service";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
+  public width  = 10;
   public isShow = true;
   public icon = "search";
+  public transition ='';
   public admins = ["superadmin", "admin"];
   public categories;
   public toggleDisplay() {
     this.isShow = !this.isShow;
     if (this.icon === "search") {
       this.icon = "highlight_off";
+      this.width = 25;
     } else {
       this.icon = "search";
+      this.width = 10;
     }
+    
   }
   constructor(
     public userService: UserService,

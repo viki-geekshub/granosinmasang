@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       allowNull: false,
       type: DataTypes.STRING
+    },
+    image_path: {
+      allowNull: false,
+      type: DataTypes.STRING
     }
   }, {});
   Category.associate = function(models) { // Función que asocia la tabla categorias con la tabla Productos a través de sus modelos

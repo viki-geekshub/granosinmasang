@@ -7,7 +7,9 @@ import { CategoryService } from "src/app/services/category.service";
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"]
+  styleUrls: ["./header.component.scss"],
+  template: `<h1 appStickyHeader>{{name}}</h1>`
+
 })
 export class HeaderComponent implements OnInit {
   public width  = 10;

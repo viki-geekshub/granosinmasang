@@ -67,7 +67,11 @@ h1, h2, h3, h4, h5, h6{
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
-
+// CONTENEDOR GENERAL
+.wrapper{
+  padding: 0.5em 15% !important;
+}
+// CONTENEDOR SECUNDARIO
 .container{
   display: flex;
   justify-content: center;

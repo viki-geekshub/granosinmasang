@@ -41,14 +41,13 @@
   transition: transform .2s ease-in-out;
 }
 
-.nav-link:hover{
-  font-weight: bold;
-}
 .nav-link:hover:after{
   transform: scaleX(1);
 }
 
-
+.nav-item:hover>.dropdown-menu{
+  display: block !important;
+}
     
 
 /////// INTENTO DE HACER UN HOVER EN EL DROPDOWN

@@ -32,7 +32,7 @@
   </button>
 
   <!-- LOGO -->
-  <a routerLink="/"><img src="assets/images/logo.jpeg" alt="Logo de Grano Sin Mas" class="image"></a>
+  <a routerLink="/"><img src="assets/images/logo.jpeg" alt="Logo de Grano Sin Mas" class="image" (click)="onActivate($event)"></a>
 
   <!-- MENU PRINCIPAL -->
   <div class="collapse navbar-collapse menuPrincipal" id="navbarSupportedContent">
@@ -45,8 +45,8 @@
             class="sr-only"></span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" routerLinkActive="active-link">Productos<span
-            class="sr-only"></span></a>
+        <a class="nav-link" routerLinkActive="active-link" data-toggle="modal">Productos<span
+            class="sr-only"></span></a> <!--Clase que saca el dropdown con un click: data-toggle="dropdown"-->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
           <!-- MENU DINÁMICO DE PRODUCTOS POR CATEGORÍAS ORDENADO DE MAYOR A MENOR SEGUN EL CODE: -->

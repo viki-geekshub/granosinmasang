@@ -11,6 +11,7 @@
 
 body{
   font-family: 'Open Sans', sans-serif;
+  color:#333;
 }
 h1, h2, h3, h4, h5, h6{
   font-family: 'Oswald', sans-serif;
@@ -34,12 +35,12 @@ h1, h2, h3, h4, h5, h6{
   border-radius: 0.5em;
   background-color: $colorLight;
   cursor: pointer;
-
-  img {
-    border-radius: 0.5em;
-    max-width: 15em;
-  }
 }
+
+img {
+  max-width: 100%;
+}
+
 
 // MATERIAL ICONS
 
@@ -68,12 +69,15 @@ h1, h2, h3, h4, h5, h6{
   font-feature-settings: 'liga';
 }
 
+.wrapper{
+  padding: 1em 15% !important;
+}
 .container{
   display: flex;
   justify-content: center;
   min-width: 100%;
-  padding: 0 !important;
   flex-direction: column;
+  padding: 0 !important;
 }
 
 

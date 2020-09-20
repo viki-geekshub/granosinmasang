@@ -44,7 +44,7 @@ export class StickyHeaderDirective {
      this._element.style.cssText += 'position: -webkit-sticky; position: sticky; '; 
      this._element.style.cssText += `box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
                                       -webkit-boxshadow: 1px 1px 2px rgba(0,0,0,0.5);`;
-    this._element.style.cssText += 'background-color: white';
+    this._element.style.cssText += 'background-color: rgba(255, 255, 255, 0.7)';
     this._element.style.top = '0px';    
   }
 

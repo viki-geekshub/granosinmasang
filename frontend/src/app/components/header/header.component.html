@@ -36,9 +36,9 @@
 
   <!-- MENU PRINCIPAL -->
   <div class="collapse navbar-collapse menuPrincipal" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto" (click)="onActivate($event)">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/" routerLinkActive="active-link">Inicio<span class="sr-only"></span></a>
+        <a class="nav-link" routerLink="/" routerLinkActive="active-link" >Inicio<span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/aboutus" routerLinkActive="active-link">Quienes somos<span

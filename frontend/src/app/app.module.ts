@@ -13,7 +13,7 @@ import { ProductsComponent } from './containers/products/products.component';
 import { ProfileComponent } from './containers/profile/profile.component';
 import { AddProductsComponent } from './containers/add-products/add-products.component';
 import { StoreComponent } from './containers/store/store.component';
-import { AboutUsComponent } from './containers/about-us/about-us.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 import { RecipesComponent } from './containers/recipes/recipes.component';
 import { AddCategoriesComponent } from './containers/add-categories/add-categories.component';
 import { SearchProductsComponent } from './containers/search-products/search-products.component';
@@ -42,6 +42,8 @@ import { SortPipe } from './pipes/sort.pipe';
 import { DatePipe } from './pipes/date.pipe';
 import { ProductDetailsComponent } from './containers/product-details/product-details.component';
 import { ShoppingCartComponent } from './containers/shopping-cart/shopping-cart.component';
+import { CategoriesHomeComponent } from './components/categories-home/categories-home.component';
+import { StickyHeaderDirective } from './sticky-header.directive';
 // import { DatePipe } from '@angular/common';
 
 
@@ -85,6 +87,8 @@ import { ShoppingCartComponent } from './containers/shopping-cart/shopping-cart.
     DatePipe,
     ProductDetailsComponent,
     ShoppingCartComponent,
+    CategoriesHomeComponent,
+    StickyHeaderDirective,
     // DatePipe, // Al final no uso elmodulo de date de angular, me hice uno propio
   ],
   imports: [

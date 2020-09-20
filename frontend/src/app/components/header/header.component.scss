@@ -99,11 +99,13 @@
   color: white;
   font-size: 14px;
   align-items: center;
+  height: 46px;
 }
 .networks{
   display: flex;
   justify-content: space-evenly;
-  width: 10%;
+  align-items: center;
+  position: relative;
 }
 .networks a{
   width: 20px;
@@ -126,7 +128,7 @@
 //MENU PRINCIPAL
 
 .menu2{
-  background-color: #ffffff00 !important;
+  //background-color: #ffffff00 !important;
   display: flex;
   justify-content: space-around;
   position: fixed;
@@ -141,6 +143,7 @@
 //BUSCADOR
 #navbarSearch{
   justify-content: flex-end;
+  width: 100%;
   // display: none !important;
 }
 .form-control{
@@ -151,11 +154,14 @@
 }
 .btn{
   padding: 0.5em 3%;
-  background-color: #751710;
+  background-color: #A79B3E;
   border: 0;
   color: white;
   font-size: 13px;
+  
 }
 #glass{
   cursor: pointer;
+  position: absolute;
+  right: 0;
 }

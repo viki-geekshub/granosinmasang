@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    padding: 0 !important;
+    height: 500px;
+    background-image: url(/../../assets/images/tienda.jpg);
+    background-size: cover;
+}

@@ -4,11 +4,13 @@
     <p>C/ Toledo 6, 19002 - Guadalajara | Tlfno: 949407054 / 623463810.</p>
   </address>
   <!-- REDES SOCIALES Y BUSCADOR-->
-  <div class="networks">
-    <a href="https://www.instagram.com/granosinmas_guadalajara/?hl=es" target=_blank class="iconNetwork instagram"></a>
-    <a href="https://www.facebook.com/" target=_blank class="iconNetwork facebook"></a>
+  <div autosize class="networks" [style.width.%]="width" [style.transition] ="transition">
+    <a href="https://www.instagram.com/granosinmas_guadalajara/?hl=es" target=_blank class="iconNetwork instagram"
+      [hidden]="!isShow"></a>
+    <a href="https://www.facebook.com/" target=_blank class="iconNetwork facebook" [hidden]="!isShow"></a>
     <!-- BUSCADOR DE PRODUCTOS -->
-    <div id="navbarSearch" [hidden] = "isShow"><!--CLASE QUE MOLESTABA: class="collapse navbar-collapse"  -->
+    <div id="navbarSearch" [hidden]="isShow">
+      <!--CLASE QUE MOLESTABA: class="collapse navbar-collapse"  -->
       <form class="form-inline my-2 my-lg-0" (submit)="searchProducts($event)">
         <!-- Le paso el evento submit para que haga la función searchProduct y le paso el evento como parámetro-->
         <input class="form-control mr-sm-2" type="search" placeholder="Encuentra tu producto" aria-label="Search"
@@ -16,12 +18,12 @@
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
       </form>
     </div>
-    <i id="glass" class="material-icons" (click) = "toggleDisplay($event.target, 'highlight_off')">search</i>
+    <i id="glass" class="material-icons" (click)="toggleDisplay()">{{icon}}</i>
   </div>
 </div>
 
 <!-- 2º MENU -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark wrapper menu2">
+<nav class="navbar navbar-expand-lg wrapper menu2" appStickyHeader>
 
   <!-- MENU HAMBURGUESA -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -38,6 +40,10 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/" routerLinkActive="active-link">Inicio<span class="sr-only"></span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/aboutus" routerLinkActive="active-link">Quienes somos<span
+            class="sr-only"></span></a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" routerLinkActive="active-link">Productos<span
             class="sr-only"></span></a>
@@ -53,10 +59,10 @@
           En el el ngIf le estoy diciendo que me muestre la linea divisoria solamente cuando no estemos en la última línea -->
         </div>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" routerLink="/recipes" routerLinkActive="active-link">Recetas<span
             class="sr-only"></span></a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" routerLink="/store" routerLinkActive="active-link">Tienda<span class="sr-only"></span></a>
       </li>

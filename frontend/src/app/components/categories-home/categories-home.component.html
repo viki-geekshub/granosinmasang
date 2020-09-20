@@ -1,0 +1,8 @@
+<div id="categories" >
+    <div class="categoryRow" *ngFor="let category of categoryHome['categories']">
+        <div class="category">
+            <h2>{{category.name}}</h2>
+            <a href=""><img [src]="category.image_path" alt={{category.name}}></a>
+        </div>
+    </div>
+</div>

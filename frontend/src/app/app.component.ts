@@ -9,6 +9,7 @@ import { UserService } from './services/user.service'; // importo el UserService
 export class AppComponent {
   constructor(public userService: UserService) {} // Inyecto el userService 
 
+
   ngOnInit() { // Y le digo que al iniciar haga lo siguiente:
     // Cuando arranca la aplicación lo que arranca primero es el app.component. Así que le quiero decir que si ve que hay un ítem (un token), nos ejecute setToken:
 

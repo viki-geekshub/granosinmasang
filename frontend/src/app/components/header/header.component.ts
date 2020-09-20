@@ -8,7 +8,6 @@ import { CategoryService } from "src/app/services/category.service";
   selector: "app-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"],
-  template: `<h1 appStickyHeader>{{name}}</h1>`
 
 })
 export class HeaderComponent implements OnInit {
@@ -27,7 +26,6 @@ export class HeaderComponent implements OnInit {
       this.icon = "search";
       this.width = 10;
     }
-    
   }
   constructor(
     public userService: UserService,
@@ -35,6 +33,17 @@ export class HeaderComponent implements OnInit {
     public router: Router,
     public categoryService: CategoryService
   ) {}
+
+  onActivate(event) {
+    let scrollToTop = window.setInterval(() => {
+        let pos = window.pageYOffset;
+        if (pos > 0) {
+            window.scrollTo(0, pos - 20); // how far to scroll on each step
+        } else {
+            window.clearInterval(scrollToTop);
+        }
+    }, 16);
+}
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe((res) => {

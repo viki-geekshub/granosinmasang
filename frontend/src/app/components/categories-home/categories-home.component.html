@@ -1,8 +1,12 @@
-<div id="categories" >
-    <div class="categoryRow" *ngFor="let category of categoryHome['categories']">
-        <div class="category">
-            <h2>{{category.name}}</h2>
-            <a href=""><img [src]="category.image_path" alt={{category.name}}></a>
-        </div>
+<div class="wrapper">
+    <h1>Nuestros Productos</h1>
+    <h2>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h2>
+  <div id="categories">
+    <div class="categoryRow" *ngFor="let category of categoryHome['categories'] | sort; index as i">
+      <div class="category">
+        <h3 class="categoryName">{{category.name}}</h3>
+        <a><img [src]="category.image_path" alt={{category.name}} class="imageCategory"></a>
+      </div>
     </div>
+  </div>
 </div>

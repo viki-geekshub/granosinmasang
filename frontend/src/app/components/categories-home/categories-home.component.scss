@@ -1,0 +1,35 @@
+.wrapper{
+    padding: 2.5em 15% !important;
+    background-color: #f1d7a3;
+}
+h1,h2{
+    text-align: center;
+}
+h1{
+    color:#751710;
+}
+h2{
+    font-size: 1.2rem;
+    color: #6c9d2a;
+}
+#categories{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.categoryRow{
+    width: 25%;
+}
+
+.categoryName{
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 1em;
+    color:#751710;
+}
+
+.imageCategory{
+    width: 90%;
+}

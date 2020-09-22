@@ -102,26 +102,35 @@
 }
 .networks{
   display: flex;
-  justify-content: space-evenly;
+  //justify-content: space-evenly;
   align-items: center;
   position: relative;
-}
-.networks a{
-  width: 20px;
-  height: 20px;
 }
 .iconNetwork{
   width: 100%;
 }
-.instagram{
-  background: url(/../assets/images/instagram.svg);
+.instagram,.facebook,.whatsapp{
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center center;
+  height: 20px;
+  margin: 0 .5em;
+  width: 20px;
 }
-.facebook{
-  background-image: url(/../../assets/images/facebook.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
+
+.instagram{background-image: url(/../assets/images/instagram.svg);}
+.facebook{background-image: url(/../../assets/images/facebook.svg);}
+.whatsapp{background-image: url(/../../assets/images/whatsapp2.svg);}
+
+
+.form-inline{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.form-inline input{
+  flex:1 0 auto;
 }
 
 //MENU PRINCIPAL

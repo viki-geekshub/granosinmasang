@@ -11,7 +11,7 @@ import { CategoryService } from "src/app/services/category.service";
 
 })
 export class HeaderComponent implements OnInit {
-  public width  = 15;
+  public width  = 10;
   public isShow = true;
   public icon = "search";
   public transition ='';
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
       this.width = 30;
     } else {
       this.icon = "search";
-      this.width = 15;
+      this.width = 10;
     }
   }
   constructor(

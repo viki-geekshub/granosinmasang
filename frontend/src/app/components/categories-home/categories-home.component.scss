@@ -1,6 +1,6 @@
 .wrapper{
-    padding: 2.5em 15% !important;
     background-color: #f1d7a3;
+    padding: 2.5em 15% 3.5em 15%!important;
 }
 h1,h2{
     text-align: center;
@@ -23,6 +23,11 @@ h2{
     width: 25%;
 }
 
+.category a{
+    display: flex;
+    justify-content: center;
+}
+
 .categoryName{
     font-size: 1.3rem;
     text-align: center;
@@ -31,5 +36,14 @@ h2{
 }
 
 .imageCategory{
-    width: 90%;
+    width: 95%;
+    filter: hue-rotate(336deg);
+    width: 100vw;
+    height: 45vh;
+    object-fit: cover;
 }
+
+//hover imagen
+    // transform: scale(1.1);
+    // filter: none;
+    // box-shadow: 0 0 11px 3px #a89d898c;

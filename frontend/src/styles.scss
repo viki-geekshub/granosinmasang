@@ -5,9 +5,9 @@
 //     box-sizing: content-box;
 // }
 
-// VISTAS DE CATEGORIAS:
-
 @import './app/colors.scss';
+
+//ESTILOS GENERALES
 
 body{
   font-family: 'Open Sans', sans-serif;
@@ -17,9 +17,27 @@ h1, h2, h3, h4, h5, h6{
   font-family: 'Oswald', sans-serif;
 }
 
-#container{
-  padding:0 5%;
+img {
+  max-width: 100%;
 }
+
+.wrapper{
+  padding: 1em 15% !important;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  flex-direction: column;
+  padding: 0 !important;
+}
+.fixed{
+  position:  fixed;
+  top:  46px;
+}
+
+// VISTAS DE CATEGORIAS:
+
 .subcategories{
     display: flex;
     flex-wrap: wrap;
@@ -36,11 +54,6 @@ h1, h2, h3, h4, h5, h6{
   background-color: $colorLight;
   cursor: pointer;
 }
-
-img {
-  max-width: 100%;
-}
-
 
 // MATERIAL ICONS
 
@@ -69,19 +82,10 @@ img {
   font-feature-settings: 'liga';
 }
 
-.wrapper{
-  padding: 1em 15% !important;
-}
-.container{
-  display: flex;
-  justify-content: center;
-  min-width: 100%;
-  flex-direction: column;
-  padding: 0 !important;
-}
+/////////////////////////////
 
+//CAJA DATOS USER Y BOTÓN LOGIN - HEADER (de momento oculto)
 
-.fixed{
-  position:  fixed;
-  top:  46px;
-}
+// #userLogin{
+//   padding:0 5%;
+// }

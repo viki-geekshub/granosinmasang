@@ -45,8 +45,23 @@
   transform: scaleX(1);
 }
 
+.nav-item{
+  position: unset;
+}
+// .nav-item:hover{padding-bottom: 30px;}
+
 .nav-item:hover>.dropdown-menu{
-  display: block !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 24px 50px;
+  padding: 1em;
+  background-color: white !important;
+  border: none;
+  border-radius: none;
+  left: calc(50% - 404px);
+  top: calc(50% + 20px);
 }
     
 /////// INTENTO DE HACER UN HOVER EN EL DROPDOWN

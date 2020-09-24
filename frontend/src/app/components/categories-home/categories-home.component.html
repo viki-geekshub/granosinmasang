@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <h1>Nuestros Productos</h1>
+    <!-- <h2>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h2> -->
+    <p>Más de 1.000 variedades de producto de productores locales.<br> En Grano Sin Mas buscamos la excelencia del producto. Nos preocupamos de ofrecerte producto de calidad, mayoritariamente de km0, certificado y de origen ecológico.</p>
+  <div id="categories">
+    <div class="categoryRow" *ngFor="let category of categoryHome['categories'] | sort; index as i">
+      <div class="category">
+        <h3 class="categoryName">{{category.name}}</h3>
+        <a><img [src]="category.image_path" alt={{category.name}} class="imageCategory"></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,14 +3,11 @@
 //     background-image: url(../../assets/images/home.jpg);
 //     background-position: center;
 // }
-.container{
-    display: flex;
-    justify-content: center;
-    min-width: 100%;
-    padding: 0 !important;
-    height: 500px;
-    background-image: url(/../../assets/images/tienda.jpg);
+.herobanner{
+    background-image: url(/../../assets/images/tienda.webp);
     background-size: cover;
+    height: 500px;
+    width: 100%;
 }
  .img1{
      width: 100%;

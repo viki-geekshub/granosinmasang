@@ -12,7 +12,7 @@ export class ProductService {
   getAll(): Observable<any> {
     return this.httpClient.get('http://localhost:3000/products');
   }
-  getOne(id:string|number){
+  getOne(id:string|number) {
     return this.httpClient.get('http://localhost:3000/products/' + id);
   }
   setProducts(products): void {

@@ -50,15 +50,20 @@
         <a class="nav-link" routerLinkActive="active-link" data-toggle="modal">Productos<span
             class="sr-only"></span></a> <!--Clase que saca el dropdown con un click: data-toggle="dropdown"-->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-          <!-- MENU DINÁMICO DE PRODUCTOS POR CATEGORÍAS ORDENADO DE MAYOR A MENOR SEGUN EL CODE: -->
-          <div *ngFor="let category of categories | sort; index as i">
-            <a class="dropdown-item" routerLink='/{{category.name}}'>{{category.name}}</a>
-            <div *ngIf="(categories.length-1)!==i"></div>
+          <!-- Creamos un div transparente que contenga el menu inferior, de esta forma no perdemos el hover en el li-->
+          <div class="fakeHover">
+            <!-- MENU DINÁMICO DE PRODUCTOS POR CATEGORÍAS ORDENADO DE MAYOR A MENOR SEGUN EL CODE: -->
+            <div *ngFor="let category of categories | sort; index as i">
+              <a class="dropdown-item" routerLink='/{{category.name}}'>
+                <img [src]="category.image_path">
+                <figcaption>{{category.name}}</figcaption>
+              </a>
+              <!--<div *ngIf="(categories.length-1)!==i"></div>-->
+            </div>
+            <!-- EL pipe sort del ngFor lo hemos creado para ordenar arrays - " | sort "
+            index as i - es un iterador, para ir contando cada vuelta del bucle 
+            En el el ngIf le estoy diciendo que me muestre la linea divisoria solamente cuando no estemos en la última línea -->
           </div>
-          <!-- EL pipe sort del ngFor lo hemos creado para ordenar arrays - " | sort "
-          index as i - es un iterador, para ir contando cada vuelta del bucle 
-          En el el ngIf le estoy diciendo que me muestre la linea divisoria solamente cuando no estemos en la última línea -->
         </div>
       </li>
       <!-- <li class="nav-item">

@@ -65,24 +65,6 @@ img {
     text-shadow: 1px 3px 0px rgb(0 0 0 / 45%);
   }
 }
-// VISTAS DE CATEGORIAS:
-
-.subcategories{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1.5em;
-    margin-bottom: 2em;
-    color: black;
-    
-}
-.subcategory {
-  padding: 0.5em;
-  margin: 0.5em;
-  border-radius: 0.5em;
-  background-color: $colorLight;
-  cursor: pointer;
-}
 
 // MATERIAL ICONS
 
@@ -115,7 +97,16 @@ img {
   padding: 2em 15% !important;
 }
 
-
+//Columnas
+.column{
+  width: 50%;
+}
+.two-third{
+  width: 80%;
+}
+.one-third{
+  width: 20%;
+}
 /////////////////////////////
 
 //CAJA DATOS USER Y BOTÓN LOGIN - HEADER (de momento oculto)

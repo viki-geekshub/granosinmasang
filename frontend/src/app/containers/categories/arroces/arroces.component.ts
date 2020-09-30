@@ -4,7 +4,7 @@ import { SubcategoryService } from 'src/app/services/subcategory.service';
 @Component({
   selector: 'app-arroces',
   templateUrl: './../categories.html',
-  styleUrls: []
+  styleUrls: ['./../categories.scss']
 })
 export class ArrocesComponent implements OnInit {
 

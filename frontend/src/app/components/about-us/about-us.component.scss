@@ -1,12 +1,5 @@
 .herobanner{
   background-image: url(/../../assets/images/aboutUsHero.jpg);
-  &::before{
-    background: white;
-    content: "";
-    height: 250px;
-    position: absolute;
-    width: 100%;
-  }
 }
 
 h2{ text-align: left; }
@@ -26,9 +19,7 @@ h2{ text-align: left; }
   }
 }
 
-.column{
-  width: 50%;
-}
+
 .reverseOrder{
   background-position: left;
   background-size: 50%;

@@ -1,7 +1,45 @@
-<div class="subcategories" *ngIf="subcategoryService['subcategories']">
-    <div class="subcategory" *ngFor="let subcategory of subcategoryService['subcategories']">
-       <h3>{{subcategory.name}}</h3> 
-       <img [src]="subcategory.image_path" alt="imagen" class="image">
-       <!-- <img src="{{product.image_path}}" alt="imagen"> --> <!--Esto es otra forma de ponerlo-->
+<div class='container'>
+    <div class="herobanner arroz">
+        <h1>Arroces</h1>
+    </div>
+    <div class="wrapper">
+        <div class="row">
+            <div class="column two-third">
+                <div class="subcategories" *ngIf="subcategoryService['subcategories']">
+                    <div class="subcategory" *ngFor="let subcategory of subcategoryService['subcategories']">
+                       <div class="productImg">
+                           <img [src]="subcategory.image_path" alt="imagen" class="image">
+                       </div>
+                       <div class="productInfo">
+                           <h2>{{subcategory.name}}</h2>
+                           <p>Precio: 8,88€/kg</p>
+                       </div> 
+                    </div>
+                    <div class="subcategory" *ngFor="let subcategory of subcategoryService['subcategories']">
+                        <div class="productImg">
+                            <img [src]="subcategory.image_path" alt="imagen" class="image">
+                        </div>
+                        <div class="productInfo">
+                            <h2>{{subcategory.name}}</h2>
+                            <p>Precio: 8,88€/kg</p>
+                        </div> 
+                     </div>
+                     <div class="subcategory" *ngFor="let subcategory of subcategoryService['subcategories']">
+                        <div class="productImg">
+                            <img [src]="subcategory.image_path" alt="imagen" class="image">
+                        </div>
+                        <div class="productInfo">
+                            <h2>{{subcategory.name}}</h2>
+                            <p>Precio: 8,88€/kg</p>
+                        </div> 
+                     </div>
+                </div>
+            </div>
+            <div class="column one-third" >
+                <ul *ngIf="subcategoryService['subcategories']">
+                    <li *ngFor="let subcategory of subcategoryService['subcategories']">{{subcategory.name}}</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

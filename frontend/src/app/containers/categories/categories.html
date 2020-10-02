@@ -12,7 +12,7 @@
                        </div>
                        <div class="productInfo">
                            <h2>{{subcategory.name}}</h2>
-                           <p>Precio: 8,88€/kg</p>
+                           <p>Precio: 4€/kg</p>
                        </div> 
                     </div>
                     <div class="subcategory" *ngFor="let subcategory of subcategoryService['subcategories']">
@@ -21,7 +21,7 @@
                         </div>
                         <div class="productInfo">
                             <h2>{{subcategory.name}}</h2>
-                            <p>Precio: 8,88€/kg</p>
+                            <p>Precio: 5€/kg</p>
                         </div> 
                      </div>
                      <div class="subcategory" *ngFor="let subcategory of subcategoryService['subcategories']">
@@ -30,15 +30,43 @@
                         </div>
                         <div class="productInfo">
                             <h2>{{subcategory.name}}</h2>
-                            <p>Precio: 8,88€/kg</p>
+                            <p>Precio: 6€/kg</p>
                         </div> 
                      </div>
                 </div>
             </div>
             <div class="column one-third" >
+                <form class="form-inline my-2 my-lg-0">
+                    <!-- Le paso el evento submit para que haga la función searchProduct y le paso el evento como parámetro || (submit)="searchProducts($event)"-->
+                    <input class="form-control mr-sm-2" type="search" placeholder="Encuentra tu producto" aria-label="Search"
+                      name="search">
+                    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i _ngcontent-jwg-c82="" id="glassButton" class="material-icons">search</i></button>
+                  </form>
+                <h3>Subcategorias</h3>
                 <ul *ngIf="subcategoryService['subcategories']">
-                    <li *ngFor="let subcategory of subcategoryService['subcategories']">{{subcategory.name}}</li>
+                    <li *ngFor="let subcategory of subcategoryService['subcategories']" class="eyeContainer">{{subcategory.name}}<span class="eye"><img src="../../../assets/images/eyeOpen.svg" alt=""></span></li>
                 </ul>
+                <div class="filterBox">
+                    <h6>Filtra tu busqueda</h6>
+                    <ul>
+                    <li>
+                        <input type="checkbox">
+                        <label for="">Precio ascendente<span>(€ - €€€)</span></label>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <label for="">Precio descendente<span>(€€€ - €)</span></label>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <label for="">Alfabético ascendente<span>(A - Z)</span></label>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <label for="">Alfabético descendente<span>(Z - A)</span></label>
+                    </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

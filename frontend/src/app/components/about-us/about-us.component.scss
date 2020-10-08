@@ -1,18 +1,30 @@
-.wrapper{
-    background-color: #eee;
-    padding: 2.5em 15% !important;
+.herobanner{
+  background-image: url(/../../assets/images/aboutUsHero.jpg);
 }
-h1,h2{
-    text-align: center;
+
+h2{ text-align: left; }
+
+.row{
+  background-image: url(/../../assets/images/prototipoNueces.jpg);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 47%;
+  display: flex;
+  margin-bottom: 3em;
+  &:nth-child(2){
+    background-image: url(/../../assets/images/prototipoFruta.jpg);  
+  }
+  &:nth-child(3){
+    background-image: url(/../../assets/images/prototipoMujer.jpg);  
+  }
 }
-h1{
-    color:#6f5036;
-}
-h2{
-    font-size: 1.2rem;
-    color: #fd9b67;
-}
-p{
-    text-align: justify;
-    margin-top: 1.2em;
+
+
+.reverseOrder{
+  background-position: left;
+  background-size: 50%;
+  justify-content:flex-end;
+  .column{
+    width: 47%;
+  }
 }

@@ -16,7 +16,13 @@ body{
 h1, h2, h3, h4, h5, h6{
   font-family: 'Oswald', sans-serif;
 }
-
+h1,h2{
+  text-align: center;
+  z-index: 10;
+}
+h2{
+  font-size: 1.2em;
+}
 a{
   cursor: pointer;
 }
@@ -25,9 +31,6 @@ img {
   max-width: 100%;
 }
 
-.wrapper{
-  padding: 1em 15% !important;
-}
 .container{
   display: flex;
   justify-content: center;
@@ -40,23 +43,27 @@ img {
   top:  46px;
 }
 
-// VISTAS DE CATEGORIAS:
-
-.subcategories{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1.5em;
-    margin-bottom: 2em;
-    color: black;
-    
-}
-.subcategory {
-  padding: 0.5em;
-  margin: 0.5em;
-  border-radius: 0.5em;
-  background-color: $colorLight;
-  cursor: pointer;
+.herobanner{
+  align-items: center;
+  background-size: cover;
+  display: flex;
+  height: 250px;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  &::before{
+    background: white;
+    content: "";
+    height: 250px;
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+  }
+  h1{
+    color: white;
+    font-size: 400%;
+    text-shadow: 1px 3px 0px rgb(0 0 0 / 45%);
+  }
 }
 
 // MATERIAL ICONS
@@ -86,6 +93,22 @@ img {
   font-feature-settings: 'liga';
 }
 
+.wrapper{
+  padding: 2em 15% !important;
+}
+
+//Columnas
+.column{
+  width: 50%;
+}
+.two-third{
+  width: 75%;
+}
+.one-third{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
 /////////////////////////////
 
 //CAJA DATOS USER Y BOTÓN LOGIN - HEADER (de momento oculto)

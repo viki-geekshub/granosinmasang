@@ -6,7 +6,13 @@
     <div class="categoryRow" *ngFor="let category of categoryHome['categories'] | sort; index as i">
       <div class="category">
         <h3 class="categoryName">{{category.name}}</h3>
-        <a><img [src]="category.image_path" alt={{category.name}} class="imageCategory"></a>
+        <a>
+          <picture>
+            <source srcset="{{category.image_path}}.webp" type="image/webp" class="imageCategory">
+            <source srcset="{{category.image_path}}.jpg" type="image/jpg" class="imageCategory">
+            <img src="{{category.image_path}}.jpg" alt="{{category.name}}" class="imageCategory">
+          </picture>
+        </a>
       </div>
     </div>
   </div>

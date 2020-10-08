@@ -4,7 +4,7 @@ import { SubcategoryService } from 'src/app/services/subcategory.service';
 @Component({
   selector: 'app-legumbres',
   templateUrl: './../categories.html',
-  styleUrls: []
+  styleUrls: ['./../categories.scss']
 })
 export class LegumbresComponent implements OnInit {
 

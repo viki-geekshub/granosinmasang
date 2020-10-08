@@ -1,14 +1,17 @@
-// .container {
-//     // min-height: 59.5vh;
-//     background-image: url(../../assets/images/home.jpg);
-//     background-position: center;
-// }
 .herobanner{
     background-image: url(/../../assets/images/tienda.webp);
-    background-size: cover;
     height: 500px;
-    width: 100%;
+    &::before{
+        content: none;
+    }
 }
  .img1{
      width: 100%;
  }
+
+ #about-us.wrapper{ 
+    background-color: #eee;
+    h1{ color:#6f5036; }
+    h2{ color: #fd9b67; }
+    p{ text-align: justify; }
+}

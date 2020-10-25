@@ -6,11 +6,11 @@
     <div class="categoryRow" *ngFor="let category of categoryHome['categories'] | sort; index as i">
       <div class="category">
         <h3 class="categoryName">{{category.name}}</h3>
-        <a>
+        <a routerLink='/{{category.name}}' (click)="onActivate($event)">
           <picture>
             <source srcset="{{category.image_path}}.webp" type="image/webp" class="imageCategory">
             <source srcset="{{category.image_path}}.jpg" type="image/jpg" class="imageCategory">
-            <img src="{{category.image_path}}.jpg" alt="{{category.name}}" class="imageCategory" routerLink='/{{category.name}}'>
+            <img src="{{category.image_path}}.jpg" alt="{{category.name}}" class="imageCategory">
           </picture>
         </a>
       </div>

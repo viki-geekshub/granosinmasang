@@ -10,7 +10,7 @@
           <picture>
             <source srcset="{{category.image_path}}.webp" type="image/webp" class="imageCategory">
             <source srcset="{{category.image_path}}.jpg" type="image/jpg" class="imageCategory">
-            <img src="{{category.image_path}}.jpg" alt="{{category.name}}" class="imageCategory">
+            <img src="{{category.image_path}}.jpg" alt="{{category.name}}" class="imageCategory" routerLink='/{{category.name}}'>
           </picture>
         </a>
       </div>

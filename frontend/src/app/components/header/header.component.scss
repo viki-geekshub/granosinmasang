@@ -69,7 +69,65 @@
   margin-top: 2%;
   width:100%;
 }
-
+.dropdown-item p{
+  align-items: center;
+  display: flex;
+  padding-left: 1.5em;
+  position: relative;
+  &:before{
+    background-repeat: no-repeat;
+    content:"";
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 20px;
+  }
+}
+.Harinas{
+  &:before{
+    background-image: url('/../assets/images/icons/flour.svg');
+  }
+}
+.Legumbres{
+  &:before{
+    background-image: url('/../assets/images/icons/beans.svg');
+  }
+}
+.Café{
+  &:before{
+    background-image: url('/../assets/images/icons/coffee-maker.svg');
+  }
+}
+.Deshidratados{
+  &:before{
+    background-image: url('/../assets/images/icons/blueberry.svg');
+  }
+}
+.Superalimentos{
+  &:before{
+    background-image: url('/../assets/images/icons/strong.svg');
+  }
+}
+.Cacao{
+  &:before{
+    background-image: url('/../assets/images/icons/chocolate-bar.svg');
+  }
+}
+.Frutos.Secos{
+  &:before{
+    background-image: url('/../assets/images/icons/macadamia-nut.svg');
+  }
+}
+.Especias{
+  &:before{
+    background-image: url('/../assets/images/icons/salt.svg');
+  }
+}
+.Té{
+  &:before{
+    background-image: url('/../assets/images/icons/te.svg');
+  }
+}
 .fakeHover div{
   width: 100%;
 }
@@ -78,7 +136,7 @@
   position: relative;
 }
 .dropdown-item{
-  height: 125px;
+  //height: 125px;
   overflow: hidden;
   position: relative;
 }

@@ -5,31 +5,160 @@
 //     box-sizing: content-box;
 // }
 
-// VISTAS DE CATEGORIAS:
-
 @import './app/colors.scss';
 
-#container{
-  padding:0 5%;
-}
-.subcategories{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1.5em;
-    margin-bottom: 2em;
-    color: black;
-    
-}
-.subcategory {
-  padding: 0.5em;
-  margin: 0.5em;
-  border-radius: 0.5em;
-  background-color: $colorLight;
-  cursor: pointer;
+//ESTILOS GENERALES
 
-  img {
-    border-radius: 0.5em;
-    max-width: 15em;
-  }
+body{
+  font-family: 'Open Sans', sans-serif;
+  color:#333;
 }
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Oswald', sans-serif;
+}
+h1,h2{
+  text-align: center;
+  z-index: 10;
+}
+h2{
+  font-size: 1.2em;
+}
+a{
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  flex-direction: column;
+  padding: 0 !important;
+}
+.fixed{
+  position:  fixed;
+  top:  46px;
+}
+
+.herobanner{
+  align-items: center;
+  background-size: cover;
+  display: flex;
+  height: 250px;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  &::before{
+    background: white;
+    content: "";
+    height: 250px;
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+  }
+  h1{
+    color: white;
+    font-size: 400%;
+    text-shadow: 1px 3px 0px rgb(0 0 0 / 45%);
+  }
+  &.alimentosDeshidratados{
+    background-image: url(/../../assets/images/prototipoAlimentosDeshidratados.jpg);
+  }
+  &.arroces{
+    background-image: url(/../../assets/images/prototipoArroces3.jpg);
+  }
+  &.cacao{
+    background-image: url(/../../assets/images/prototipoCacao2.jpg);
+  }
+  &.cafe{
+    background-image: url(/../../assets/images/prototipoCafe3.jpg);
+  }
+  &.cereales{
+    background-image: url(/../../assets/images/prototipoCereales.jpg);
+  }
+  &.especias{
+    background-image: url(/../../assets/images/prototipoEspecias.jpg);
+  }
+  &.frutosSecos{
+    background-image: url(/../../assets/images/prototipoFrutosSecos3.jpg);
+  }
+  &.harinas{
+    background-image: url(/../../assets/images/prototipoHarinas3.jpg);
+  }
+  &.legumbres{
+    background-image: url(/../../assets/images/prototipoLegumbres4.jpg);
+  }
+  &.pasta{
+    background-image: url(/../../assets/images/prototipoPasta.jpg);
+  }
+  &.potenciadores{
+    background-image: url(/../../assets/images/prototipoPotenciadores.jpg);
+  }
+  &.semillas{
+    background-image: url(/../../assets/images/prototipoSemillas.jpg);
+  }
+  &.semolas{
+    background-image: url(/../../assets/images/prototipoSemolas.jpg);
+  }
+  &.superalimentos{
+    background-image: url(/../../assets/images/prototipoSuperalimentos3.jpg);
+  }
+  &.te{
+    background-image: url(/../../assets/images/prototipoTe.jpg);
+  }
+
+}
+
+// MATERIAL ICONS
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.wrapper{
+  padding: 2em 15% !important;
+}
+
+//Columnas
+.column{
+  width: 50%;
+}
+.two-third{
+  width: 75%;
+}
+.one-third{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+/////////////////////////////
+
+//CAJA DATOS USER Y BOTÓN LOGIN - HEADER (de momento oculto)
+
+// #userLogin{
+//   padding:0 5%;
+// }

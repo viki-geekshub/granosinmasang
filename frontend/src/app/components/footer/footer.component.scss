@@ -1,10 +1,13 @@
 @import '../../colors.scss';
 
+a{
+    color:white;
+}
 .footer{
     display:flex;
     flex-flow: column wrap; 
     color: white;
-    background-color: $colorDark;
+    background-color: #fe725f;
 }
 .up{
     display:flex;
@@ -24,16 +27,27 @@ p{
     display: inline-block;
 }
 .networks{
-    margin:1em 2em;
-}
-.iconInsta{
-    width: 3em;
-    cursor: pointer;
-}
-.iconFace{
-    width: 3.8em;
-    cursor: pointer;
-}
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-width: 130px;
+  }
+  .iconNetwork{
+    width: 100%;
+  }
+  .instagram,.facebook,.whatsapp{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 20px;
+    margin: 0 .5em;
+    width: 20px;
+  }
+  
+  .instagram{background-image: url(/../assets/images/icons/instagram.svg);}
+  .facebook{background-image: url(/../../assets/images/icons/facebook.svg);}
+  .whatsapp{background-image: url(/../../assets/images/icons/whatsapp2.svg);}
+  
 
 .copyright{
     margin: 1em 2em;
@@ -41,3 +55,21 @@ p{
     justify-content: flex-end;
     
 }
+
+.direccion,.mail{
+    align-items: center;
+    display: flex;
+    position: relative;
+    padding-left: 25px;
+}
+.direccion:before,.mail:before{
+    content: "";
+    background-position: center center;
+    background-size: contain;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width:20px;    
+}
+.direccion:before{background-image: url(/../assets/images/icons/pin.svg);}
+.mail:before{background-image: url(/../assets/images/icons/mail2.svg);}

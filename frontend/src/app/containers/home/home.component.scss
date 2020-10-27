@@ -1,15 +1,17 @@
-// .container {
-//     // min-height: 59.5vh;
-//     background-image: url(../../assets/images/home.jpg);
-//     background-position: center;
-// }
-.container{
-    display: flex;
-    justify-content: center;
+.herobanner{
+    background-image: url(/../../assets/images/background/tienda.webp);
+    height: 500px;
+    &::before{
+        content: none;
+    }
 }
  .img1{
-     width: 90vh;
+     width: 100%;
  }
- .img2{
-    width: 95vh;
+
+ #about-us.wrapper{ 
+    background-color: #eee;
+    h1{ color:#6f5036; }
+    h2{ color: #fd9b67; }
+    p{ text-align: justify; }
 }

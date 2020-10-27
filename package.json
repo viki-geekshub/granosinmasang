@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"npm run start:front\" \"npm run start:back\" ",
     "start:back": "cd backend && nodemon index.js",
-    "start:front": "cd frontend && ng serve --open",
+    "start:front": "cd frontend && node index.js && ng serve --open",
     "install:back": "cd backend && npm install",
     "install:front": "cd frontend && npm install",
     "postinstall": "concurrently \"npm run install:front\" \"npm run install:back\" "
@@ -14,5 +14,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "imagemin": "^7.0.1",
+    "imagemin-webp": "^6.0.0",
+    "material-design-icons": "^3.0.1"
+  }
 }

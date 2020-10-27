@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './containers/home/home.component';
-import { AboutUsComponent } from './containers/about-us/about-us.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ProductsComponent } from './containers/products/products.component';
 import { RecipesComponent } from './containers/recipes/recipes.component';
 import { StoreComponent } from './containers/store/store.component';
@@ -41,8 +41,8 @@ const routes: Routes = [
   {path: 'recipes', component: RecipesComponent},
   {path: 'store', component: StoreComponent},
   {path: 'products/search/:searchValue', component: SearchProductsComponent},
-  {path:'product/:id', component: ProductDetailsComponent},
-  {path:'shoppingcart',component: ShoppingCartComponent},
+  {path: 'product/:id', component: ProductDetailsComponent},
+  {path: 'shoppingcart', component: ShoppingCartComponent},
   // ADMINISTRACION:
   {path: 'addproducts', component: AddProductsComponent},
   {path: 'addcategories', component: AddCategoriesComponent},
@@ -62,11 +62,11 @@ const routes: Routes = [
   {path: 'Pasta', component: PastaComponent},
   {path: 'Cereales', component: CerealesComponent},
   {path: 'Frutos Secos', component: FrutosSecosComponent},
-  {path: 'Alimentos Deshidratados', component: AlimentosDeshidratadosComponent},
+  {path: 'Deshidratados', component: AlimentosDeshidratadosComponent},
   {path: 'Especias', component: EspeciasComponent},
-  {path: 'Potenciadores de Cocina', component: PotenciadoresCocinaComponent},
+  {path: 'Potenciadores', component: PotenciadoresCocinaComponent},
   {path: 'Café', component: CafeComponent},
-  {path: 'Cacao', component: CacaoComponent},  
+  {path: 'Cacao', component: CacaoComponent},
   {path: 'Semillas', component: SemillasComponent},
   {path: 'Superalimentos', component: SuperAlimentosComponent},
   {path: 'Té', component: TeComponent},

@@ -1,112 +1,86 @@
-<!-- ////////////////////  MENU UNO  /////////////////////// -->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top black">
-  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
-  <div id="container">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="form-inline my-2 my-lg-0" (submit)="searchProducts($event)"> <!-- Le paso el evento submit para que haga la función searchProduct y le paso el evento como parámetro-->
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search" 
-      name="search">
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
-    <a routerLink="/"><img src="assets/images/logo.jpeg" alt="Logo de Grano Sin Mas" class="image"></a>
-  </div>
-
-  <div class="LoggedIn row" *ngIf="userService['user']['id']"> <!--Añado un div para decirle que todo lo que haya dentro solo aparecerá cuando estemos logados. Con la directiva ngIf le indico cuando tiene que mostrarlo. Le estoy preguntando si hay un id, y si lo hay entonces es true, y si es true es que está logado y entonces nos muestra el div con todo su contenido. Si no es así, no lo mostrará. -->
-    <div class="nav-item">
-      <a class="nav-link conection"> {{userService['user']['name']}}</a> <!-- Hay dos formas de ponerlo: "userService['user']['name']" o "userService.user.name" ==> a veces funciona una y a veces otra. Son dos sintaxis distintas para hacer lo mismo-->
+<!-- 1º MENU - DATOS CABECERA, REDES Y BUSCADOR -->
+<div id="dataHeader" class="wrapper">
+  <address class="data">
+    <p>C/ Toledo 6, 19002 - Guadalajara | Tlfno: 949407054 / 623463810.</p>
+  </address>
+  <!-- REDES SOCIALES Y BUSCADOR-->
+  <div autosize class="networks" [style.width.%]="width" [style.transition] ="transition">
+    <a href="https://www.instagram.com/granosinmas_guadalajara/?hl=es" target=_blank class="iconNetwork instagram"
+      [hidden]="!isShow"></a>
+    <a href="https://www.facebook.com/" target=_blank class="iconNetwork facebook" [hidden]="!isShow"></a>
+    <a href="https://api.whatsapp.com/send?phone=+34653563611" target=_blank class="iconNetwork whatsapp"
+      [hidden]="!isShow"></a>
+    <!-- BUSCADOR DE PRODUCTOS -->
+    <div id="navbarSearch" [hidden]="isShow">
+      <!--CLASE QUE MOLESTABA: class="collapse navbar-collapse"  -->
+      <form class="form-inline my-2 my-lg-0" (submit)="searchProducts($event)">
+        <!-- Le paso el evento submit para que haga la función searchProduct y le paso el evento como parámetro-->
+        <input class="form-control mr-sm-2" type="search" placeholder="Encuentra tu producto" aria-label="Search"
+          name="search">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
     </div>
-    <div class="nav-item">
-      <a class="nav-link" routerLink="" (click)=logout()>
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Desconectar</button>
-      </a>
-    </div>
-    <button class="btn my-2 my-sm-0" type="submit"><a class="nav-link botonCesta " routerLink="/shoppingcart"><i class="fas fa-shopping-cart fa-lg"></i></a></button>
-  </div>
-
-  <div class="notLoggedIn row" *ngIf="!userService['user']['id']"> <!--Añado un div para decirle que lo que haya dentro solo aparecerá cuando no estés logado. Con la directiva ngIf le indico cuando tiene que mostrarlo. Igual que el de antes pero al revés. -->
-    <div class="nav-item">
-      <a class="nav-link conection" routerLink="/login">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Conectar</button>
-      </a>
-  </div>
+    <i id="glass" class="material-icons" (click)="toggleDisplay()">{{icon}}</i>
   </div>
 </div>
-</nav>
-<!-- ////////////////////  MENU DOS  /////////////////////// -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<!-- 2º MENU -->
+<nav class="navbar navbar-expand-lg wrapper menu2" appStickyHeader>
+
+  <!-- MENU HAMBURGUESA -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <!-- LOGO -->
+  <a routerLink="/"><img src="assets/images/logo.jpeg" alt="Logo de Grano Sin Mas" class="image" (click)="onActivate($event)"></a>
+
+  <!-- MENU PRINCIPAL -->
+  <div class="collapse navbar-collapse menuPrincipal" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" (click)="onActivate($event)">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/products"routerLinkActive="active-link">Quiénes Somos<span class="sr-only"></span></a>
+        <a class="nav-link" routerLink="/" routerLinkActive="active-link" >Inicio<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/aboutus" routerLinkActive="active-link">Quienes somos<span
+            class="sr-only"></span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" routerLinkActive="active-link">Productos<span class="sr-only"></span></a>
+        <a class="nav-link" routerLinkActive="active-link" data-toggle="modal">Productos<span
+            class="sr-only"></span></a> <!--Clase que saca el dropdown con un click: data-toggle="dropdown"-->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-          <!-- MENU DINÁMICO DE PRODUCTOS POR CATEGORÍAS ORDENADO DE MAYOR A MENOR SEGUN EL CODE: -->
-
-          <div *ngFor="let category of categories | sort; index as i">
-            <a class="dropdown-item" routerLink='/{{category.name}}'>{{category.name}}</a>
-            <div class="dropdown-divider" *ngIf="(categories.length-1)!==i"></div>
-          </div>  
-          <!-- EL pipe sort del ngFor lo hemos creado para ordenar arrays - " | sort "
-          index as i - es un iterador, para ir contando cada vuelta del bucle 
-          En el el ngIf le estoy diciendo que me muestre la linea divisoria solamente cuando no estemos en la última línea -->
-
-          <!-- ANTIGUO MENU HECHO A MANO - NO ES DINAMICO -->
-          <!-- <a class="dropdown-item" routerLink="/legumbres">Legumbres</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/arroces">Arroces</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/harinas">Harinas</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/semolas">Sémolas</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/pasta">Pasta</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/cereales">Cereales</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/frutossecos">Frutos Secos</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/alimentosdeshidratados">Alimentos Deshidratados</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/especias">Especias</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/potenciadorescocina">Potenciadores de Cocina</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/cafe">Café</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/cacao">Cacao</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/semillas">Semillas</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/superalimentos">Super Alimentos</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/te">Té</a> -->
+          <!-- Creamos un div transparente que contenga el menu inferior, de esta forma no perdemos el hover en el li-->
+          <div class="fakeHover">
+            <!-- MENU DINÁMICO DE PRODUCTOS POR CATEGORÍAS ORDENADO DE MAYOR A MENOR SEGUN EL CODE: -->
+            <div *ngFor="let category of categories | sort; index as i">
+              <a class="dropdown-item" routerLink='/{{category.name}}'>
+                <img [src]="category.image_path">
+                <figcaption>{{category.name}}</figcaption>
+              </a>
+              <!--<div *ngIf="(categories.length-1)!==i"></div>-->
+            </div>
+            <!-- EL pipe sort del ngFor lo hemos creado para ordenar arrays - " | sort "
+            index as i - es un iterador, para ir contando cada vuelta del bucle 
+            En el el ngIf le estoy diciendo que me muestre la linea divisoria solamente cuando no estemos en la última línea -->
+          </div>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/recipes" routerLinkActive="active-link">Recetas<span class="sr-only"></span></a>
-      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/recipes" routerLinkActive="active-link">Recetas<span
+            class="sr-only"></span></a>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" routerLink="/store" routerLinkActive="active-link">Tienda<span class="sr-only"></span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" 
-        *ngIf="admins.includes(userService['user']['role'])"
-        href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" *ngIf="admins.includes(userService['user']['role'])" href="#" id="navbarDropdown"
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Administración
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+        <!-- MENU DE ADMINISTRACION (Oculto para los clientes): -->
+        <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/addproducts">Productos</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/addcategories">Categorías</a>
@@ -116,19 +90,38 @@
           <a class="dropdown-item" routerLink="/orders">Pedidos</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/users">Usuarios</a>
-        </div>
+        </div> -->
       </li>
     </ul>
-    
-    <!-- {{userService['user'] | json}} --> 
-    <!-- Objeto de testeo en el body. Me saca el usuario del userService en json -->
-
-    <!-- <form class="form-inline my-2 my-lg-0" (submit)="searchProducts($event)">  -->
-      <!-- Le paso el evento submit para que haga la función searchProduct y le paso el evento como parámetro-->
-      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search" 
-      name="search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form> -->
   </div>
-</nav>
 
+
+
+  <!-- INFO DE USUARIO Y BOTON DE LOGIN -->
+  <!-- <div id="userLogin">
+    <div class="LoggedIn row" *ngIf="userService['user']['id']"> -->
+  <!--Añado un div para decirle que todo lo que haya dentro solo aparecerá cuando estemos logados. Con la directiva ngIf le indico cuando tiene que mostrarlo. Le estoy preguntando si hay un id, y si lo hay entonces es true, y si es true es que está logado y entonces nos muestra el div con todo su contenido. Si no es así, no lo mostrará. -->
+  <!-- <div class="nav-item">
+        <a class="nav-link conection"> {{userService['user']['name']}}</a> -->
+  <!-- Hay dos formas de ponerlo: "userService['user']['name']" o "userService.user.name" ==> a veces funciona una y a veces otra. Son dos sintaxis distintas para hacer lo mismo-->
+  <!-- </div>
+      <div class="nav-item">
+        <a class="nav-link" routerLink="" (click)=logout()>
+          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Desconectar</button>
+        </a>
+      </div>
+      <button class="btn my-2 my-sm-0" type="submit"><a class="nav-link botonCesta " routerLink="/shoppingcart"><i
+            class="fas fa-shopping-cart fa-lg"></i></a></button>
+    </div>
+
+    <div class="notLoggedIn row" *ngIf="!userService['user']['id']"> -->
+  <!--Añado un div para decirle que lo que haya dentro solo aparecerá cuando no estés logado. Con la directiva ngIf le indico cuando tiene que mostrarlo. Igual que el de antes pero al revés. -->
+  <!-- <div class="nav-item">
+        <a class="nav-link conection" routerLink="/login">
+          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Conectar</button>
+        </a>
+      </div>
+    </div>
+  </div> -->
+
+</nav>

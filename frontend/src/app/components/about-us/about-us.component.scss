@@ -1,0 +1,30 @@
+.herobanner{
+  background-image: url(/../../assets/images/background/aboutUsHero.webp);
+}
+
+h2{ text-align: left; }
+
+.row{
+  background-image: url(/../../assets/images/prototipoNueces.jpg);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 47%;
+  display: flex;
+  margin-bottom: 3em;
+  &:nth-child(2){
+    background-image: url(/../../assets/images/prototipoFruta.jpg);  
+  }
+  &:nth-child(3){
+    background-image: url(/../../assets/images/prototipoMujer.jpg);  
+  }
+}
+
+
+.reverseOrder{
+  background-position: left;
+  background-size: 50%;
+  justify-content:flex-end;
+  .column{
+    width: 47%;
+  }
+}

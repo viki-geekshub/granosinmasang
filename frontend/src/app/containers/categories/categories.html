@@ -1,6 +1,5 @@
 <div class='container'>
-    <div class="herobanner arroz">
-        <h1>Arroces</h1>
+    <div class="herobannerContainer" [innerHTML]="tagName" >
     </div>
     <div class="wrapper">
         <div class="row">
@@ -41,33 +40,13 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Encuentra tu producto" aria-label="Search"
                       name="search">
                     <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i _ngcontent-jwg-c82="" id="glassButton" class="material-icons">search</i></button>
-                  </form>
+                </form>
                 <h3>Subcategorias</h3>
                 <ul *ngIf="subcategoryService['subcategories']">
-                    <li *ngFor="let subcategory of subcategoryService['subcategories']" class="eyeContainer">{{subcategory.name}}<span class="eye"><img src="../../../assets/images/eyeOpen.svg" alt=""></span></li>
+                    <li *ngFor="let subcategory of subcategoryService['subcategories']" class="eyeContainer">{{subcategory.name}}<span class="eye"><img src="../../../assets/images/icons/eyeOpen.svg" alt=""></span></li>
                 </ul>
-                <div class="filterBox">
-                    <h6>Filtra tu busqueda</h6>
-                    <ul>
-                    <li>
-                        <input type="checkbox">
-                        <label for="">Precio ascendente<span>(€ - €€€)</span></label>
-                    </li>
-                    <li>
-                        <input type="checkbox">
-                        <label for="">Precio descendente<span>(€€€ - €)</span></label>
-                    </li>
-                    <li>
-                        <input type="checkbox">
-                        <label for="">Alfabético ascendente<span>(A - Z)</span></label>
-                    </li>
-                    <li>
-                        <input type="checkbox">
-                        <label for="">Alfabético descendente<span>(Z - A)</span></label>
-                    </li>
-                    </ul>
-                </div>
-            </div>
+                <app-filters></app-filters>
+            </div> 
         </div>
     </div>
 </div>

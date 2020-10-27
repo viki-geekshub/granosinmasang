@@ -44,6 +44,7 @@ import { ProductDetailsComponent } from './containers/product-details/product-de
 import { ShoppingCartComponent } from './containers/shopping-cart/shopping-cart.component';
 import { CategoriesHomeComponent } from './components/categories-home/categories-home.component';
 import { StickyHeaderDirective } from './sticky-header.directive';
+import { FiltersComponent } from './components/filters/filters.component';
 // import { DatePipe } from '@angular/common';
 
 
@@ -89,6 +90,7 @@ import { StickyHeaderDirective } from './sticky-header.directive';
     ShoppingCartComponent,
     CategoriesHomeComponent,
     StickyHeaderDirective,
+    FiltersComponent,
     // DatePipe, // Al final no uso elmodulo de date de angular, me hice uno propio
   ],
   imports: [

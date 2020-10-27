@@ -18,5 +18,15 @@ export class CategoriesHomeComponent implements OnInit {
         error => console.log(error)
       );
   }
+  onActivate(event) {
+    let scrollToTop = window.setInterval(() => {
+        let pos = window.pageYOffset;
+        if (pos > 0) {
+            window.scrollTo(0, 0); // how far to scroll on each step
+        } else {
+            window.clearInterval(scrollToTop);
+        }
+    }, 16);
+  }
 
 }

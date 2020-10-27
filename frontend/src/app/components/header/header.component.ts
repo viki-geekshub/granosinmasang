@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
             window.clearInterval(scrollToTop);
         }
     }, 16);
-}
+  }
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe((res) => {

@@ -55,5 +55,6 @@ export class StickyHeaderDirective {
     this._element.style.boxShadow = '';
     this._element.style.webkitBoxShadow = '';
     this._element.style.cssText += 'background-color: transparent';
+    this._element.style.cssText += 'padding: 2em 15%!important';
   }
 }

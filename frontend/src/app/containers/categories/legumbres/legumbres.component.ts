@@ -15,7 +15,9 @@ export class LegumbresComponent implements OnInit {
     this.tagName = '<div class=\'herobanner legumbres\'><h1>Legumbres</h1></div>';
     this.subcategoryService.getAll()
     .subscribe(
-      res => this.subcategoryService.setSubCatLegumbres(res),
+      res =>{ this.subcategoryService.setSubCatLegumbres(res);
+        console.log(this.subcategoryService);
+},
       error => console.log(error)
     );
     this.productService.getAll()
@@ -23,6 +25,5 @@ export class LegumbresComponent implements OnInit {
       res => this.productService.setProductsLegumbres(res),
       error => console.log(error)
     );
-  }
-
+  };
 }

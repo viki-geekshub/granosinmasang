@@ -24,7 +24,7 @@ import { SemolasComponent } from './containers/categories/semolas/semolas.compon
 import { PastaComponent } from './containers/categories/pasta/pasta.component';
 import { CerealesComponent } from './containers/categories/cereales/cereales.component';
 import { FrutosSecosComponent } from './containers/categories/frutos-secos/frutos-secos.component';
-import { AlimentosDeshidratadosComponent } from './containers/categories/alimentos-deshidratados/alimentos-deshidratados';
+import { AlimentosDeshidratadosComponent } from './containers/categories/alimentos-deshidratados/alimentos-deshidratados.component';
 import { EspeciasComponent } from './containers/categories/especias/especias.component';
 import { PotenciadoresCocinaComponent } from './containers/categories/potenciadores-cocina/potenciadores-cocina.component';
 import { CafeComponent } from './containers/categories/cafe/cafe.component';

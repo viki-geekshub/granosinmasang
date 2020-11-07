@@ -1,8 +1,16 @@
-<div class="products">
-<div class="product" *ngFor="let product of products">
-    <h3>{{product.name}}</h3> 
-       <img [src]="product.image_path" alt="imagen" class="image">
-       <!-- <img src="{{product.image_path}}" alt="imagen"> --> <!--Esto es otra forma de ponerlo-->
-        <h5>Precio: {{product.price}} Euros</h5>
-</div>
+<div class="container">
+  <div class="herobanner search">
+    <h1>Lo hemos encontrado. Yupi!</h1>
+  </div>
+  <div class="subcategories">
+    <div class="subcategory" *ngFor="let product of products">
+      <div class="productImg">
+        <img [src]="product.image_path" alt="imagen" class="image">
+      </div>
+      <div class="productInfo">
+        <h2>{{product.name}}</h2>
+        <p>Precio: {{product.price}} Euros</p>
+      </div>
+    </div>
+  </div>
 </div>

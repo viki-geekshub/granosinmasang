@@ -14,16 +14,20 @@ export class LegumbresComponent implements OnInit {
   ngOnInit(): void {
     this.tagName = '<div class=\'herobanner legumbres\'><h1>Legumbres</h1></div>';
     this.subcategoryService.getAll()
-    .subscribe(
-      res =>{ this.subcategoryService.setSubCatLegumbres(res);
-        console.log(this.subcategoryService);
-},
-      error => console.log(error)
-    );
+      .subscribe(
+        res => {
+          this.subcategoryService.setSubCatLegumbres(res);
+          console.log(this.subcategoryService);
+        },
+        error => console.log(error)
+      );
     this.productService.getAll()
-    .subscribe(
-      res => this.productService.setProductsLegumbres(res),
-      error => console.log(error)
-    );
-  };
+      .subscribe(
+        res => {
+          this.productService.setProductsLegumbres(res);
+          console.log(this.productService);
+        },
+        error => console.log(error)
+      );
+  }
 }

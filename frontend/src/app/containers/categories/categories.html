@@ -14,7 +14,7 @@
               <div *ngIf="subcategoryService['subcategories']">
                 <div *ngFor="let subcategory of subcategoryService['subcategories']">
                   <p>subcategoriaId: <span>{{product.SubcategoryId}}</span></p>
-                  <p>subcategoryName: <span>{{subcategory.CategoryId}}</span></p>
+                  <p>subcategoryName: <span>{{subcategory.name}}</span></p>
                 </div>
               </div>
               <p>Precio: <span class="price">{{product.price}}</span>€/kg</p>

@@ -5,7 +5,7 @@ const {authentication, isAdmin} = require('../middleware/authentication.js');
 router.get('/',ProductController.getAll); // creo la ruta tipo get y le digo que cuando sea '/' nos ejecute la función getAll() del ProductController 
 router.get('/code/:code',authentication, isAdmin, ProductController.getOneByCode);
 router.get('/name/:name',ProductController.getAllByName);
-router.get('/:id',ProductController.getOne);   
+router.get('/:id',ProductController.getOne);
 router.post('/',authentication, isAdmin, ProductController.insert);
 router.post('/many',authentication, isAdmin, ProductController.insertMany);
 router.delete('/many',authentication, isAdmin, ProductController.deleteMany); // Pongo el "deleteMany" antes que el "delete" porque sino al pedirle que borre muchos entra primero en el delete del id, para borrar solo uno. 

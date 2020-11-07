@@ -1,63 +1,27 @@
-<div *ngIf="product" class="product">
-  <div class="details">
-    <h2 class="name"><strong>{{product.name}}</strong></h2>
-    <div class="info1">
-      <div class="image">
-        <img src="{{product.image_path}}" alt="Imagen del producto" class="image">
-      </div>
-    <div class="data">
-      <h6><strong>Precio:</strong> {{product.price}} €/kg</h6>
-      
-      <h6><strong>Cantidad:</strong> &nbsp;<input type="number" step="50" min="50" [(ngModel)]="ammount" #input="ngModel" name="input"> gr</h6>
-        <!--Le pongo un mínimo de 50 gramos y obligo a que suba la cantidad de 50 en 50 con las flechas-->
-        <!--Añado la directiva ngModel para unir este input con la variable ammount del typescript en tiempo real-->
-        <!--Hay que añadirle además la referencia #input para indicarle que este ngModel se tiene que aplicar a todos los elementos que lleven esta referencia. El nombre de la referencia "input" debe coincidir con el "name"; y el valor del ngModel "ammount" debe coincidir con el nombre la variable que creemos en el typescript-->
-      
-      <h6 class="packed"><strong>Incluir envasado:</strong> {{product.packedPrice}} € </h6>
-      <input type="checkbox" (change)="onChange($event.target.checked)" /> <br><!--Le añado al checkbox un evento onChange-->
-
-        <!-- [value] => esto es un simple-way binding - sirve para bindear (unir el ts con el html) - En este caso lleva la información del html al ts y le esta diciendo que el checkbox esta seleccionado
-        [(ngModel)] => esto es un doble-way binding - sirve para bindear también pero en este caso la información va en los dos sentidos, no solo del html al ts sino también del ts al html
-        (value) => Y si lo pusieramos así tam´bien sería un simple-way binding - Pero en este caso, la información iria del ts al html -->
-        <!-- Y la diferencia entre [value]='packed' y value={{packed}} es que en la segunda le estoy diciendo que el value de ese html es igual al valor que tenga la variable packed del ts... y la primera es que, sea cual sea el valor de value, lo meta en packed   -->
-
-      <button type="button" class="btn btn-danger btn-sm" (click)="addCart()"><i class="fas fa-shopping-cart fa-lg"></i>
-        &nbsp; Añadir al carrito</button>
-        <!--El icono del carrito lo he sacado de "https://fontawesome.com/ (buscando por "shopping cart")"-->
-      <br><br>
-
-      <p [ngClass]="allow ? '' : 'none' ">Para poder hacer un pedido debes conectarte primero</p>
-        <!--Al mensaje le pongo una ngClass donde le digo que, si la clase "allow" es true no nos aplique nada  y si la clase y si "allow" es false, nos aplique la clase "none" que pondrá un display:none al mensaje y dejará de mostrarse-->
-      <p [ngClass]="hidden ? 'none' : '' ">Producto añadido</p>
-        <!--Al mensaje le pongo una ngClass donde le digo que, si "hidden" es true aplique la clase "none" que hace un "display:none". Y si "hidden" es false, entonces que no haga nada, por lo que no se aplicará el "display:none" y se podrá mostrar de nuevo el mensaje-->
-        
-      
-    </div>
-    </div>
-    <div class="info2">
-      <div class="productInfo">
-        <h5>Descripción:</h5>
+<div class="container">
+  <div class="herobanner" *ngIf="product" style="background-image: url({{product.image_path}})">
+    <h1>{{product.name}}</h1>
+  </div>
+  <div class="product" *ngIf="product">
+    <div class="details">
+      <div class="info1">
         <p>{{product.description}}</p>
-        <h5>Recomendaciones:</h5>
-        <p>{{product.recommendations}}</p>
-        <a href="{{product.nutritionalValue}}" target="_blank">
-          <h5 class="nutritionalValue">Valor Nutricional</h5>
-        </a>
-      </div>
-      <div class="recipeRecommended">
-        <h5>Receta recomendada:</h5>
-          <div class="recipes">
-            <!-- {{product['Recipes'] | json}} -->
-            <div class="recipe" *ngFor="let recipe of product['Recipes']">
-              <a href="{{recipe.link}}" target="_blank">
-                <img src="{{recipe.image_path}}" alt="Imagen de la receta" class="image">
-                <p>{{recipe.name}}</p>
-              </a>
-              
-            </div>
+        <div class="descriptionContent">
+          <img src="{{product.image_path}}" alt="Imagen del producto" class="image">
+          <div class="data">
+            <h5>Recomendaciones:</h5>
+            <p>{{product.recommendations}}</p>
+            <p><strong>Precio:</strong> {{product.price}} €/kg</p>
+            <p class="packed"><strong>Trae tu propio envase y ahorra:</strong> {{product.packedPrice}} €</p>
           </div>
         </div>
-    </div>
-</div>
-</div>
+        <div class="compartir">
+          <p>
+            <a href="https://www.facebook.com/sharer/sharer.php" target="_blank">facebook</a>
+          </p> 
+         </div>
 
+      </div>
+    </div>
+  </div>
+</div>

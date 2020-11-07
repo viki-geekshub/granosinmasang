@@ -10,6 +10,34 @@ h1{
     color:#6f5036;
 }
 h2{
-    font-size: 1.2rem;
     color: #fd9b67;
+    font-size: 2rem;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    width: 100%;
+}
+h3{
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+.fotosTienda{
+    display: flex;
+    width: 100%;
+    img{
+        margin: 0 .5%;
+        width: 24%;
+        &:first-child{
+            margin-left: 0;
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+.encuentranos{
+    margin-top: 2em;
+    width: 100%;
+}
+.locationInfo{
+    display: flex;
 }

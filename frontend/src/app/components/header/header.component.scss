@@ -76,11 +76,17 @@
   position: relative;
   &:before{
     background-repeat: no-repeat;
+    background-size: contain;
     content:"";
     height: 20px;
     left: 0;
     position: absolute;
     width: 20px;
+  }
+}
+.Arroces{
+  &:before{
+    background-image: url('/../assets/images/icons/arroz.svg');
   }
 }
 .Harinas{
@@ -90,17 +96,22 @@
 }
 .Legumbres{
   &:before{
-    background-image: url('/../assets/images/icons/beans.svg');
+    background-image: url('/../assets/images/icons/jelly-beans.svg');
+  }
+}
+.Pasta{
+  &:before{
+    background-image: url('/../assets/images/icons/pastafusilli.svg');
   }
 }
 .Café{
   &:before{
-    background-image: url('/../assets/images/icons/coffee-maker.svg');
+    background-image: url('/../assets/images/icons/coffee-beans.svg');
   }
 }
 .Deshidratados{
   &:before{
-    background-image: url('/../assets/images/icons/blueberry.svg');
+    background-image: url('/../assets/images/icons/setasboletus.svg');
   }
 }
 .Superalimentos{
@@ -108,9 +119,24 @@
     background-image: url('/../assets/images/icons/strong.svg');
   }
 }
+.Sémolas{
+  &:before{
+    background-image: url('/../assets/images/icons/semolas.svg');
+  }
+}
 .Cacao{
   &:before{
-    background-image: url('/../assets/images/icons/chocolate-bar.svg');
+    background-image: url('/../assets/images/icons/cocoa.svg');
+  }
+}
+.Semillas{
+  &:before{
+    background-image: url('/../assets/images/icons/semilla.svg');
+  }
+}
+.Cereales{
+  &:before{
+    background-image: url('/../assets/images/icons/cereales.svg');
   }
 }
 .Frutos.Secos{
@@ -120,7 +146,12 @@
 }
 .Especias{
   &:before{
-    background-image: url('/../assets/images/icons/salt.svg');
+    background-image: url('/../assets/images/icons/anise.svg');
+  }
+}
+.Potenciadores{
+  &:before{
+    background-image: url('/../assets/images/icons/spices.svg');
   }
 }
 .Té{

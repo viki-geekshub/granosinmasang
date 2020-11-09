@@ -41,3 +41,12 @@ h3{
 .locationInfo{
     display: flex;
 }
+
+@media only screen and (max-width:768px){
+    .locationInfo{
+        flex-direction: column;
+    }
+    iframe{
+        max-width: 100%;
+    }
+}

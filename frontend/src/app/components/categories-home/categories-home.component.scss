@@ -29,7 +29,7 @@ h2{
 }
 
 .categoryName{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-align: center;
     margin-top: 1em;
     color:#751710;
@@ -42,8 +42,30 @@ h2{
     height: 45vh;
     object-fit: cover;
 }
-
-//hover imagen
-    // transform: scale(1.1);
-    // filter: none;
-    // box-shadow: 0 0 11px 3px #a89d898c;
+@media only screen and (max-width:768px){
+    .wrapper{
+      padding: 1em 5%!important;
+    }
+    #categories{
+        flex-direction: column;
+    }
+    .categoryRow{
+        width: 100%;
+    }
+    .imageCategory{
+        height: 10vh;
+    }
+    .categoryName{
+        margin: .5em 0;
+    }
+}
+@media only screen and (min-width:769px) and (max-width:1070px){
+    .categoryRow{
+        width: 50%;
+    }   
+}
+@media only screen and (min-width:1071px) and (max-width:1440px){
+    .categoryRow{
+        width: 33%;
+    }   
+}

@@ -158,10 +158,9 @@ img {
   flex-direction: column;
   width: 25%;
 }
-/////////////////////////////
 
-//CAJA DATOS USER Y BOTÓN LOGIN - HEADER (de momento oculto)
-
-// #userLogin{
-//   padding:0 5%;
-// }
+@media only screen and (max-width:768px){
+  .wrapper{
+    padding: 1em 5% !important;
+  }
+}

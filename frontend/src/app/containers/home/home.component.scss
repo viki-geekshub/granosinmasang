@@ -15,3 +15,9 @@
     h2{ color: #fd9b67; }
     p{ text-align: justify; }
 }
+
+@media only screen and (max-width:769px){
+    .herobanner{
+        height: 200px;
+    }
+}

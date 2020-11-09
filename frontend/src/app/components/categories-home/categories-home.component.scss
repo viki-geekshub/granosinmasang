@@ -58,4 +58,9 @@ h2{
     .categoryName{
         margin: .5em 0;
     }
-  }
+}
+@media only screen and (min-width:769px) and (max-width:1024px){
+    .categoryRow{
+        width: 50%;
+    }   
+}

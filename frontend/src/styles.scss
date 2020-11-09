@@ -64,17 +64,17 @@ img {
     font-size: 400%;
     text-shadow: 1px 3px 0px rgb(0 0 0 / 45%);
   }
-  &.alimentosDeshidratados{
-    background-image: url(/../../assets/images/prototipoAlimentosDeshidratados.jpg);
+  &.frutasDeshidratadas{
+    background-image: url(/../../assets/images/prototipoFrutasDeshidratadas.jpg);
   }
   &.arroces{
-    background-image: url(/../../assets/images/prototipoArroces3.jpg);
+    background-image: url(/../../assets/images/prototipoArroces.jpg);
   }
-  &.cacao{
-    background-image: url(/../../assets/images/prototipoCacao2.jpg);
+  &.chocolate{
+    background-image: url(/../../assets/images/prototipoChocolate.jpg);
   }
   &.cafe{
-    background-image: url(/../../assets/images/prototipoCafe3.jpg);
+    background-image: url(/../../assets/images/prototipoCafe.jpg);
   }
   &.cereales{
     background-image: url(/../../assets/images/prototipoCereales.jpg);
@@ -83,18 +83,18 @@ img {
     background-image: url(/../../assets/images/prototipoEspecias.jpg);
   }
   &.frutosSecos{
-    background-image: url(/../../assets/images/prototipoFrutosSecos3.jpg);
+    background-image: url(/../../assets/images/prototipoFrutosSecos.jpg);
   }
   &.harinas{
-    background-image: url(/../../assets/images/prototipoHarinas3.jpg);
+    background-image: url(/../../assets/images/prototipoHarinas.jpg);
   }
   &.legumbres{
-    background-image: url(/../../assets/images/prototipoLegumbres4.jpg);
+    background-image: url(/../../assets/images/prototipoLegumbres.jpg);
   }
   &.pasta{
     background-image: url(/../../assets/images/prototipoPasta.jpg);
   }
-  &.potenciadores{
+  &.sales{
     background-image: url(/../../assets/images/prototipoPotenciadores.jpg);
   }
   &.semillas{
@@ -104,10 +104,13 @@ img {
     background-image: url(/../../assets/images/prototipoSemolas.jpg);
   }
   &.superalimentos{
-    background-image: url(/../../assets/images/prototipoSuperalimentos3.jpg);
+    background-image: url(/../../assets/images/prototipoSuperalimentos.jpg);
   }
   &.te{
     background-image: url(/../../assets/images/prototipoTe.jpg);
+  }
+  &.setas{
+    background-image: url(/../../assets/images/prototipoSetas.jpg);
   }
 
 }

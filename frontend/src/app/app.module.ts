@@ -23,21 +23,22 @@ import { UsersComponent } from './containers/users/users.component';
 import { AddStoresComponent } from './containers/add-stores/add-stores.component';
 import { UserConfirmedComponent } from './containers/user-confirmed/user-confirmed.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { LegumbresComponent } from './containers/categories/legumbres/legumbres.component';
 import { ArrocesComponent } from './containers/categories/arroces/arroces.component';
+import { SemillasComponent } from './containers/categories/semillas/semillas.component';
+import { CafeComponent } from './containers/categories/cafe/cafe.component';
+import { ChocolateComponent } from './containers/categories/chocolate/chocolate.component';
+import { EspeciasComponent } from './containers/categories/especias/especias.component';
+import { SalesAzucaresComponent } from './containers/categories/sales-azucares/sales-azucares.component';
+import { FrutasDeshidratadasComponent } from './containers/categories/frutas-deshidratadas/frutas-deshidratadas.component';
+import { FrutosSecosComponent } from './containers/categories/frutos-secos/frutos-secos.component';
 import { HarinasComponent } from './containers/categories/harinas/harinas.component';
+import { CerealesComponent } from './containers/categories/cereales/cereales.component';
+import { LegumbresComponent } from './containers/categories/legumbres/legumbres.component';
 import { PastaComponent } from './containers/categories/pasta/pasta.component';
 import { SemolasComponent } from './containers/categories/semolas/semolas.component';
-import { SemillasComponent } from './containers/categories/semillas/semillas.component';
-import { FrutosSecosComponent } from './containers/categories/frutos-secos/frutos-secos.component';
-import { AlimentosDeshidratadosComponent } from './containers/categories/alimentos-deshidratados/alimentos-deshidratados';
-import { SuperAlimentosComponent } from './containers/categories/super-alimentos/super-alimentos.component';
-import { CerealesComponent } from './containers/categories/cereales/cereales.component';
-import { CafeComponent } from './containers/categories/cafe/cafe.component';
-import { CacaoComponent } from './containers/categories/cacao/cacao.component';
-import { TeComponent } from './containers/categories/te/te.component';
-import { PotenciadoresCocinaComponent } from './containers/categories/potenciadores-cocina/potenciadores-cocina.component';
-import { EspeciasComponent } from './containers/categories/especias/especias.component';
+import { SetasDeshidratadasComponent } from './containers/categories/setas-deshidratadas/setas-deshidratadas.component';
+import { SuperalimentosPotenciadoresComponent } from './containers/categories/superalimentos-potenciadores/superalimentos-potenciadores.component';
+import { TeFloresComponent } from './containers/categories/te-flores/te-flores.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { DatePipe } from './pipes/date.pipe';
 import { ProductDetailsComponent } from './containers/product-details/product-details.component';
@@ -69,21 +70,22 @@ import { FiltersComponent } from './components/filters/filters.component';
     AddStoresComponent,
     UserConfirmedComponent,
     NotFoundComponent,
-    LegumbresComponent,
     ArrocesComponent,
+    SemillasComponent,
+    CafeComponent,
+    ChocolateComponent,
+    EspeciasComponent,
+    SalesAzucaresComponent,
+    FrutasDeshidratadasComponent,
+    FrutosSecosComponent,
     HarinasComponent,
+    CerealesComponent,
+    LegumbresComponent,
     PastaComponent,
     SemolasComponent,
-    SemillasComponent,
-    FrutosSecosComponent,
-    AlimentosDeshidratadosComponent,
-    SuperAlimentosComponent,
-    CerealesComponent,
-    CafeComponent,
-    CacaoComponent,
-    TeComponent,
-    PotenciadoresCocinaComponent,
-    EspeciasComponent,
+    SetasDeshidratadasComponent,
+    SuperalimentosPotenciadoresComponent,
+    TeFloresComponent,
     SortPipe,
     DatePipe,
     ProductDetailsComponent,

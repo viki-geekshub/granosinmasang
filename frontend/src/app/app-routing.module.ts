@@ -17,21 +17,22 @@ import { RegisterComponent } from './containers/register/register.component';
 import { UserConfirmedComponent } from './containers/user-confirmed/user-confirmed.component';
 import { LoginComponent } from './containers/login/login.component';
 import { ProfileComponent } from './containers/profile/profile.component';
-import { LegumbresComponent } from './containers/categories/legumbres/legumbres.component';
 import { ArrocesComponent } from './containers/categories/arroces/arroces.component';
-import { HarinasComponent } from './containers/categories/harinas/harinas.component';
-import { SemolasComponent } from './containers/categories/semolas/semolas.component';
-import { PastaComponent } from './containers/categories/pasta/pasta.component';
-import { CerealesComponent } from './containers/categories/cereales/cereales.component';
-import { FrutosSecosComponent } from './containers/categories/frutos-secos/frutos-secos.component';
-import { AlimentosDeshidratadosComponent } from './containers/categories/alimentos-deshidratados/alimentos-deshidratados';
-import { EspeciasComponent } from './containers/categories/especias/especias.component';
-import { PotenciadoresCocinaComponent } from './containers/categories/potenciadores-cocina/potenciadores-cocina.component';
-import { CafeComponent } from './containers/categories/cafe/cafe.component';
-import { CacaoComponent } from './containers/categories/cacao/cacao.component';
 import { SemillasComponent } from './containers/categories/semillas/semillas.component';
-import { SuperAlimentosComponent } from './containers/categories/super-alimentos/super-alimentos.component';
-import { TeComponent } from './containers/categories/te/te.component';
+import { CafeComponent } from './containers/categories/cafe/cafe.component';
+import { ChocolateComponent } from './containers/categories/chocolate/chocolate.component';
+import { EspeciasComponent } from './containers/categories/especias/especias.component';
+import { SalesAzucaresComponent } from './containers/categories/sales-azucares/sales-azucares.component';
+import { FrutasDeshidratadasComponent } from './containers/categories/frutas-deshidratadas/frutas-deshidratadas.component';
+import { FrutosSecosComponent } from './containers/categories/frutos-secos/frutos-secos.component';
+import { HarinasComponent } from './containers/categories/harinas/harinas.component';
+import { CerealesComponent } from './containers/categories/cereales/cereales.component';
+import { LegumbresComponent } from './containers/categories/legumbres/legumbres.component';
+import { PastaComponent } from './containers/categories/pasta/pasta.component';
+import { SemolasComponent } from './containers/categories/semolas/semolas.component';
+import { SetasDeshidratadasComponent } from './containers/categories/setas-deshidratadas/setas-deshidratadas.component';
+import { SuperalimentosPotenciadoresComponent } from './containers/categories/superalimentos-potenciadores/superalimentos-potenciadores.component';
+import { TeFloresComponent } from './containers/categories/te-flores/te-flores.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
@@ -55,21 +56,22 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent}, // NO ESTA PLANTEADO HACER VISTA
   // CATEGORIAS:
-  {path: 'Legumbres', component: LegumbresComponent},
   {path: 'Arroces', component: ArrocesComponent},
-  {path: 'Harinas', component: HarinasComponent},
-  {path: 'Sémolas', component: SemolasComponent},
-  {path: 'Pasta', component: PastaComponent},
-  {path: 'Cereales', component: CerealesComponent},
-  {path: 'Frutos Secos', component: FrutosSecosComponent},
-  {path: 'Deshidratados', component: AlimentosDeshidratadosComponent},
-  {path: 'Especias', component: EspeciasComponent},
-  {path: 'Potenciadores', component: PotenciadoresCocinaComponent},
-  {path: 'Café', component: CafeComponent},
-  {path: 'Cacao', component: CacaoComponent},
   {path: 'Semillas', component: SemillasComponent},
-  {path: 'Superalimentos', component: SuperAlimentosComponent},
-  {path: 'Té', component: TeComponent},
+  {path: 'Café', component: CafeComponent},
+  {path: 'Chocolate', component: ChocolateComponent},
+  {path: 'Especias', component: EspeciasComponent},
+  {path: 'Sales y Azúcares', component: SalesAzucaresComponent},
+  {path: 'Frutas Deshidratadas', component: FrutasDeshidratadasComponent},
+  {path: 'Frutos Secos', component: FrutosSecosComponent},
+  {path: 'Harinas', component: HarinasComponent},
+  {path: 'Cereales', component: CerealesComponent},
+  {path: 'Legumbres', component: LegumbresComponent},
+  {path: 'Pasta', component: PastaComponent},
+  {path: 'Sémolas', component: SemolasComponent},
+  {path: 'Setas Deshidratadas', component: SetasDeshidratadasComponent},
+  {path: 'Superalimentos y Potenciadores', component: SuperalimentosPotenciadoresComponent},
+  {path: 'Té y Flores Deshidratadas', component: TeFloresComponent},
   // NOT FOUND:
   {path: '**', component: NotFoundComponent} // ** Para que matchee todo se pone al final y con los dos asteriscos
 ];

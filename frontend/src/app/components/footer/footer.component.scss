@@ -73,3 +73,18 @@ p{
 }
 .direccion:before{background-image: url(/../assets/images/icons/pin.svg);}
 .mail:before{background-image: url(/../assets/images/icons/mail2.svg);}
+
+@media only screen and (max-width:768px){
+    .up{
+        flex-direction: column;
+    }
+    .info{
+        margin: 1em 5%;
+    }
+    .networks{
+        margin-left: 5%;
+    }
+    .copyright{
+        font-size: 12px;
+    }
+}

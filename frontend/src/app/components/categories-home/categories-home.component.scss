@@ -42,8 +42,20 @@ h2{
     height: 45vh;
     object-fit: cover;
 }
-
-//hover imagen
-    // transform: scale(1.1);
-    // filter: none;
-    // box-shadow: 0 0 11px 3px #a89d898c;
+@media only screen and (max-width:768px){
+    .wrapper{
+      padding: 1em 5%!important;
+    }
+    #categories{
+        flex-direction: column;
+    }
+    .categoryRow{
+        width: 100%;
+    }
+    .imageCategory{
+        height: 10vh;
+    }
+    .categoryName{
+        margin: .5em 0;
+    }
+  }

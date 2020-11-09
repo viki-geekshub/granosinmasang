@@ -29,7 +29,7 @@ h2{
 }
 
 .categoryName{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-align: center;
     margin-top: 1em;
     color:#751710;
@@ -59,8 +59,13 @@ h2{
         margin: .5em 0;
     }
 }
-@media only screen and (min-width:769px) and (max-width:1024px){
+@media only screen and (min-width:769px) and (max-width:1070px){
     .categoryRow{
         width: 50%;
+    }   
+}
+@media only screen and (min-width:1071px) and (max-width:1440px){
+    .categoryRow{
+        width: 33%;
     }   
 }

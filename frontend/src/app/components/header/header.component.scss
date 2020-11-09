@@ -109,7 +109,7 @@
     background-image: url('/../assets/images/icons/coffee-beans.svg');
   }
 }
-.Deshidratados{
+.Setas{
   &:before{
     background-image: url('/../assets/images/icons/setasboletus.svg');
   }
@@ -124,7 +124,12 @@
     background-image: url('/../assets/images/icons/semolas.svg');
   }
 }
-.Cacao{
+.Chocolate{
+  &:before{
+    background-image: url('/../assets/images/icons/cocoa.svg');
+  }
+}
+.Frutas{
   &:before{
     background-image: url('/../assets/images/icons/cocoa.svg');
   }
@@ -149,7 +154,7 @@
     background-image: url('/../assets/images/icons/anise.svg');
   }
 }
-.Potenciadores{
+.Sales{
   &:before{
     background-image: url('/../assets/images/icons/spices.svg');
   }

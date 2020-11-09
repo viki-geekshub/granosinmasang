@@ -40,7 +40,7 @@ export class SubcategoryService {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===7);
   }
-  setSubCatAlimentosDeshidratados(subcategories): void {
+  setSubCatFrutasDeshidratadas(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===8);
   }
@@ -48,7 +48,7 @@ export class SubcategoryService {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===9);
   }
-  setSubCatPotenciadoresCocina(subcategories): void {
+  setSubCatSalesAzucares(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===10);
   }
@@ -56,7 +56,7 @@ export class SubcategoryService {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===11);
   }
-  setSubCatCacao(subcategories): void {
+  setSubCatChocolate(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===12);
   }
@@ -64,13 +64,17 @@ export class SubcategoryService {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===14);
   }
-  setSubCatSuperAlimentos(subcategories): void {
+  setSubCatSuperalimentosPotenciadores(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===15);
   }
-  setSubCatTe(subcategories): void {
+  setSubCatTeFlores(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===16);
+  }
+  setSubCatSetasDeshidratadas(subcategories): void {
+    this.subcategories = subcategories;
+    this.subcategories = this.subcategories.filter(item=>item['CategoryId']===17);
   }
 
   // getSubcategories(): object[] {

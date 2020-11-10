@@ -53,11 +53,11 @@
   background-color: transparent;
   border:0px;
   display: block !important;
-  left: 15%;
+  left: 5%;
   top: calc(50% + 20px);
   width: 100%;
-  min-height: 400px;
-  width: 70%;
+  min-height: 270px;
+  width: 90%;
 }
 
 .dropdown-menu > .fakeHover{
@@ -65,23 +65,24 @@
   border: none;
   border-radius: none;
   display: grid !important;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-top: 2%;
   width:100%;
+  padding: 3%;
 }
 .dropdown-item p{
   align-items: center;
   display: flex;
-  padding-left: 1.5em;
+  padding-left: 2.5em;
   position: relative;
   &:before{
     background-repeat: no-repeat;
     background-size: contain;
     content:"";
-    height: 20px;
+    height: 30px;
     left: 0;
     position: absolute;
-    width: 20px;
+    width: 30px;
   }
 }
 .Arroces{
@@ -111,7 +112,7 @@
 }
 .Setas{
   &:before{
-    background-image: url('/../assets/images/icons/setasboletus.svg');
+    background-image: url('/../assets/images/icons/mushroom.svg');
   }
 }
 .Superalimentos{
@@ -126,17 +127,17 @@
 }
 .Chocolate{
   &:before{
-    background-image: url('/../assets/images/icons/cocoa.svg');
+    background-image: url('/../assets/images/icons/chocolate.svg');
   }
 }
 .Frutas{
   &:before{
-    background-image: url('/../assets/images/icons/cocoa.svg');
+    background-image: url('/../assets/images/icons/blueberry.svg');
   }
 }
 .Semillas{
   &:before{
-    background-image: url('/../assets/images/icons/semilla.svg');
+    background-image: url('/../assets/images/icons/semillas.svg');
   }
 }
 .Cereales{
@@ -151,12 +152,12 @@
 }
 .Especias{
   &:before{
-    background-image: url('/../assets/images/icons/anise.svg');
+    background-image: url('/../assets/images/icons/chia.svg');
   }
 }
 .Sales{
   &:before{
-    background-image: url('/../assets/images/icons/spices.svg');
+    background-image: url('/../assets/images/icons/salenbol2.svg');
   }
 }
 .Té{
@@ -175,6 +176,7 @@
   //height: 125px;
   overflow: hidden;
   position: relative;
+  padding: 0.5em 2em 1em 2em;
 }
 
 .dropdown-item img{

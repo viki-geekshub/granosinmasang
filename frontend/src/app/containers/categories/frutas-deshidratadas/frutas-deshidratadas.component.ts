@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubcategoryService } from 'src/app/services/subcategory.service';
-
+import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-frutas-deshidratadas',
   templateUrl: './../categories.html',
@@ -8,7 +8,7 @@ import { SubcategoryService } from 'src/app/services/subcategory.service';
 })
 export class FrutasDeshidratadasComponent implements OnInit {
   tagName;
-  constructor(public subcategoryService: SubcategoryService) { }
+  constructor(public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
     this.tagName = "<div class='herobanner frutasDeshidratadas'><h1>Frutas Deshidratadas</h1></div>"
@@ -16,7 +16,12 @@ export class FrutasDeshidratadasComponent implements OnInit {
     .subscribe(
       res => this.subcategoryService.setSubCatFrutasDeshidratadas(res),
       error => console.log(error)
-    )
+    );
+    this.productService.getAll()
+    .subscribe(
+      res => this.productService.setProductsFrutasDeshidratadas(res),
+      error => console.log(error)
+    );
   };
 
 }

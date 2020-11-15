@@ -4,16 +4,18 @@
     <div class="wrapper">
         <div class="row">
             <div class="column two-third">
-                <div class="subcategories" *ngIf="subcategoryService['subcategories']">
-                    <div class="subcategory" *ngFor="let subcategory of subcategoryService['subcategories']">
+                <div class="subcategories" *ngIf="productService['products']; else subcategoryService['subcategories']">
+                    <div class="subcategory" *ngFor="let product of productService['products']">
                        <div class="productImg">
-                           <img [src]="subcategory.image_path" alt="imagen" class="image">
+                           <img [src]="product.image_path" alt="imagen" class="image">
                        </div>
                        <div class="productInfo">
-                           <h2>{{subcategory.name}}</h2>
-                           <p>Precio: 4€/kg</p>
+                           <h2>{{product.name}}</h2>
+                           <p>Precio: {{product.price}}€/kg</p>
                        </div> 
                     </div>
+                </div>
+                <!-- <div class="subcategories" *ngIf="subcategoryService['subcategories']">
                     <div class="subcategory" *ngFor="let subcategory of subcategoryService['subcategories']">
                         <div class="productImg">
                             <img [src]="subcategory.image_path" alt="imagen" class="image">
@@ -32,7 +34,7 @@
                             <p>Precio: 6€/kg</p>
                         </div> 
                      </div>
-                </div>
+                </div> -->
             </div>
             <div class="column one-third" >
                 <form class="form-inline my-2 my-lg-0">

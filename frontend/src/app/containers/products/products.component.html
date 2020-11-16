@@ -3,7 +3,7 @@
        <h3>{{product.name}}</h3> 
        <img [src]="product.image_path" alt="imagen" class="image">
        <!--<img src="{{product.image_path}}" alt="imagen">--> <!--Esto es otra forma de ponerlo-->
-        <h5>Precio: {{product.price}} €/kg</h5>
+        <h5>Precio: {{product.price}} {{product.unit}}</h5>
         <h5>Empaquetado: {{product.packedPrice}} €</h5>
 
     </div>

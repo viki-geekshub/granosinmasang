@@ -12,55 +12,59 @@ export class SubcategoryService {
   getAll(): Observable<any> {
     return this.httpClient.get('http://localhost:3000/subcategories');
   }
-  setSubCatLegumbres(subcategories): void { // Me pone solo las subcategorías de la categoría Legumbres
+  setSubCatArroces(subcategories): void { // Me pone solo las subcategorías de la categoría Arroces
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===1);
   }
-  setSubCatArroces(subcategories): void {
+  setSubCatSemillas(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===2);
   }
-  setSubCatHarinas(subcategories): void {
+  setSubCatCafes(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===3);
   }
-  setSubCatSemolas(subcategories): void {
+  setSubCatChocolates(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===4);
   }
-  setSubCatPasta(subcategories): void {
+  setSubCatEspecias(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===5);
   }
-  setSubCatCereales(subcategories): void {
+  setSubCatSalesAzucares(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===6);
   }
-  setSubCatFrutosSecos(subcategories): void {
+  setSubCatFrutasDeshidratadas(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===7);
   }
-  setSubCatFrutasDeshidratadas(subcategories): void {
+  setSubCatFrutosSecos(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===8);
   }
-  setSubCatEspecias(subcategories): void {
+  setSubCatHarinas(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===9);
   }
-  setSubCatSalesAzucares(subcategories): void {
+  setSubCatCereales(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===10);
   }
-  setSubCatCafe(subcategories): void {
+  setSubCatLegumbres(subcategories): void { 
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===11);
   }
-  setSubCatChocolate(subcategories): void {
+  setSubCatPastas(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===12);
   }
-  setSubCatSemillas(subcategories): void {
+  setSubCatSemolas(subcategories): void {
+    this.subcategories = subcategories;
+    this.subcategories = this.subcategories.filter(item=>item['CategoryId']===13);
+  }
+  setSubCatSetasDeshidratadas(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===14);
   }
@@ -68,15 +72,11 @@ export class SubcategoryService {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===15);
   }
-  setSubCatTeFlores(subcategories): void {
+  setSubCatTesFlores(subcategories): void {
     this.subcategories = subcategories;
     this.subcategories = this.subcategories.filter(item=>item['CategoryId']===16);
   }
-  setSubCatSetasDeshidratadas(subcategories): void {
-    this.subcategories = subcategories;
-    this.subcategories = this.subcategories.filter(item=>item['CategoryId']===17);
-  }
-
+  
   // getSubcategories(): object[] {
   //   return this.subcategories;
   // }

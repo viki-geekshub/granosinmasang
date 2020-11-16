@@ -20,7 +20,7 @@ export class SuperalimentosPotenciadoresComponent implements OnInit {
     );
     this.productService.getAll()
     .subscribe(
-      res => this.productService.setProductsSuperalimentos(res),
+      res => this.productService.setProductsSuperalimentosPotenciadores(res),
       error => console.log(error)
     );
   };

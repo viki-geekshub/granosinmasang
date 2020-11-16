@@ -15,12 +15,12 @@ export class CafeComponent implements OnInit {
     this.tagName = "<div class='herobanner cafe'><h1>Café</h1></div>"
     this.subcategoryService.getAll()
     .subscribe(
-      res => this.subcategoryService.setSubCatCafe(res),
+      res => this.subcategoryService.setSubCatCafes(res),
       error => console.log(error)
     );
     this.productService.getAll()
     .subscribe(
-      res => this.productService.setProductsCafe(res),
+      res => this.productService.setProductsCafes(res),
       error => console.log(error)
     );
   };

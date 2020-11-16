@@ -28,7 +28,7 @@ import { SemillasComponent } from './containers/categories/semillas/semillas.com
 import { CafeComponent } from './containers/categories/cafe/cafe.component';
 import { ChocolateComponent } from './containers/categories/chocolate/chocolate.component';
 import { EspeciasComponent } from './containers/categories/especias/especias.component';
-import { SalesAzucaresComponent } from './containers/categories/sales-azucares/sales-azucares.component';
+import { SalAzucarComponent } from './containers/categories/sal-azucar/sal-azucar.component';
 import { FrutasDeshidratadasComponent } from './containers/categories/frutas-deshidratadas/frutas-deshidratadas.component';
 import { FrutosSecosComponent } from './containers/categories/frutos-secos/frutos-secos.component';
 import { HarinasComponent } from './containers/categories/harinas/harinas.component';
@@ -75,7 +75,7 @@ import { FiltersComponent } from './components/filters/filters.component';
     CafeComponent,
     ChocolateComponent,
     EspeciasComponent,
-    SalesAzucaresComponent,
+    SalAzucarComponent,
     FrutasDeshidratadasComponent,
     FrutosSecosComponent,
     HarinasComponent,

@@ -15,12 +15,12 @@ export class TeFloresComponent implements OnInit {
     this.tagName = "<div class='herobanner te'><h1>Té y Flores Deshidratadas</h1></div>"
     this.subcategoryService.getAll()
     .subscribe(
-      res => this.subcategoryService.setSubCatTeFlores(res),
+      res => this.subcategoryService.setSubCatTesFlores(res),
       error => console.log(error)
     );
     this.productService.getAll()
     .subscribe(
-      res => this.productService.setProductsTes(res),
+      res => this.productService.setProductsTesFlores(res),
       error => console.log(error)
     );
   };

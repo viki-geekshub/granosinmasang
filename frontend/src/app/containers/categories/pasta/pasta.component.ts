@@ -15,7 +15,7 @@ export class PastaComponent implements OnInit {
     this.tagName = "<div class='herobanner pasta'><h1>Pasta</h1></div>"
     this.subcategoryService.getAll()
     .subscribe(
-      res => this.subcategoryService.setSubCatPasta(res),
+      res => this.subcategoryService.setSubCatPastas(res),
       error => console.log(error)
     );
     this.productService.getAll()

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
 import { SubcategoryService } from 'src/app/services/subcategory.service';
 import { ProductService } from 'src/app/services/product.service';
 @Component({
@@ -8,10 +9,17 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class FrutasDeshidratadasComponent implements OnInit {
   tagName;
-  constructor(public subcategoryService: SubcategoryService, public productService: ProductService) { }
+  filterTitle;
+  constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
     this.tagName = "<div class='herobanner frutasDeshidratadas'><h1>Frutas Deshidratadas</h1></div>"
+    this.filterTitle = "Frutas Deshidratadas"
+    this.categoryService.getAll()
+    .subscribe(
+      res => this.categoryService.setCategories(res),
+      error => console.log(error)
+    );
     this.subcategoryService.getAll()
     .subscribe(
       res => this.subcategoryService.setSubCatFrutasDeshidratadas(res),

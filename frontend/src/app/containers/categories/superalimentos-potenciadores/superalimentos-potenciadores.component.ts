@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
 import { SubcategoryService } from 'src/app/services/subcategory.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -9,10 +10,17 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class SuperalimentosPotenciadoresComponent implements OnInit {
   tagName;
-  constructor(public subcategoryService: SubcategoryService, public productService: ProductService) { }
+  filterTitle;
+  constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
     this.tagName = "<div class='herobanner superalimentos'><h1>Superalimentos y Potenciadores de cocina</h1></div>"
+    this.filterTitle = "Superalimentos y Potenciadores"
+    this.categoryService.getAll()
+    .subscribe(
+      res => this.categoryService.setCategories(res),
+      error => console.log(error)
+    );
     this.subcategoryService.getAll()
     .subscribe(
       res => this.subcategoryService.setSubCatSuperalimentosPotenciadores(res),

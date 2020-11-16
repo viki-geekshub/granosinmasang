@@ -10,15 +10,17 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ArrocesComponent implements OnInit {
   tagName;
+  filterTitle;
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
     this.tagName = "<div class='herobanner arroces'><h1>Arroces</h1></div>"
-    // this.categoryService.getAll()
-    // .subscribe(
-    //   res => this.categoryService.getAll(),
-    //   error => console.log(error)
-    // );
+    this.filterTitle = "Arroces"
+    this.categoryService.getAll()
+    .subscribe(
+      res => this.categoryService.setCategories(res),
+      error => console.log(error)
+    );
     this.subcategoryService.getAll()
     .subscribe(
       res => this.subcategoryService.setSubCatArroces(res),

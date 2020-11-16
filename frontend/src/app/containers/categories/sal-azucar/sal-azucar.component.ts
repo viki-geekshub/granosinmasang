@@ -3,7 +3,7 @@ import { SubcategoryService } from 'src/app/services/subcategory.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
-  selector: 'app-sales-azucares',
+  selector: 'app-sal-azucar',
   templateUrl: './../categories.html',
   styleUrls: ['./../categories.scss']
 })

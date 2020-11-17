@@ -19,8 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.FLOAT
     },
-    unit: DataTypes.STRING,
-    packedPrice: DataTypes.FLOAT,
+    unit: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
     available: {
       allowNull: false,
       type: DataTypes.BOOLEAN

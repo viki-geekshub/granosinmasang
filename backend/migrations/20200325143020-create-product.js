@@ -28,8 +28,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.FLOAT
       },
-      packedPrice: {
-        type: Sequelize.FLOAT
+      unit: {
+        allowNull: false,
+        type: DataTypes.STRING
       },
       available: {
         allowNull: false,

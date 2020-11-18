@@ -1,3 +1,7 @@
+.container{
+    margin: 150px auto;
+    min-width: 80%;
+}
 input.ng-invalid.ng-touched{
     outline:unset;
     border: solid red;

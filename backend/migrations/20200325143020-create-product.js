@@ -30,7 +30,7 @@ module.exports = {
       },
       unit: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       available: {
         allowNull: false,

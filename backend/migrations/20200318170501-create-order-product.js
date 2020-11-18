@@ -21,10 +21,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       packedIncluded: {
-        type: DataTypes.BOOLEAN
+        type: Sequelize.BOOLEAN
       },
-      totaProduct: {
-        type: DataTypes.FLOAT
+      totalProduct: {
+        type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,

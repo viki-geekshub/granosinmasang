@@ -13,7 +13,7 @@ const ProductController = { // Creo la función controladora que tiene dentro va
         Product.findAll({
             include:[Category, Subcategory, Recipe, Store, Order],  // Aquí le digo que cuando me busque la información del producto, me incluya también la información de la tabla de categorías, y la de las recetas, ya que ambas tablas están relacionadas con la tabla products. 
             order: [
-                ['code', 'ASC']
+                ['id', 'ASC']
             ]
         })
         .then(products=>res.status(200).send(products)) // Aquí envío lo obtenido con el .findAll en la respuesta
@@ -57,7 +57,7 @@ const ProductController = { // Creo la función controladora que tiene dentro va
                 },
                 include: [Category, Subcategory, Recipe, Store, Order],
                 order: [
-                    ['code', 'ASC']
+                    ['name', 'ASC']
                 ]
             })
             .then(product => res.send(product))
@@ -93,7 +93,7 @@ const ProductController = { // Creo la función controladora que tiene dentro va
         try {
             const products = req.body; // Guardo en products el cuerpo de la petición
             const productsResponse = [] // Creo un array vacío
-            products.sort((a,b)=>a.code-b.code).forEach(async product => { // Ordeno los productos de mayor a menor según su el campo "code" y lo recorro con un forEach
+            products.sort((a,b)=>a.id-b.id).forEach(async product => { // Ordeno los productos de mayor a menor según su el campo "id" y lo recorro con un forEach
                 const productCreated = await Product.create({...product }); // En cada iteración nos crea cada producto con sus propiedades
                 productCreated.addCategory(product.CategoryId);  // Le añado a la Tabla Category el CategoryId del producto
                 productCreated.addRecipe(product.RecipeId); // Le añado a la Tabla Recipe el RecipeId del producto

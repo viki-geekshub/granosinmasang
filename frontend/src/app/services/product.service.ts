@@ -55,39 +55,39 @@ export class ProductService {
   }
   setProductsFrutosSecos(products): void {
     this.products =  products;
-    this.products = this.products.filter(item=>item['SubcategoryId']>12 && item['SubcategoryId']<19);
+    this.products = this.products.filter(item=>item['SubcategoryId']>12 && item['SubcategoryId']<21);
   }
   setProductsHarinas(products): void {
     this.products =  products;
-    this.products = this.products.filter(item=>item['SubcategoryId']===19 || item['SubcategoryId']===20);
+    this.products = this.products.filter(item=>item['SubcategoryId']===21 || item['SubcategoryId']===22);
   }
   setProductsCereales(products): void {
     this.products =  products;
-    this.products = this.products.filter(item=>item['SubcategoryId']===21);
+    this.products = this.products.filter(item=>item['SubcategoryId']===23);
   }
   setProductsLegumbres(products): void {
     this.products =  products;
-    this.products = this.products.filter(item=>item['SubcategoryId']>21 && item['SubcategoryId']<26); 
+    this.products = this.products.filter(item=>item['SubcategoryId']>23 && item['SubcategoryId']<28); 
   }
   setProductsPastas(products): void {
     this.products =  products;
-    this.products = this.products.filter(item=>item['SubcategoryId']===26 || item['SubcategoryId']===27);
+    this.products = this.products.filter(item=>item['SubcategoryId']===28 || item['SubcategoryId']===29);
   }
   setProductsSemolas(products): void {
     this.products =  products;
-    this.products = this.products.filter(item=>item['SubcategoryId']===28);
+    this.products = this.products.filter(item=>item['SubcategoryId']===30);
   }
   setProductsSetasDeshidratadas(products): void {
     this.products =  products;
-    this.products = this.products.filter(item=>item['SubcategoryId']===29);
+    this.products = this.products.filter(item=>item['SubcategoryId']===31);
   }
   setProductsSuperalimentosPotenciadores(products): void {
     this.products =  products;
-    this.products = this.products.filter(item=>item['SubcategoryId']===30 || item['SubcategoryId']===31);
+    this.products = this.products.filter(item=>item['SubcategoryId']===32 || item['SubcategoryId']===33);
   }
   setProductsTesFlores(products): void {
     this.products =  products;
-    this.products = this.products.filter(item=>item['SubcategoryId']>31 && item['SubcategoryId']<39);
+    this.products = this.products.filter(item=>item['SubcategoryId']>33 && item['SubcategoryId']<41);
   }
 
 }

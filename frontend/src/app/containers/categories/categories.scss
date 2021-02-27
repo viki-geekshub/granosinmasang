@@ -17,7 +17,7 @@
   flex:1 0 30%;
   padding: 0em;
   margin: 0.5em;
-  max-width: 320px;
+  max-width: 228px;
   .productImg{
     height: 50%;
     overflow: hidden;
@@ -69,12 +69,14 @@
     }
   }
   ul{
-    color: #00000059;
     font-family: "Oswald", sans-serif;
     font-size: 1.2em;
     list-style: none;
     padding-left: 0;
     li.eyeContainer{
+      position: relative;
+      color: #00000059;
+      cursor:pointer;
       align-items: center;
       display: flex;
       justify-content: space-between;
@@ -83,6 +85,22 @@
       span.eye{
         display: flex;
         width: 1.5em;
+      }
+      &:hover{
+        color:red;
+      }
+      &:visited:after{
+        opacity: 1;
+      }
+      &::after{
+        content: "";
+        width: 36px;
+        height: 36px;
+        background-image: url("../../../assets/images/icons/eyeOpen.svg");
+        position: absolute;
+        background-size: cover;
+        right: 0;
+        opacity: 0.2;
       }
     }
   }

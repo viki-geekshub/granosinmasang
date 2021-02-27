@@ -31,5 +31,30 @@ export class HarinasComponent implements OnInit {
       res => this.productService.setProductsHarinas(res),
       error => console.log(error)
     );
-  }
-}
+  };
+  onActivate(event) {
+    switch (event.target.id) {
+      case "Con Gluten":
+        this.productService.getAll()
+        .subscribe(
+          res => this.productService.setProductsHarinasConGluten(res),
+          error => console.log(error)
+        );
+        break;
+      case "Sin Gluten":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsHarinasSinGluten(res),
+        error => console.log(error)
+      );
+      break;
+      default:
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsHarinas(res),
+        error => console.log(error)
+      ); 
+        break;
+    }
+  };
+};

@@ -31,5 +31,44 @@ export class LegumbresComponent implements OnInit {
       res => this.productService.setProductsLegumbres(res),
       error => console.log(error)
     );
-  }
-}
+  };
+  onActivate(event) {
+    switch (event.target.id) {
+      case "Alubias":
+        this.productService.getAll()
+        .subscribe(
+          res => this.productService.setProductsLegumbresAlubias(res),
+          error => console.log(error)
+        );
+        break;
+      case "Garbanzos":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsLegumbresGarbanzos(res),
+        error => console.log(error)
+      );
+      break;
+      case "Lentejas":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsLegumbresLentejas(res),
+        error => console.log(error)
+      );
+      break;
+      case "Otros":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsLegumbresOtros(res),
+        error => console.log(error)
+      );
+      break;
+      default:
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsLegumbres(res),
+        error => console.log(error)
+      ); 
+        break;
+    }
+  };
+};

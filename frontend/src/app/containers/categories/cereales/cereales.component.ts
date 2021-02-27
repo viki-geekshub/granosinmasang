@@ -32,4 +32,6 @@ export class CerealesComponent implements OnInit {
       error => console.log(error)
     );
   };
-}
+  onActivate(event) {
+  };
+};

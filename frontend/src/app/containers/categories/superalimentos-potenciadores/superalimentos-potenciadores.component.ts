@@ -32,4 +32,29 @@ export class SuperalimentosPotenciadoresComponent implements OnInit {
       error => console.log(error)
     );
   };
-}
+  onActivate(event) {
+    switch (event.target.id) {
+      case "Superalimentos":
+        this.productService.getAll()
+        .subscribe(
+          res => this.productService.setProductsSuperalimentosPotenciadoresSuperalimentos(res),
+          error => console.log(error)
+        );
+        break;
+      case "Potenciadores de cocina":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsSuperalimentosPotenciadoresPotenciadores(res),
+        error => console.log(error)
+      );
+      break;
+      default:
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsSuperalimentosPotenciadores(res),
+        error => console.log(error)
+      ); 
+        break;
+    }
+  };
+};

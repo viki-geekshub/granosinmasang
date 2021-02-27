@@ -31,5 +31,31 @@ export class FrutasDeshidratadasComponent implements OnInit {
       error => console.log(error)
     );
   };
-
-}
+  onActivate(event) {
+    switch (event.target.id) {
+      
+      case "Con Azúcar":
+        this.productService.getAll()
+        .subscribe(
+          res => this.productService.setProductsFrutasDeshidratadasConAzucar(res),
+          error => console.log(error)
+          );
+          break;
+          case "Sin Azúcar":
+            this.productService.getAll()
+            .subscribe(
+              res => this.productService.setProductsFrutasDeshidratadasSinAzucar(res),
+              error => console.log(error)
+              );
+              break;
+              default:
+                console.log(event.target);
+                this.productService.getAll()
+                .subscribe(
+                  res => this.productService.setProductsFrutasDeshidratadas(res),
+                  error => console.log(error)
+      ); 
+        break;
+    }
+  };
+};

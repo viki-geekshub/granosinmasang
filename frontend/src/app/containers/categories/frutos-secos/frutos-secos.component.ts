@@ -31,4 +31,71 @@ export class FrutosSecosComponent implements OnInit {
       error => console.log(error)
     );
   };
-}
+  onActivate(event) {
+    switch (event.target.id) {
+      case "Almendras":
+        this.productService.getAll()
+        .subscribe(
+          res => this.productService.setProductsFrutosSecosAlmendras(res),
+          error => console.log(error)
+        );
+        break;
+      case "Anacardos":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsFrutosSecosAnacardos(res),
+        error => console.log(error)
+      );
+      break;
+      case "Avellanas":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsFrutosSecosAvellanas(res),
+        error => console.log(error)
+      );
+      break;
+      case "Cacahuetes":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsFrutosSecosCacahuetes(res),
+        error => console.log(error)
+      );
+      break;
+      case "Castañas":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsFrutosSecosCastañas(res),
+        error => console.log(error)
+      );
+      break;
+      case "Nueces":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsFrutosSecosNueces(res),
+        error => console.log(error)
+      );
+      break;
+      case "Pipas":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsFrutosSecosPipas(res),
+        error => console.log(error)
+      );
+      break;
+      case "Otros":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsFrutosSecosOtros(res),
+        error => console.log(error)
+      );
+      break;
+      default:
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsFrutosSecos(res),
+        error => console.log(error)
+      ); 
+        break;
+    }
+  };
+};

@@ -32,4 +32,6 @@ export class ChocolateComponent implements OnInit {
       error => console.log(error)
     );
   };
-}
+  onActivate(event) {
+  }
+};

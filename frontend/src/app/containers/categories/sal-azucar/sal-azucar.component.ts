@@ -32,4 +32,29 @@ export class SalAzucarComponent implements OnInit {
       error => console.log(error)
     );
   };
-}
+  onActivate(event) {
+    switch (event.target.id) {
+      case "Sal":
+        this.productService.getAll()
+        .subscribe(
+          res => this.productService.setProductsSalesAzucaresSal(res),
+          error => console.log(error)
+        );
+        break;
+      case "Azúcar":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsSalesAzucaresAzucar(res),
+        error => console.log(error)
+      );
+      break;
+      default:
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsSalesAzucares(res),
+        error => console.log(error)
+      ); 
+        break;
+    }
+  };
+};

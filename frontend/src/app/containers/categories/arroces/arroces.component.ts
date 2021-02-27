@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { SubcategoryService } from 'src/app/services/subcategory.service';
 import { ProductService } from 'src/app/services/product.service';
-
 @Component({
   selector: 'app-arroces',
   templateUrl: './../categories.html',
@@ -32,4 +31,32 @@ export class ArrocesComponent implements OnInit {
       error => console.log(error)
     );
   };
-}
+  
+  // FILTRO
+  
+  onActivate(event) {
+    switch (event.target.id) {
+      case "Blanco":
+        this.productService.getAll()
+        .subscribe(
+          res => this.productService.setProductsArrocesBlanco(res),
+          error => console.log(error)
+        );
+        break;
+      case "Integral":
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsArrocesIntegral(res),
+        error => console.log(error)
+      );
+      break;
+      default:
+        this.productService.getAll()
+      .subscribe(
+        res => this.productService.setProductsArroces(res),
+        error => console.log(error)
+      ); 
+        break;
+    }
+  };
+};

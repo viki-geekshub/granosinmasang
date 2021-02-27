@@ -32,4 +32,6 @@ export class SetasDeshidratadasComponent implements OnInit {
       error => console.log(error)
     );
   };
-}
+  onActivate(event) {
+  };
+};

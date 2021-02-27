@@ -32,30 +32,5 @@ export class PastaComponent implements OnInit {
       error => console.log(error)
     );
   };
-  onActivate(event) {
-    switch (event.target.id) {
-      case "Con Gluten":
-        this.productService.getAll()
-        .subscribe(
-          res => this.productService.setProductsPastasConGluten(res),
-          error => console.log(error)
-        );
-        break;
-      case "Sin Gluten":
-        this.productService.getAll()
-      .subscribe(
-        res => this.productService.setProductsPastasSinGluten(res),
-        error => console.log(error)
-      );
-      break;
-      default:
-        this.productService.getAll()
-      .subscribe(
-        res => this.productService.setProductsPastas(res),
-        error => console.log(error)
-      ); 
-        break;
-    }
-  };
-};
+}
   

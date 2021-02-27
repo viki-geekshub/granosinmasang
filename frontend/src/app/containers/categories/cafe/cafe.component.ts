@@ -32,36 +32,4 @@ export class CafeComponent implements OnInit {
       error => console.log(error)
     );
   };
-  onActivate(event) {
-    switch (event.target.id) {
-      case "Natural":
-        this.productService.getAll()
-        .subscribe(
-          res => this.productService.setProductsCafesNatural(res),
-          error => console.log(error)
-        );
-        break;
-      case "Torrefacto":
-        this.productService.getAll()
-      .subscribe(
-        res => this.productService.setProductsCafesTorrefacto(res),
-        error => console.log(error)
-      );
-      break;
-      case "Descafeinado":
-        this.productService.getAll()
-      .subscribe(
-        res => this.productService.setProductsCafesDescafeinado(res),
-        error => console.log(error)
-      );
-      break;
-      default:
-        this.productService.getAll()
-      .subscribe(
-        res => this.productService.setProductsCafes(res),
-        error => console.log(error)
-      ); 
-        break;
-    }
-  };
-};
+}

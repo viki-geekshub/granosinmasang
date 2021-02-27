@@ -32,6 +32,4 @@ export class EspeciasComponent implements OnInit {
       error => console.log(error)
     );
   };
-  onActivate(event) {
-  };
-};
+}

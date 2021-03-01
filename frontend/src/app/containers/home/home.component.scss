@@ -15,6 +15,58 @@
     h2{ color: #fd9b67; }
     p{ text-align: justify; }
 }
+#caja-iconos{
+    display:flex;
+    margin:0;
+    padding:0;
+    width: 100%;
+    ul{
+        display: flex;
+        flex-direction: row;
+        margin:0;
+        padding:0;
+        width: 100%;
+        li{
+            flex:1 1 auto;
+            height: 160px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            p{
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                font-family: "Oswald", sans-serif;
+                height: inherit;
+                justify-content: space-evenly;
+                margin: 0;
+                padding:0;  
+                &::before{
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    content: "";
+                    height: 62px;
+                    top:0;
+                    width: 62px;
+                }
+            }
+            &:first-child p::before{
+                background-image: url(/../../assets/images/icons/beangranel.svg);
+            }
+            &:nth-child(2) p::before{
+                background-image: url(/../../assets/images/icons/recycle.svg);
+            }
+            &:nth-child(3) p::before{
+                background-image: url(/../../assets/images/icons/spain.svg);
+            }
+            &:last-child p::before{
+                background-image: url(/../../assets/images/icons/apple.svg);
+            }
+
+        }
+    }
+}
 
 @media only screen and (max-width:768px){
     .herobanner{

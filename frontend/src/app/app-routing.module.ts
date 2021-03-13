@@ -31,6 +31,7 @@ import { LegumbresComponent } from './containers/categories/legumbres/legumbres.
 import { PastaComponent } from './containers/categories/pasta/pasta.component';
 import { SemolasComponent } from './containers/categories/semolas/semolas.component';
 import { SetasDeshidratadasComponent } from './containers/categories/setas-deshidratadas/setas-deshidratadas.component';
+// tslint:disable-next-line:max-line-length
 import { SuperalimentosPotenciadoresComponent } from './containers/categories/superalimentos-potenciadores/superalimentos-potenciadores.component';
 import { TeFloresComponent } from './containers/categories/te-flores/te-flores.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -58,20 +59,20 @@ const routes: Routes = [
   // CATEGORIAS:
   {path: 'Arroces', component: ArrocesComponent},
   {path: 'Semillas', component: SemillasComponent},
-  {path: 'Café', component: CafeComponent},
+  {path: 'Cafe', component: CafeComponent},
   {path: 'Chocolate', component: ChocolateComponent},
   {path: 'Especias', component: EspeciasComponent},
-  {path: 'Sal y Azúcar', component: SalAzucarComponent},
-  {path: 'Frutas Deshidratadas', component: FrutasDeshidratadasComponent},
-  {path: 'Frutos Secos', component: FrutosSecosComponent},
+  {path: 'Sal-Azucar', component: SalAzucarComponent},
+  {path: 'Frutas-Deshidratadas', component: FrutasDeshidratadasComponent},
+  {path: 'Frutos-Secos', component: FrutosSecosComponent},
   {path: 'Harinas', component: HarinasComponent},
   {path: 'Cereales', component: CerealesComponent},
   {path: 'Legumbres', component: LegumbresComponent},
   {path: 'Pasta', component: PastaComponent},
-  {path: 'Sémolas', component: SemolasComponent},
-  {path: 'Setas Deshidratadas', component: SetasDeshidratadasComponent},
-  {path: 'Superalimentos y Potenciadores', component: SuperalimentosPotenciadoresComponent},
-  {path: 'Té y Flores Deshidratadas', component: TeFloresComponent},
+  {path: 'Semolas', component: SemolasComponent},
+  {path: 'Setas-Deshidratadas', component: SetasDeshidratadasComponent},
+  {path: 'Superalimentos-Potenciadores', component: SuperalimentosPotenciadoresComponent},
+  {path: 'Te-Flores-Deshidratadas', component: TeFloresComponent},
   // NOT FOUND:
   {path: '**', component: NotFoundComponent} // ** Para que matchee todo se pone al final y con los dos asteriscos
 ];

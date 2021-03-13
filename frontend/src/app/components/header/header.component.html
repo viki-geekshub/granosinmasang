@@ -54,7 +54,7 @@
           <div class="fakeHover">
             <!-- MENU DINÁMICO DE PRODUCTOS POR CATEGORÍAS ORDENADO DE MAYOR A MENOR SEGUN EL CODE: -->
             <div *ngFor="let category of categories | sort; index as i">
-              <a class="dropdown-item" routerLink='/{{category.name}}'>
+              <a class="dropdown-item" routerLink='/{{category.url}}'>
                 <p class="{{category.name}}">{{category.name}}</p>
               </a>
             </div>

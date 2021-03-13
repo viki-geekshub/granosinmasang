@@ -37,6 +37,7 @@ import { LegumbresComponent } from './containers/categories/legumbres/legumbres.
 import { PastaComponent } from './containers/categories/pasta/pasta.component';
 import { SemolasComponent } from './containers/categories/semolas/semolas.component';
 import { SetasDeshidratadasComponent } from './containers/categories/setas-deshidratadas/setas-deshidratadas.component';
+// tslint:disable-next-line:max-line-length
 import { SuperalimentosPotenciadoresComponent } from './containers/categories/superalimentos-potenciadores/superalimentos-potenciadores.component';
 import { TeFloresComponent } from './containers/categories/te-flores/te-flores.component';
 import { SortPipe } from './pipes/sort.pipe';

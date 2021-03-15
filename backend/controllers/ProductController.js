@@ -1,4 +1,4 @@
-const { Product, Recipe, Category, Subcategory, Store, Order, ProductCategory, RecipeProduct, StoreProduct, Sequelize, sequelize } = require('../models/index.js') // Aquí importo todos los modelos que voy a utilizar después:
+const { Product, Recipe, Category, Subcategory, Store, Order, ProductCategory, RecipeProduct, StoreProduct, Sequelize, sequelize } = require('../models/index.js'); // Aquí importo todos los modelos que voy a utilizar después:
 // Estoy importando el archivo index.js que esta en la carpeta models porque de ahi puedo sacar todos los modelos que necesite
 // y lo desestructuro para que solo me de las claves y los valores del producto y de la categoria. 
 // Importo Product, porque necesito el modelo product para funcionar en OrderProduct (lo vamos a llamar muchas veces y si no se importa no lo encuentra.
@@ -19,8 +19,8 @@ const ProductController = { // Creo la función controladora que tiene dentro va
         .then(products=>res.status(200).send(products)) // Aquí envío lo obtenido con el .findAll en la respuesta
         .catch(error=>{
             console.log(error);
-            res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error})
-        })
+            res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error});
+        });
     },
     getOne(req, res) { // Función para buscar un solo producto por su id
         Product.findByPk(req.params.id, {
@@ -29,8 +29,8 @@ const ProductController = { // Creo la función controladora que tiene dentro va
             .then(product => res.send(product))
             .catch(error=>{
                 console.log(error);
-                res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error})
-            })
+                res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error});
+            });
     },
     getOneByCode(req, res) { // Función para buscar un producto por su code
         Product.findOne({  
@@ -45,8 +45,8 @@ const ProductController = { // Creo la función controladora que tiene dentro va
         .then(product => res.send(product))
         .catch(error=>{
             console.log(error);
-            res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error})
-        })
+            res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error});
+        });
     },
     getAllByName(req, res) {  // Función para buscar un producto por su nombre
         Product.findAll({  // Esto es como decirle: sequelize.query(`SELECT * FROM products WHERE name LIKE '%${req.params.name}%'`)
@@ -63,14 +63,14 @@ const ProductController = { // Creo la función controladora que tiene dentro va
             .then(product => res.send(product))
             .catch(error=>{
                 console.log(error);
-                res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error})
-            })
+                res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error});
+            });
     },
     insert(req,res){ // Función para insertar un producto 
         Product.create({...req.body,}) // Aquí le digo que me cree cada producto con sus propiedades dentro, las que nos vengan en el body de la petición
         .then(product=>{
-            product.addCategory(req.body.CategoryId)  // Aquí creo una fila (row) en la tabla intermedia para meter el "CategoryId"
-            product.addRecipe(req.body.RecipeId) // Aquí creo una fila (row) en la tabla intermedia para meter el "RecipeId"
+            product.addCategory(req.body.CategoryId);  // Aquí creo una fila (row) en la tabla intermedia para meter el "CategoryId"
+            product.addRecipe(req.body.RecipeId); // Aquí creo una fila (row) en la tabla intermedia para meter el "RecipeId"
             return product;
         })
         .then(product=> {  
@@ -80,13 +80,13 @@ const ProductController = { // Creo la función controladora que tiene dentro va
             StoreProduct.bulkCreate(stores);
             res.status(201).send({
                 message: "El producto ha sido añadido correctamente.", product
-            })
+            });
         })
         .catch(error=> {
             console.log(error);
             res.status(500).send({
                 message: 'Ha habido un error al intentar añadir el producto.'
-            })
+            });
         })
     },
     async insertMany(req, res) { // Función para insertar varios productos a la vez como un array de objetos con sus propiedades en el body

@@ -11,11 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 export class TeFloresComponent implements OnInit {
   tagName;
   filterTitle;
+  // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.tagName = "<div class='herobanner te'><h1>Té y Flores Deshidratadas</h1></div>"
-    this.filterTitle = "Té y Flores"
+    this.tagName = '<div class=\'herobanner te\'><h1>Té y Flores Deshidratadas</h1></div>';
+    this.filterTitle = 'Té y Flores';
     this.categoryService.getAll()
     .subscribe(
       res => this.categoryService.setCategories(res),
@@ -31,65 +32,68 @@ export class TeFloresComponent implements OnInit {
       res => this.productService.setProductsTesFlores(res),
       error => console.log(error)
     );
-  };
+  }
   onActivate(event) {
     switch (event.target.id) {
-      case "Negro":
+      case 'Negro':
         this.productService.getAll()
         .subscribe(
           res => this.productService.setProductsTesFloresNegro(res),
           error => console.log(error)
         );
         break;
-      case "Verde":
+      case 'Verde':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsTesFloresVerde(res),
         error => console.log(error)
       );
-      break;
-      case "Rooibos":
+        break;
+      case 'Rooibos':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsTesFloresRooibos(res),
         error => console.log(error)
       );
-      break;
-      case "Mezclas":
+        break;
+      case 'Mezclas':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsTesFloresMezclas(res),
         error => console.log(error)
       );
-      break;
-      case "Infusiones":
+        break;
+      case 'Infusiones':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsTesFloresInfusiones(res),
         error => console.log(error)
       );
-      break;
-      case "Flores Deshidratadas":
+        break;
+      case 'Flores Deshidratadas':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsTesFloresFlores(res),
         error => console.log(error)
       );
-      break;
-      case "Complementos":
+        break;
+      case 'Complementos':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsTesFloresComplementos(res),
         error => console.log(error)
       );
-      break;
+        break;
       default:
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsTesFlores(res),
         error => console.log(error)
-      ); 
+      );
         break;
     }
-  };
-};
+  }
+  onClickMe(event) {
+    console.log('hola mundo');
+  }
+}

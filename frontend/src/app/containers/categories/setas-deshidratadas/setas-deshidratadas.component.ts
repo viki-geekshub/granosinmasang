@@ -11,11 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 export class SetasDeshidratadasComponent implements OnInit {
   tagName;
   filterTitle;
+  // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.tagName = "<div class='herobanner setas'><h1>Setas Deshidratadas</h1></div>"
-    this.filterTitle = "Setas"
+    this.tagName = '<div class=\'herobanner setas\'><h1>Setas Deshidratadas</h1></div>';
+    this.filterTitle = 'Setas';
     this.categoryService.getAll()
     .subscribe(
       res => this.categoryService.setCategories(res),
@@ -31,7 +32,10 @@ export class SetasDeshidratadasComponent implements OnInit {
       res => this.productService.setProductsSetasDeshidratadas(res),
       error => console.log(error)
     );
-  };
+  }
   onActivate(event) {
-  };
-};
+  }
+  onClickMe(event) {
+    console.log('hola mundo');
+  }
+}

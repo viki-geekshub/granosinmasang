@@ -11,11 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 export class SuperalimentosPotenciadoresComponent implements OnInit {
   tagName;
   filterTitle;
+  // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.tagName = "<div class='herobanner superalimentos'><h1>Superalimentos y Potenciadores de cocina</h1></div>"
-    this.filterTitle = "Superalimentos y Potenciadores"
+    this.tagName = '<div class=\'herobanner superalimentos\'><h1>Superalimentos y Potenciadores de cocina</h1></div>';
+    this.filterTitle = 'Superalimentos y Potenciadores';
     this.categoryService.getAll()
     .subscribe(
       res => this.categoryService.setCategories(res),
@@ -31,30 +32,33 @@ export class SuperalimentosPotenciadoresComponent implements OnInit {
       res => this.productService.setProductsSuperalimentosPotenciadores(res),
       error => console.log(error)
     );
-  };
+  }
   onActivate(event) {
     switch (event.target.id) {
-      case "Superalimentos":
+      case 'Superalimentos':
         this.productService.getAll()
         .subscribe(
           res => this.productService.setProductsSuperalimentosPotenciadoresSuperalimentos(res),
           error => console.log(error)
         );
         break;
-      case "Potenciadores de cocina":
+      case 'Potenciadores de cocina':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsSuperalimentosPotenciadoresPotenciadores(res),
         error => console.log(error)
       );
-      break;
+        break;
       default:
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsSuperalimentosPotenciadores(res),
         error => console.log(error)
-      ); 
+      );
         break;
     }
-  };
-};
+  }
+  onClickMe(event) {
+    console.log('hola mundo');
+  }
+}

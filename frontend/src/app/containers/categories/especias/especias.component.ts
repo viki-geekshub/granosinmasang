@@ -11,11 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 export class EspeciasComponent implements OnInit {
   tagName;
   filterTitle;
+  // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.tagName = "<div class='herobanner especias'><h1>Especias</h1></div>"
-    this.filterTitle = "Especias"
+    this.tagName = '<div class=\'herobanner especias\'><h1>Especias</h1></div>';
+    this.filterTitle = 'Especias';
     this.categoryService.getAll()
     .subscribe(
       res => this.categoryService.setCategories(res),
@@ -31,7 +32,10 @@ export class EspeciasComponent implements OnInit {
       res => this.productService.setProductsEspecias(res),
       error => console.log(error)
     );
-  };
+  }
   onActivate(event) {
-  };
-};
+  }
+  onClickMe(event) {
+    console.log('hola mundo');
+  }
+}

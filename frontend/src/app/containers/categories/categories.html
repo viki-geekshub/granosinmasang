@@ -39,11 +39,14 @@
                 </form>
                 <!-- FILTRO LATERAL -->
                 <div class="categoryTitle">
-                    <h3 (click)="onActivate($event)" [innerHTML]="filterTitle"></h3>
+                    <h3 *ngIf="mobile; else noClick" (click)="onClickMe($event)" [innerHTML]="filterTitle"></h3>
+                    <ng-template #noClick>
+                        <h3 [innerHTML]="filterTitle"></h3>
+                    </ng-template>
                 </div>
-                <ul *ngIf="subcategoryService['subcategories']">
-                    <li id={{subcategory.name}} *ngFor="let subcategory of subcategoryService['subcategories']" class="eyeContainer" (click)="onActivate($event)">{{subcategory.name}}<span class="eye"><img src="" alt=""></span></li>
-                   <li class="eyeContainer" (click)="onActivate($event)">Ver todo<span class="eye"><img src= "" alt=""></span></li> 
+                <ul id="categoryList" *ngIf="subcategoryService['subcategories']">
+                    <li id={{subcategory.name}} *ngFor="let subcategory of subcategoryService['subcategories']" class="eyeContainer" (click)="onActivate($event)">{{subcategory.name}}</li>
+                   <li class="eyeContainer" (click)="onActivate($event)">Ver todo</li> 
                 </ul>
                 <!-- <app-filters></app-filters> -->
             </div> 

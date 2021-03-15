@@ -21,8 +21,8 @@ const CategoryController = {
             .then(category => res.send(category))
             .catch(error=>{
                 console.log(error);
-                res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error})
-            })
+                res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error});
+            });
     },
     getOneByCode(req, res) { 
         Category.findOne({  
@@ -37,8 +37,8 @@ const CategoryController = {
         .then(category => res.send(category))
         .catch(error=>{
             console.log(error);
-            res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error})
-        })
+            res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error});
+        });
     },
     getAllByName(req, res) { 
         Category.findAll({  
@@ -55,7 +55,7 @@ const CategoryController = {
             .then(category => res.send(category))
             .catch(error=>{
                 console.log(error);
-                res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error})
+                res.status(500).send({message: 'Ha surgido un error al intentar tramitar la petición.', error});
             })
     },
     insert(req,res){ 
@@ -65,14 +65,14 @@ const CategoryController = {
             category.addSubcategory(req.body.SubcategoryId)
             res.status(201).send({
                 message: "La nueva categoría ha sido añadida correctamente.", category
-            }) 
+            }); 
         })
         .catch(error=> {
             console.log(error);
             res.status(500).send({
                 message: 'Ha habido un error al intentar añadir la nueva categoría.'
-            })
-        })
+            });
+        });
     }, 
     async insertMany(req,res){  
         try {
@@ -81,8 +81,8 @@ const CategoryController = {
             categories.sort((a,b)=>a.code-b.code).forEach(async category=>{
             const categoryCreated = await Category.create({...category}); 
             categoryCreated.addProduct(category.ProductId);
-            categoryCreated.addSubcategory(category.SubcategoryId)
-            categoriesResponse.push(categoryCreated)
+            categoryCreated.addSubcategory(category.SubcategoryId);
+            categoriesResponse.push(categoryCreated);
           });
           res.send({
               message: 'Las nuevas categorías han sido añadidas.', categories
@@ -101,19 +101,19 @@ const CategoryController = {
                     where: {
                         id: req.params.id  
                     }
-                })
+                });
             await ProductCategory.destroy({ 
                     where: {
                         CategoryId: req.params.id 
                     }    
-            })
+            });
             req.body.products.forEach(product =>{  
                 ProductCategory.create({  
                     CategoryId: req.params.id,
                     ProductId: product
-                })    
-            })
-            res.send({message:'La categoría ha sido modificada.', category})
+                });    
+            });
+            res.send({message:'La categoría ha sido modificada.', category});
             
         } catch{(error=> {
                     console.log(error);

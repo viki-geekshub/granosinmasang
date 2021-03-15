@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     Category.belongsToMany(models.Product,{ // Creo la relación entre la tabla categories y la tabla products. Es una relacion de muchos a muchos.
       through: models.ProductCategory  // a traves de la tabla de cruce ProductCategory
     }); 
-    Category.hasMany(models.Subcategory) // Una categoría tiene muchas subcategorías
+    Category.hasMany(models.Subcategory); // Una categoría tiene muchas subcategorías
   };
   return Category;
 };

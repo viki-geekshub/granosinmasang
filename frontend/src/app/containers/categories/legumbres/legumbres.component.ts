@@ -11,11 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 export class LegumbresComponent implements OnInit {
   tagName;
   filterTitle;
+  // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.tagName = "<div class='herobanner legumbres'><h1>Legumbres</h1></div>"
-    this.filterTitle = "Legumbres"
+    this.tagName = '<div class=\'herobanner legumbres\'><h1>Legumbres</h1></div>';
+    this.filterTitle = 'Legumbres';
     this.categoryService.getAll()
     .subscribe(
       res => this.categoryService.setCategories(res),
@@ -31,44 +32,47 @@ export class LegumbresComponent implements OnInit {
       res => this.productService.setProductsLegumbres(res),
       error => console.log(error)
     );
-  };
+  }
   onActivate(event) {
     switch (event.target.id) {
-      case "Alubias":
+      case 'Alubias':
         this.productService.getAll()
         .subscribe(
           res => this.productService.setProductsLegumbresAlubias(res),
           error => console.log(error)
         );
         break;
-      case "Garbanzos":
+      case 'Garbanzos':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsLegumbresGarbanzos(res),
         error => console.log(error)
       );
-      break;
-      case "Lentejas":
+        break;
+      case 'Lentejas':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsLegumbresLentejas(res),
         error => console.log(error)
       );
-      break;
-      case "Otros":
+        break;
+      case 'Otros':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsLegumbresOtros(res),
         error => console.log(error)
       );
-      break;
+        break;
       default:
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsLegumbres(res),
         error => console.log(error)
-      ); 
+      );
         break;
     }
-  };
-};
+  }
+  onClickMe(event) {
+    console.log('hola mundo');
+  }
+}

@@ -11,11 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 export class CafeComponent implements OnInit {
   tagName;
   filterTitle;
+  // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.tagName = "<div class='herobanner cafe'><h1>Café</h1></div>"
-    this.filterTitle = "Café"
+    this.tagName = '<div class=\'herobanner cafe\'><h1>Café</h1></div>';
+    this.filterTitle = 'Café';
     this.categoryService.getAll()
     .subscribe(
       res => this.categoryService.setCategories(res),
@@ -31,37 +32,40 @@ export class CafeComponent implements OnInit {
       res => this.productService.setProductsCafes(res),
       error => console.log(error)
     );
-  };
+  }
   onActivate(event) {
     switch (event.target.id) {
-      case "Natural":
+      case 'Natural':
         this.productService.getAll()
         .subscribe(
           res => this.productService.setProductsCafesNatural(res),
           error => console.log(error)
         );
         break;
-      case "Torrefacto":
+      case 'Torrefacto':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsCafesTorrefacto(res),
         error => console.log(error)
       );
-      break;
-      case "Descafeinado":
+        break;
+      case 'Descafeinado':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsCafesDescafeinado(res),
         error => console.log(error)
       );
-      break;
+        break;
       default:
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsCafes(res),
         error => console.log(error)
-      ); 
+      );
         break;
     }
-  };
-};
+  }
+  onClickMe(event) {
+    console.log('hola mundo');
+  }
+}

@@ -11,11 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 export class SalAzucarComponent implements OnInit {
   tagName;
   filterTitle;
+  // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.tagName = "<div class='herobanner sal'><h1>Sal y Azúcar</h1></div>"
-    this.filterTitle = "Sal y Azúcar"
+    this.tagName = '<div class=\'herobanner sal\'><h1>Sal y Azúcar</h1></div>';
+    this.filterTitle = 'Sal y Azúcar';
     this.categoryService.getAll()
     .subscribe(
       res => this.categoryService.setCategories(res),
@@ -31,30 +32,33 @@ export class SalAzucarComponent implements OnInit {
       res => this.productService.setProductsSalesAzucares(res),
       error => console.log(error)
     );
-  };
+  }
   onActivate(event) {
     switch (event.target.id) {
-      case "Sal":
+      case 'Sal':
         this.productService.getAll()
         .subscribe(
           res => this.productService.setProductsSalesAzucaresSal(res),
           error => console.log(error)
         );
         break;
-      case "Azúcar":
+      case 'Azúcar':
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsSalesAzucaresAzucar(res),
         error => console.log(error)
       );
-      break;
+        break;
       default:
         this.productService.getAll()
       .subscribe(
         res => this.productService.setProductsSalesAzucares(res),
         error => console.log(error)
-      ); 
+      );
         break;
     }
-  };
-};
+  }
+  onClickMe(event) {
+    console.log('hola mundo');
+  }
+}

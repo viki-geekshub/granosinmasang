@@ -11,10 +11,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class PastaComponent implements OnInit {
   tagName;
   filterTitle;
+  mobile: boolean;
   // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
+    if ( window.screen.width <= 768 ) { // 768px portrait
+      this.mobile = true;
+    }
     this.tagName = '<div class=\'herobanner pasta\'><h1>Pasta</h1></div>';
     this.filterTitle = 'Pasta';
     this.categoryService.getAll()
@@ -33,6 +37,7 @@ export class PastaComponent implements OnInit {
       error => console.log(error)
     );
   }
+  // FILTRO
   onActivate(event) {
     switch (event.target.id) {
       case 'Con Gluten':
@@ -58,8 +63,14 @@ export class PastaComponent implements OnInit {
         break;
     }
   }
+  // Acordeón para moviles
   onClickMe(event) {
-    console.log('hola mundo');
+    const toggleList = document.getElementById('categoryList');
+    if ( toggleList.style.display !== 'block') {
+      toggleList.style.display = 'block';
+    } else {
+      toggleList.style.display = 'none';
+      }
   }
 }
 

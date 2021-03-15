@@ -11,10 +11,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class SemolasComponent implements OnInit {
   tagName;
   filterTitle;
+  mobile: boolean;
   // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.mobile = true;
+    }
     this.tagName = '<div class=\'herobanner semolas\'><h1>Sémolas</h1></div>';
     this.filterTitle = 'Sémolas';
     this.categoryService.getAll()
@@ -33,9 +37,16 @@ export class SemolasComponent implements OnInit {
       error => console.log(error)
     );
   }
+  // FILTRO
   onActivate(event) {
   }
+  // Acordeón para moviles
   onClickMe(event) {
-    console.log('hola mundo');
+    const toggleList = document.getElementById('categoryList');
+    if ( toggleList.style.display !== 'block') {
+      toggleList.style.display = 'block';
+    } else {
+      toggleList.style.display = 'none';
+      }
   }
 }

@@ -11,10 +11,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class SuperalimentosPotenciadoresComponent implements OnInit {
   tagName;
   filterTitle;
+  mobile: boolean;
   // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.mobile = true;
+    }
     this.tagName = '<div class=\'herobanner superalimentos\'><h1>Superalimentos y Potenciadores de cocina</h1></div>';
     this.filterTitle = 'Superalimentos y Potenciadores';
     this.categoryService.getAll()
@@ -33,6 +37,7 @@ export class SuperalimentosPotenciadoresComponent implements OnInit {
       error => console.log(error)
     );
   }
+  // FILTRO
   onActivate(event) {
     switch (event.target.id) {
       case 'Superalimentos':
@@ -58,7 +63,13 @@ export class SuperalimentosPotenciadoresComponent implements OnInit {
         break;
     }
   }
-  onClickMe(event) {
-    console.log('hola mundo');
+ // Acordeón para moviles
+ onClickMe(event) {
+  const toggleList = document.getElementById('categoryList');
+  if ( toggleList.style.display !== 'block') {
+    toggleList.style.display = 'block';
+  } else {
+    toggleList.style.display = 'none';
+    }
   }
 }

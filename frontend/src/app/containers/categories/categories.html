@@ -39,7 +39,7 @@
                 </form>
                 <!-- FILTRO LATERAL -->
                 <div class="categoryTitle">
-                    <h3 *ngIf="mobile; else noClick" (click)="onClickMe($event)" [innerHTML]="filterTitle"></h3>
+                    <h3 *ngIf="mobile; else noClick" (click)="onClickMe($event)" [innerHTML]="filterTitle" class="triangleDown"></h3>
                     <ng-template #noClick>
                         <h3 [innerHTML]="filterTitle"></h3>
                     </ng-template>

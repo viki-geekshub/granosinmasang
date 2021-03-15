@@ -66,13 +66,21 @@ export class ArrocesComponent implements OnInit {
         break;
     }
   }
+  // Acordeón para moviles
+
   // tslint:disable-next-line:no-shadowed-variable
   onClickMe(event) {
     const toggleList = document.getElementById('categoryList');
+    const toggleListTitle = document.querySelector('.categoryTitle h3');
     if ( toggleList.style.display !== 'block' ) {
       toggleList.style.display = 'block';
+      toggleListTitle.classList.remove('triangleDown');
+      toggleListTitle.classList.add('triangleUp');
     } else {
       toggleList.style.display = 'none';
+      toggleListTitle.classList.remove('triangleUp');
+      toggleListTitle.classList.add('triangleDown');
+
     }
   }
 }

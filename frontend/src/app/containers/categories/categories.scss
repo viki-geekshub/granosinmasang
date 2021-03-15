@@ -69,6 +69,26 @@
       position: absolute;
       width: 100%;
     }
+    @media screen and (max-width:768px) {
+      .triangleDown, .triangleUp{
+        &::before{
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        border-top: 20px solid #c2c6cad1;
+        content: "";
+        position: absolute;
+        right: 26px;
+        top: 13px;
+        }
+      }
+      .triangleUp{
+        &::before{
+          border-bottom: 20px solid #c2c6cad1;
+          border-top:none;
+      }
+    }
+
+    }
   }
   ul{
     font-family: "Oswald", sans-serif;

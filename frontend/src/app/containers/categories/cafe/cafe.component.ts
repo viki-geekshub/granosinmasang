@@ -11,10 +11,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class CafeComponent implements OnInit {
   tagName;
   filterTitle;
+  mobile: boolean;
   // tslint:disable-next-line:max-line-length
   constructor(public categoryService: CategoryService, public subcategoryService: SubcategoryService, public productService: ProductService) { }
 
   ngOnInit(): void {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.mobile = true;
+    }
     this.tagName = '<div class=\'herobanner cafe\'><h1>Café</h1></div>';
     this.filterTitle = 'Café';
     this.categoryService.getAll()
@@ -33,6 +37,9 @@ export class CafeComponent implements OnInit {
       error => console.log(error)
     );
   }
+  // FILTRO
+
+  // tslint:disable-next-line:no-shadowed-variable
   onActivate(event) {
     switch (event.target.id) {
       case 'Natural':
@@ -65,7 +72,14 @@ export class CafeComponent implements OnInit {
         break;
     }
   }
+  // Acordeón para moviles
+  // tslint:disable-next-line:no-shadowed-variable
   onClickMe(event) {
-    console.log('hola mundo');
+    const toggleList = document.getElementById('categoryList');
+    if ( toggleList.style.display !== 'block' ) {
+      toggleList.style.display = 'block';
+    } else {
+      toggleList.style.display = 'none';
+    }
   }
 }

@@ -70,7 +70,7 @@
       width: 100%;
     }
     @media screen and (max-width:768px) {
-      .triangleDown, .triangleUp{
+      &.triangleDown, &.triangleUp{
         &::before{
         border-right: 10px solid transparent;
         border-left: 10px solid transparent;
@@ -81,7 +81,7 @@
         top: 13px;
         }
       }
-      .triangleUp{
+      &.triangleUp{
         &::before{
           border-bottom: 20px solid #c2c6cad1;
           border-top:none;

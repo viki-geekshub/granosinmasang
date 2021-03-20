@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   public transition = '';
   public admins = ['superadmin', 'admin'];
   public categories;
+  mobile: boolean;
   public toggleDisplay() {
     this.isShow = !this.isShow;
     if (this.icon === 'search') {
@@ -45,7 +46,19 @@ export class HeaderComponent implements OnInit {
     }, 16);
   }
 
+  onMenuToggle(event) {
+    const menuList = document.querySelector('.menu2');
+    if(menuList.style.display === 'block'){
+      menuList.style.display='';
+    }else{
+      menuList.style.display = 'block';
+    }
+  }
+
   ngOnInit(): void {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.mobile = true;
+    }
     this.categoryService.getAll().subscribe((res) => {
       this.categories = res;
     });

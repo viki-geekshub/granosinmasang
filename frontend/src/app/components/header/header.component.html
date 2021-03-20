@@ -25,19 +25,19 @@
 </div>
 
 <!-- 2º MENU -->
-<nav class="navbar navbar-expand-lg wrapper menu2" appStickyHeader>
-
   <!-- MENU HAMBURGUESA -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<button *ngIf="mobile" (click)="onMenuToggle($event)" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<nav class="navbar navbar-expand-lg wrapper menu2" appStickyHeader>
 
   <!-- LOGO -->
   <a routerLink="/"><img src="assets/images/logo.jpeg" alt="Logo de Grano Sin Mas" class="image" (click)="onActivate($event)"></a>
 
   <!-- MENU PRINCIPAL -->
-  <div class="collapse navbar-collapse menuPrincipal" id="navbarSupportedContent">
+  <div class="navbar-collapse menuPrincipal" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" (click)="onActivate($event)">
       <li class="nav-item">
         <a class="nav-link" routerLink="/" routerLinkActive="active-link" >Inicio<span class="sr-only"></span></a>

@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
   public admins = ['superadmin', 'admin'];
   public categories;
   mobile: boolean;
+  mobile2: boolean;
+  holaMundo: any;
   public toggleDisplay() {
     this.isShow = !this.isShow;
     if (this.icon === 'search') {
@@ -46,11 +48,15 @@ export class HeaderComponent implements OnInit {
     }, 16);
   }
 
+  mouseEnter(event) {
+    console.log('mouse enter');
+  }
+
   onMenuToggle(event) {
-    const menuList = document.querySelector('.menu2');
-    if(menuList.style.display === 'block'){
-      menuList.style.display='';
-    }else{
+    const menuList = document.getElementsByClassName('menu2');
+    if (menuList.style.display === 'block') {
+      menuList.style.display = '';
+    } else {
       menuList.style.display = 'block';
     }
   }
@@ -58,7 +64,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     if (window.screen.width <= 768) { // 768px portrait
       this.mobile = true;
+      this.mobile2 = true;
     }
+
     this.categoryService.getAll().subscribe((res) => {
       this.categories = res;
     });

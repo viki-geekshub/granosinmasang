@@ -47,8 +47,11 @@
             class="sr-only"></span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" routerLinkActive="active-link" data-toggle="modal">Productos<span
-            class="sr-only"></span></a> <!--Clase que saca el dropdown con un click: data-toggle="dropdown"-->
+        <a  *ngIf="mobile; else holaMundo" class="nav-link" routerLinkActive="active-link" data-toggle="modal">Productos
+        </a>
+        <ng-template #holaMundo>
+          <a class="nav-link"  (mouseenter) = 'mouseEnter($event)' routerLinkActive="active-link" data-toggle="modal">Productos</a>
+          </ng-template>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <!-- Creamos un div transparente que contenga el menu inferior, de esta forma no perdemos el hover en el li-->
           <div class="fakeHover">
@@ -61,6 +64,7 @@
           </div>
         </div>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" routerLink="/store" routerLinkActive="active-link">Tienda<span class="sr-only"></span></a>
       </li>

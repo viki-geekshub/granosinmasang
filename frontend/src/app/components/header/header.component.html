@@ -4,73 +4,187 @@
     <p>C/ Toledo 6, 19002 - Guadalajara | Tlfno: 949407054 / 623463810.</p>
   </address>
   <!-- REDES SOCIALES Y BUSCADOR-->
-  <div autosize class="networks" [style.width.%]="width" [style.transition] ="transition">
-    <a href="https://www.instagram.com/granosinmas_guadalajara/?hl=es" target=_blank class="iconNetwork instagram"
-      [hidden]="!isShow"></a>
-    <a href="https://www.facebook.com/granosinmas.guadalajara" target=_blank class="iconNetwork facebook" [hidden]="!isShow"></a>
-    <a href="https://api.whatsapp.com/send?phone=+34653563611" target=_blank class="iconNetwork whatsapp"
-      [hidden]="!isShow"></a>
+  <div
+    autosize
+    class="networks"
+    [style.width.%]="width"
+    [style.transition]="transition"
+  >
+    <a
+      href="https://www.instagram.com/granosinmas_guadalajara/?hl=es"
+      target="_blank"
+      class="iconNetwork instagram"
+      [hidden]="!isShow"
+    ></a>
+    <a
+      href="https://www.facebook.com/granosinmas.guadalajara"
+      target="_blank"
+      class="iconNetwork facebook"
+      [hidden]="!isShow"
+    ></a>
+    <a
+      href="https://api.whatsapp.com/send?phone=+34653563611"
+      target="_blank"
+      class="iconNetwork whatsapp"
+      [hidden]="!isShow"
+    ></a>
     <!-- BUSCADOR DE PRODUCTOS -->
     <div id="navbarSearch" [hidden]="isShow">
       <!--CLASE QUE MOLESTABA: class="collapse navbar-collapse"  -->
       <form class="form-inline my-2 my-lg-0" (submit)="searchProducts($event)">
         <!-- Le paso el evento submit para que haga la función searchProduct y le paso el evento como parámetro-->
-        <input class="form-control mr-sm-2" type="search" placeholder="Encuentra tu producto" aria-label="Search"
-          name="search">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Encuentra tu producto"
+          aria-label="Search"
+          name="search"
+        />
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+          Buscar
+        </button>
       </form>
     </div>
-    <i id="glass" class="material-icons" (click)="toggleDisplay()">{{icon}}</i>
+    <i id="glass" class="material-icons" (click)="toggleDisplay()">{{
+      icon
+    }}</i>
   </div>
 </div>
 
 <!-- 2º MENU -->
-  <!-- MENU HAMBURGUESA -->
-<button *ngIf="mobile" (click)="onMenuToggle($event)" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
+<!-- MENU HAMBURGUESA -->
+<button
+  *ngIf="mobile"
+  (click)="onMenuToggle($event)"
+  class="navbar-toggler"
+  type="button"
+>
+  <span class="navbar-toggler-icon">&#9776;</span>
 </button>
 
 <nav class="navbar navbar-expand-lg wrapper menu2" appStickyHeader>
-
   <!-- LOGO -->
-  <a routerLink="/"><img src="assets/images/logo.jpeg" alt="Logo de Grano Sin Mas" class="image" (click)="onActivate($event)"></a>
+  <a routerLink="/"
+    ><img
+      src="assets/images/logo.jpeg"
+      alt="Logo de Grano Sin Mas"
+      class="image"
+      (click)="onActivate($event)"
+  /></a>
 
   <!-- MENU PRINCIPAL -->
   <div class="navbar-collapse menuPrincipal" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" (click)="onActivate($event)">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/" routerLinkActive="active-link" >Inicio<span class="sr-only"></span></a>
+        <a
+          *ngIf="mobile; else desktopInicio"
+          (click)="clickMobileItem($event)"
+          class="nav-link"
+          routerLink="/"
+          routerLinkActive="active-link"
+          >Inicio<span class="sr-only"></span
+        ></a>
+        <ng-template #desktopInicio>
+          <a class="nav-link" routerLink="/" routerLinkActive="active-link"
+            >Inicio<span class="sr-only"></span
+          ></a>
+        </ng-template>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/aboutus" routerLinkActive="active-link">Quienes somos<span
-            class="sr-only"></span></a>
+        <a
+          *ngIf="mobile; else desktopAbout"
+          (click)="clickMobileItem($event)"
+          class="nav-link"
+          routerLink="/aboutus"
+          routerLinkActive="active-link"
+          >Quienes somos<span class="sr-only"></span
+        ></a>
+        <ng-template #desktopAbout>
+          <a
+            class="nav-link"
+            routerLink="/aboutus"
+            routerLinkActive="active-link"
+            >Quienes somos<span class="sr-only"></span
+          ></a>
+        </ng-template>
       </li>
-      <li class="nav-item dropdown">
-        <a  *ngIf="mobile; else holaMundo" class="nav-link" routerLinkActive="active-link" data-toggle="modal">Productos
+      <li *ngIf="mobile; else desktop" class="nav-item dropdown">
+        <a
+          (click)="mouseClick($event)"
+          class="nav-link"
+          routerLinkActive="active-link"
+          data-toggle="modal"
+          >Productos
         </a>
-        <ng-template #holaMundo>
-          <a class="nav-link"  (mouseenter) = 'mouseEnter($event)' routerLinkActive="active-link" data-toggle="modal">Productos</a>
-          </ng-template>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <!-- Creamos un div transparente que contenga el menu inferior, de esta forma no perdemos el hover en el li-->
+          <span *ngIf="mobile" (click)="mouseUp($event)" class="arrow"
+            >&#8592;</span
+          >
           <div class="fakeHover">
             <!-- MENU DINÁMICO DE PRODUCTOS POR CATEGORÍAS ORDENADO DE MAYOR A MENOR SEGUN EL CODE: -->
             <div *ngFor="let category of categories | sort; index as i">
-              <a class="dropdown-item" routerLink='/{{category.url}}'>
-                <p class="{{category.name}}">{{category.name}}</p>
+              <a
+                (click)="clickMobileItem($event)"
+                class="dropdown-item"
+                routerLink="/{{ category.url }}"
+              >
+                <p class="{{ category.name }}">{{ category.name }}</p>
               </a>
             </div>
           </div>
         </div>
       </li>
+      <ng-template #desktop>
+        <li
+          (mouseenter)="mouseEnter($event)"
+          (mouseleave)="mouseLeave($event)"
+          class="nav-item dropdown"
+        >
+          <a class="nav-link" routerLinkActive="active-link" data-toggle="modal"
+            >Productos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="fakeHover">
+              <div *ngFor="let category of categories | sort; index as i">
+                <a
+                  (mouseup)="mouseUp($event)"
+                  class="dropdown-item"
+                  routerLink="/{{ category.url }}"
+                >
+                  <p class="{{ category.name }}">{{ category.name }}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ng-template>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/store" routerLinkActive="active-link">Tienda<span class="sr-only"></span></a>
+        <a
+          *ngIf="mobile; else desktopShop"
+          (click)="clickMobileItem($event)"
+          class="nav-link"
+          routerLink="/store"
+          routerLinkActive="active-link"
+          >Tienda<span class="sr-only"></span
+        ></a>
+        <ng-template #desktopShop>
+          <a class="nav-link" routerLink="/store" routerLinkActive="active-link"
+            >Tienda<span class="sr-only"></span
+          ></a>
+        </ng-template>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" *ngIf="admins.includes(userService['user']['role'])" href="#" id="navbarDropdown"
-          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a
+          class="nav-link"
+          *ngIf="admins.includes(userService['user']['role'])"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
           Administración
         </a>
 
@@ -89,8 +203,6 @@
       </li>
     </ul>
   </div>
-
-
 
   <!-- INFO DE USUARIO Y BOTON DE LOGIN -->
   <!-- <div id="userLogin">
@@ -118,5 +230,4 @@
       </div>
     </div>
   </div> -->
-
 </nav>

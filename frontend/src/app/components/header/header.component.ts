@@ -47,7 +47,6 @@ export class HeaderComponent implements OnInit {
   }
 
   mouseEnter(event) {
-    console.log("mouseenter");
     document.querySelector<HTMLElement>(
       ".nav-item .dropdown-menu"
     ).style.display = "block";
